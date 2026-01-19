@@ -211,9 +211,9 @@
 		</method>
 		<method name="select_cell">
 			<return type="void" />
-			<param index="0" name="global_position" type="int" />
+			<param index="0" name="cell_index" type="int" />
 			<description>
-				Selects a grid cell based on a global_position.
+				Selects a grid cell based on a cell index.
 			</description>
 		</method>
 		<method name="set_cell_accessible">
