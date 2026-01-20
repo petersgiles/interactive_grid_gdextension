@@ -1149,6 +1149,8 @@ void InteractiveGrid3D::clear_custom_cell_data(int p_cell_index, godot::String p
 		}
 
 		if (p_clear_custom_color) {
+			data.cells.write[p_cell_index]->flags &= ~custom_cell_data->get_layer_mask();
+			data.cells.write[p_cell_index]->custom_flags &= ~custom_cell_data->get_layer_mask();
 			data.cells.write[p_cell_index]->has_custom_color = false;
 			set_cell_color(p_cell_index, data.accessible_color);
 		}
