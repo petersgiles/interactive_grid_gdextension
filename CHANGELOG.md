@@ -1,3 +1,2 @@
-# Changelog
-
-- refactor: rename release zip base folder from 'bin' to 'addons'
+- fix(grid): clear custom cell flags when removing custom cell data
+- test: add unit tests for InteractiveGrid3D
