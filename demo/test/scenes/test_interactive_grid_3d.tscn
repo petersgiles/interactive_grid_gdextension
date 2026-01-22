@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://52ombxyqjfv1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_efabr"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_iuvlo"]
+sky_material = SubResource("ProceduralSkyMaterial_efabr")
+
+[sub_resource type="Environment" id="Environment_yxy7d"]
+background_mode = 2
+sky = SubResource("Sky_iuvlo")
+tonemap_mode = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_efabr"]
+size = Vector3(0.8, 0.1, 0.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_efabr"]
+
+[sub_resource type="CustomCellData" id="CustomCellData_efabr"]
+custom_data_name = "CFL_GREEN"
+layer_mask = 512
+collision_layer = 0
+use_custom_color = true
+color = Color(0, 1, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_iuvlo"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_iuvlo"]
+points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_iuvlo"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_efabr"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[node name="TestInteractiveGrid3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 1.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yxy7d")
+
+[node name="InteractiveGrid3D" type="InteractiveGrid3D" parent="."]
+cell_mesh = SubResource("BoxMesh_efabr")
+cell_shape = SubResource("BoxShape3D_efabr")
+accessible_color = Color(1, 1, 0, 1)
+unaccessible_color = Color(1, 0.36078432, 0.36078432, 1)
+selected_color = Color(0, 0, 1, 1)
+path_color = Color(0, 0.98039216, 0, 1)
+hovered_color = Color(0.8637763, 0.00079357985, 0.8959852, 1)
+custom_cells_data = [SubResource("CustomCellData_efabr")]
+print_logs_enabled = true
+print_execution_time_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.7071068, -0.5, 0.5, 0, 0.7071068, 0.70710677, -0.7071068, -0.5, 0.5, 9, 15, 9)
+current = true
+
+[node name="floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+mesh = SubResource("PlaneMesh_iuvlo")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor"]
+collision_layer = 16385
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_iuvlo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -10)
+mesh = SubResource("BoxMesh_iuvlo")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+collision_layer = 8193
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_efabr")
