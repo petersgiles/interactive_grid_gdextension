@@ -563,9 +563,9 @@ void InteractiveGrid3D::_scan_environnement_obstacles() {
 
 	for (int row = 0; row < data.rows; row++) {
 		for (int column = 0; column < data.columns; column++) {
-			const int index = row * data.columns + column;
+			const int cell_index = row * data.columns + column;
 
-			godot::Transform3D cell_transform = data.cells.write[index]->global_xform;
+			godot::Transform3D cell_transform = data.cells.write[cell_index]->global_xform;
 			godot::Ref<godot::PhysicsShapeQueryParameters3D> query;
 			query.instantiate();
 			query->set_shape(data.cell_shape);
@@ -583,7 +583,7 @@ void InteractiveGrid3D::_scan_environnement_obstacles() {
 					godot::Node *collider = godot::Object::cast_to<godot::Node>(collider_obj);
 
 					if (collider) {
-						set_cell_accessible(index, false);
+						set_cell_accessible(cell_index, false);
 					}
 				}
 			}
