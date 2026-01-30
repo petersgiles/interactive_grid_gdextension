@@ -1603,7 +1603,7 @@ void InteractiveGrid3D::set_cell_visible(int p_cell_index, bool p_is_visible) {
 	}
 }
 
-void InteractiveGrid3D::InteractiveGrid3D::reset_cells_state() {
+void InteractiveGrid3D::reset_cells_state() {
 	if (!(data.flags & GFL_CREATED)) {
 		PrintError(__FILE__, __FUNCTION__, __LINE__, "The grid has not been created");
 		return;
