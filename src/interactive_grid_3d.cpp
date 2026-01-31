@@ -242,7 +242,8 @@ void InteractiveGrid3D::_configure_astar() {
 		return;
 	}
 
-	auto start = std::chrono::high_resolution_clock::now();
+	godot::Time *time = godot::Time::get_singleton();
+	uint64_t start_time = time->get_ticks_usec();
 
 	data.astar->clear();
 
@@ -266,11 +267,11 @@ void InteractiveGrid3D::_configure_astar() {
 			break;
 	}
 
-	auto end = std::chrono::high_resolution_clock::now();
-
 	if (_debug_options.execution_time_enabled) {
-		std::chrono::duration<double, std::milli> duration = end - start;
-		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Execution time (ms): ", duration.count());
+		uint64_t end_time = time->get_ticks_usec();
+		uint64_t elapsed_us = end_time - start_time;
+		double elapsed_ms = static_cast<double>(elapsed_us) / 1000.0;
+		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Execution time: " + godot::String::num_real(elapsed_ms) + " ms");
 	}
 }
 
@@ -445,7 +446,8 @@ void InteractiveGrid3D::_align_cells_with_floor() {
 			return;
 		}
 
-		auto start = std::chrono::high_resolution_clock::now();
+		godot::Time *time = godot::Time::get_singleton();
+		uint64_t start_time = time->get_ticks_usec();
 
 		const int ray_length = 500;
 		const godot::Transform3D global_transform = data.multimesh_instance->get_global_transform();
@@ -515,11 +517,11 @@ void InteractiveGrid3D::_align_cells_with_floor() {
 			}
 		}
 
-		auto end = std::chrono::high_resolution_clock::now();
-
 		if (_debug_options.execution_time_enabled) {
-			std::chrono::duration<double, std::milli> duration = end - start;
-			PrintLine(__FILE__, __FUNCTION__, __LINE__, "Execution time (ms): ", duration.count());
+			uint64_t end_time = time->get_ticks_usec();
+			uint64_t elapsed_us = end_time - start_time;
+			double elapsed_ms = static_cast<double>(elapsed_us) / 1000.0;
+			PrintLine(__FILE__, __FUNCTION__, __LINE__, "Execution time: " + godot::String::num_real(elapsed_ms) + " ms");
 		}
 
 		if (_debug_options.logs_enabled) {
@@ -548,7 +550,8 @@ void InteractiveGrid3D::_scan_environnement_obstacles() {
 		return;
 	}
 
-	auto start = std::chrono::high_resolution_clock::now();
+	godot::Time *time = godot::Time::get_singleton();
+	uint64_t start_time = time->get_ticks_usec();
 
 	for (int row = 0; row < data.rows; row++) {
 		for (int column = 0; column < data.columns; column++) {
@@ -560,7 +563,7 @@ void InteractiveGrid3D::_scan_environnement_obstacles() {
 
 			godot::Transform3D global_xform = data.multimesh_instance->get_global_transform() * data.multimesh->get_instance_transform(cell_index);
 			global_xform.set_origin(global_xform.get_origin() + data.cell_shape_offset);
-			
+
 			godot::Ref<godot::PhysicsShapeQueryParameters3D> query;
 			query.instantiate();
 			query->set_shape(data.cell_shape);
@@ -585,11 +588,11 @@ void InteractiveGrid3D::_scan_environnement_obstacles() {
 		}
 	}
 
-	auto end = std::chrono::high_resolution_clock::now();
-
 	if (_debug_options.execution_time_enabled) {
-		std::chrono::duration<double, std::milli> duration = end - start;
-		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Execution time (ms): ", duration.count());
+		uint64_t end_time = time->get_ticks_usec();
+		uint64_t elapsed_us = end_time - start_time;
+		double elapsed_ms = static_cast<double>(elapsed_us) / 1000.0;
+		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Execution time: " + godot::String::num_real(elapsed_ms) + " ms");
 	}
 
 	if (_debug_options.logs_enabled) {
@@ -613,7 +616,8 @@ void InteractiveGrid3D::_scan_environnement_custom_data() {
 		return;
 	}
 
-	auto start = std::chrono::high_resolution_clock::now();
+	godot::Time *time = godot::Time::get_singleton();
+	uint64_t start_time = time->get_ticks_usec();
 
 	for (int row = 0; row < data.rows; row++) {
 		for (int column = 0; column < data.columns; column++) {
@@ -686,11 +690,11 @@ void InteractiveGrid3D::_scan_environnement_custom_data() {
 		}
 	}
 
-	auto end = std::chrono::high_resolution_clock::now();
-
 	if (_debug_options.execution_time_enabled) {
-		std::chrono::duration<double, std::milli> duration = end - start;
-		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Execution time (ms): ", duration.count());
+		uint64_t end_time = time->get_ticks_usec();
+		uint64_t elapsed_us = end_time - start_time;
+		double elapsed_ms = static_cast<double>(elapsed_us) / 1000.0;
+		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Execution time: " + godot::String::num_real(elapsed_ms) + " ms");
 	}
 
 	if (_debug_options.logs_enabled) {
@@ -888,7 +892,7 @@ void InteractiveGrid3D::_bind_methods() {
 	ADD_GROUP("Collision", "collision_");
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::INT, "collision_obstacles_mask", godot::PROPERTY_HINT_LAYERS_3D_PHYSICS), "set_obstacles_collision_mask", "get_obstacles_collision_mask");
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::INT, "collision_floor_mask", godot::PROPERTY_HINT_LAYERS_3D_PHYSICS), "set_floor_collision_mask", "get_floor_collision_mask");
-	
+
 	ADD_GROUP("Debug", "debug_");
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::BOOL, "debug_logs_enabled"), "set_logs_enabled", "is_logs_enabled");
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::BOOL, "debug_execution_time_enabled"), "set_execution_time_enabled", "is_execution_time_enabled");
@@ -1259,7 +1263,7 @@ void InteractiveGrid3D::highlight_on_hover(godot::Vector3 p_global_position) {
 void InteractiveGrid3D::highlight_path(const godot::PackedInt64Array &p_path) {
 	for (int step = 0; step < p_path.size(); step++) {
 		int cell_index = p_path[step];
-		
+
 		if (is_cell_visible(cell_index)) {
 			_set_cell_on_path(cell_index, true);
 		}
@@ -1386,7 +1390,8 @@ void InteractiveGrid3D::center(godot::Vector3 p_center_position) {
 		return;
 	}
 
-	auto start = std::chrono::high_resolution_clock::now();
+	godot::Time *time = godot::Time::get_singleton();
+	uint64_t start_time = time->get_ticks_usec();
 
 	data.flags &= ~GFL_CENTERED;
 
@@ -1412,11 +1417,11 @@ void InteractiveGrid3D::center(godot::Vector3 p_center_position) {
 
 	data.flags |= GFL_CENTERED;
 
-	auto end = std::chrono::high_resolution_clock::now();
-
 	if (_debug_options.execution_time_enabled) {
-		std::chrono::duration<double, std::milli> duration = end - start;
-		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Execution time (ms): ", duration.count());
+		uint64_t end_time = time->get_ticks_usec();
+		uint64_t elapsed_us = end_time - start_time;
+		double elapsed_ms = static_cast<double>(elapsed_us) / 1000.0;
+		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Execution time: " + godot::String::num_real(elapsed_ms) + " ms");
 	}
 
 	if (_debug_options.logs_enabled) {
@@ -1430,7 +1435,8 @@ void InteractiveGrid3D::update_custom_data() {
 		return;
 	}
 
-	auto start = std::chrono::high_resolution_clock::now();
+	godot::Time *time = godot::Time::get_singleton();
+	uint64_t start_time = time->get_ticks_usec();
 
 	set_hover_enabled(false);
 	_scan_environnement_custom_data();
@@ -1448,11 +1454,11 @@ void InteractiveGrid3D::update_custom_data() {
 
 	set_hover_enabled(true);
 
-	auto end = std::chrono::high_resolution_clock::now();
-
 	if (_debug_options.execution_time_enabled) {
-		std::chrono::duration<double, std::milli> duration = end - start;
-		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Execution time (ms): ", duration.count());
+		uint64_t end_time = time->get_ticks_usec();
+		uint64_t elapsed_us = end_time - start_time;
+		double elapsed_ms = static_cast<double>(elapsed_us) / 1000.0;
+		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Execution time: " + godot::String::num_real(elapsed_ms) + " ms");
 	}
 
 	if (_debug_options.logs_enabled) {
@@ -1463,7 +1469,8 @@ void InteractiveGrid3D::update_custom_data() {
 void InteractiveGrid3D::compute_unreachable_cells(int p_start_cell_index) {
 	ERR_FAIL_COND_MSG(p_start_cell_index >= get_size(), "Cell index out of bounds");
 
-	auto start = std::chrono::high_resolution_clock::now();
+	godot::Time *time = godot::Time::get_singleton();
+	uint64_t start_time = time->get_ticks_usec();
 
 	if ((is_visible()) && !(data.flags & GFL_CELL_UNREACHABLE_HIDDEN)) {
 		_configure_astar();
@@ -1471,11 +1478,11 @@ void InteractiveGrid3D::compute_unreachable_cells(int p_start_cell_index) {
 		data.flags |= GFL_CELL_UNREACHABLE_HIDDEN;
 	}
 
-	auto end = std::chrono::high_resolution_clock::now();
-
 	if (_debug_options.execution_time_enabled) {
-		std::chrono::duration<double, std::milli> duration = end - start;
-		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Execution time (ms): ", duration.count());
+		uint64_t end_time = time->get_ticks_usec();
+		uint64_t elapsed_us = end_time - start_time;
+		double elapsed_ms = static_cast<double>(elapsed_us) / 1000.0;
+		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Execution time: " + godot::String::num_real(elapsed_ms) + " ms");
 	}
 }
 
@@ -1695,15 +1702,16 @@ godot::PackedInt64Array InteractiveGrid3D::get_path(int p_start_cell_index, int 
 		return path;
 	}
 
-	auto start = std::chrono::high_resolution_clock::now();
+	godot::Time *time = godot::Time::get_singleton();
+	uint64_t start_time = time->get_ticks_usec();
 
 	path = data.astar->get_id_path(p_start_cell_index, p_target_cell_index);
 
-	auto end = std::chrono::high_resolution_clock::now();
-
 	if (_debug_options.execution_time_enabled) {
-		std::chrono::duration<double, std::milli> duration = end - start;
-		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Execution time (ms): ", duration.count());
+		uint64_t end_time = time->get_ticks_usec();
+		uint64_t elapsed_us = end_time - start_time;
+		double elapsed_ms = static_cast<double>(elapsed_us) / 1000.0;
+		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Execution time: " + godot::String::num_real(elapsed_ms) + " ms");
 	}
 
 	return path;
