@@ -850,6 +850,7 @@ void InteractiveGrid3D::_bind_methods() {
 	godot::ClassDB::bind_method(godot::D_METHOD("set_cell_reachable", "cell_index", "set_cell_reachable"), &InteractiveGrid3D::set_cell_reachable);
 
 	godot::ClassDB::bind_method(godot::D_METHOD("set_cell_color", "cell_index", "color"), &InteractiveGrid3D::set_cell_color);
+	godot::ClassDB::bind_method(godot::D_METHOD("get_cell_color", "cell_index"), &InteractiveGrid3D::get_cell_color);
 
 	godot::ClassDB::bind_method(godot::D_METHOD("set_obstacles_collision_enabled", "mask"), &InteractiveGrid3D::set_obstacles_collision_enabled);
 	godot::ClassDB::bind_method(godot::D_METHOD("get_obstacles_collision_enabled"), &InteractiveGrid3D::get_obstacles_collision_enabled);
@@ -1650,6 +1651,10 @@ void InteractiveGrid3D::set_cell_color(int p_cell_index, const godot::Color &p_c
 	}
 }
 
+godot::Color InteractiveGrid3D::get_cell_color(int p_cell_index) {
+	return data.cells[p_cell_index]->color;
+}
+
 void InteractiveGrid3D::set_obstacles_collision_enabled(bool p_enabled) {
 	_delete();
 	data.obstacles_collision_enabled = p_enabled;
@@ -1659,7 +1664,7 @@ bool InteractiveGrid3D::get_obstacles_collision_enabled() const {
 	return data.obstacles_collision_enabled;
 }
 
-void InteractiveGrid3D::set_floor_collision_enabled(bool p_enabled){
+void InteractiveGrid3D::set_floor_collision_enabled(bool p_enabled) {
 	_delete();
 	data.floor_collision_enabled = p_enabled;
 }

@@ -267,6 +267,7 @@ public:
 	void reset_cells_state();
 
 	void set_cell_color(int cell_index, const godot::Color &p_color);
+	godot::Color get_cell_color(int cell_index);
 
 	void set_obstacles_collision_enabled(bool p_enabled);
 	bool get_obstacles_collision_enabled() const;
