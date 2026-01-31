@@ -78,19 +78,17 @@ void InteractiveGrid3D::_delete() {
 void InteractiveGrid3D::_init_multi_mesh() {
 	data.multimesh_instance = memnew(godot::MultiMeshInstance3D);
 	this->add_child(data.multimesh_instance);
+	
 	data.multimesh.instantiate();
-
+	data.multimesh->set_mesh(data.cell_mesh);
 	data.multimesh->set_transform_format(godot::MultiMesh::TRANSFORM_3D);
 	data.multimesh->set_use_custom_data(true);
-
-	int cell_count = data.columns * data.rows;
-	data.multimesh->set_instance_count(cell_count);
-
+	data.multimesh->set_instance_count(data.columns * data.rows);
 	data.multimesh_instance->set_multimesh(data.multimesh);
-	data.multimesh->set_mesh(data.cell_mesh);
-
+	data.multimesh_instance->set_visible(true);
+	
 	godot::Transform3D xform;
-	xform.origin = godot::Vector3(0, 0, 0);
+	xform.origin = get_global_transform().origin;
 
 	for (int row = 0; row < data.rows; row++) {
 		for (int column = 0; column < data.columns; column++) {
