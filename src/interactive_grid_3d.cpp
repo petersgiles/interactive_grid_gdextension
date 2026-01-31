@@ -1246,7 +1246,10 @@ void InteractiveGrid3D::highlight_on_hover(godot::Vector3 p_global_position) {
 void InteractiveGrid3D::highlight_path(const godot::PackedInt64Array &p_path) {
 	for (int step = 0; step < p_path.size(); step++) {
 		int cell_index = p_path[step];
-		_set_cell_on_path(cell_index, true);
+		
+		if (is_cell_visible(cell_index)) {
+			_set_cell_on_path(cell_index, true);
+		}
 	}
 }
 
