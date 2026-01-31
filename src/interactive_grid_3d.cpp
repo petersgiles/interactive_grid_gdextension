@@ -103,7 +103,7 @@ void InteractiveGrid3D::_init_multi_mesh() {
 
 	_apply_material(data.material_override);
 
-	if (_debug_options.print_logs_enabled) {
+	if (_debug_options.logs_enabled) {
 		PrintLine(__FILE__, __FUNCTION__, __LINE__, "The grid MultiMesh has been created.");
 	}
 }
@@ -168,7 +168,7 @@ void InteractiveGrid3D::_layout_cells_as_square_grid(godot::Vector3 p_center_pos
 		}
 	}
 
-	if (_debug_options.print_logs_enabled) {
+	if (_debug_options.logs_enabled) {
 		PrintLine(__FILE__, __FUNCTION__, __LINE__, "The grid cells have been laid out as a square grid.");
 	}
 }
@@ -232,7 +232,7 @@ void InteractiveGrid3D::_layout_cells_as_hexagonal_grid(godot::Vector3 p_center_
 		}
 	}
 
-	if (_debug_options.print_logs_enabled) {
+	if (_debug_options.logs_enabled) {
 		PrintLine(__FILE__, __FUNCTION__, __LINE__, "The grid cells have been laid out as a hexagonal grid.");
 	}
 }
@@ -268,7 +268,7 @@ void InteractiveGrid3D::_configure_astar() {
 
 	auto end = std::chrono::high_resolution_clock::now();
 
-	if (_debug_options.print_execution_time_enabled) {
+	if (_debug_options.execution_time_enabled) {
 		std::chrono::duration<double, std::milli> duration = end - start;
 		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Execution time (ms): ", duration.count());
 	}
@@ -517,12 +517,12 @@ void InteractiveGrid3D::_align_cells_with_floor() {
 
 		auto end = std::chrono::high_resolution_clock::now();
 
-		if (_debug_options.print_execution_time_enabled) {
+		if (_debug_options.execution_time_enabled) {
 			std::chrono::duration<double, std::milli> duration = end - start;
 			PrintLine(__FILE__, __FUNCTION__, __LINE__, "Execution time (ms): ", duration.count());
 		}
 
-		if (_debug_options.print_logs_enabled) {
+		if (_debug_options.logs_enabled) {
 			PrintLine(__FILE__, __FUNCTION__, __LINE__, "Grid cells have been aligned with the floor surface.");
 		}
 	}
@@ -587,12 +587,12 @@ void InteractiveGrid3D::_scan_environnement_obstacles() {
 
 	auto end = std::chrono::high_resolution_clock::now();
 
-	if (_debug_options.print_execution_time_enabled) {
+	if (_debug_options.execution_time_enabled) {
 		std::chrono::duration<double, std::milli> duration = end - start;
 		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Execution time (ms): ", duration.count());
 	}
 
-	if (_debug_options.print_logs_enabled) {
+	if (_debug_options.logs_enabled) {
 		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Scan complete.");
 	}
 }
@@ -688,12 +688,12 @@ void InteractiveGrid3D::_scan_environnement_custom_data() {
 
 	auto end = std::chrono::high_resolution_clock::now();
 
-	if (_debug_options.print_execution_time_enabled) {
+	if (_debug_options.execution_time_enabled) {
 		std::chrono::duration<double, std::milli> duration = end - start;
 		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Execution time (ms): ", duration.count());
 	}
 
-	if (_debug_options.print_logs_enabled) {
+	if (_debug_options.logs_enabled) {
 		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Scan complete.");
 	}
 }
@@ -859,11 +859,11 @@ void InteractiveGrid3D::_bind_methods() {
 	godot::ClassDB::bind_method(godot::D_METHOD("get_path", "start_cell_index", "target_cell_index"), &InteractiveGrid3D::get_path);
 	godot::ClassDB::bind_method(godot::D_METHOD("get_neighbors", "cell_index"), &InteractiveGrid3D::get_neighbors);
 
-	godot::ClassDB::bind_method(godot::D_METHOD("set_print_logs_enabled", "enabled"), &InteractiveGrid3D::set_print_logs_enabled);
-	godot::ClassDB::bind_method(godot::D_METHOD("is_print_logs_enabled"), &InteractiveGrid3D::is_print_logs_enabled);
+	godot::ClassDB::bind_method(godot::D_METHOD("set_logs_enabled", "enabled"), &InteractiveGrid3D::set_logs_enabled);
+	godot::ClassDB::bind_method(godot::D_METHOD("is_logs_enabled"), &InteractiveGrid3D::is_logs_enabled);
 
-	godot::ClassDB::bind_method(godot::D_METHOD("set_print_execution_time_enabled", "enabled"), &InteractiveGrid3D::set_print_execution_time_enabled);
-	godot::ClassDB::bind_method(godot::D_METHOD("is_print_execution_time_enabled"), &InteractiveGrid3D::is_print_execution_time_enabled);
+	godot::ClassDB::bind_method(godot::D_METHOD("set_execution_time_enabled", "enabled"), &InteractiveGrid3D::set_execution_time_enabled);
+	godot::ClassDB::bind_method(godot::D_METHOD("is_execution_time_enabled"), &InteractiveGrid3D::is_execution_time_enabled);
 
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::INT, "rows"), "set_rows", "get_rows");
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::INT, "columns"), "set_columns", "get_columns");
@@ -884,8 +884,10 @@ void InteractiveGrid3D::_bind_methods() {
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::INT, "movement", godot::PROPERTY_HINT_ENUM, "FOUR-DIRECTIONS,SIX-DIRECTIONS,EIGH-DIRECTIONS"), "set_movement", "get_movement");
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::INT, "obstacles_collision_masks", godot::PROPERTY_HINT_LAYERS_3D_PHYSICS), "set_obstacles_collision_masks", "get_obstacles_collision_masks");
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::INT, "floor_collision_masks", godot::PROPERTY_HINT_LAYERS_3D_PHYSICS), "set_floor_collision_masks", "get_floor_collision_masks");
-	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::BOOL, "print_logs_enabled"), "set_print_logs_enabled", "is_print_logs_enabled");
-	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::BOOL, "print_execution_time_enabled"), "set_print_execution_time_enabled", "is_print_execution_time_enabled");
+	
+	ADD_GROUP("Debug", "debug_");
+	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::BOOL, "debug_logs_enabled"), "set_logs_enabled", "is_logs_enabled");
+	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::BOOL, "debug_execution_time_enabled"), "set_execution_time_enabled", "is_execution_time_enabled");
 
 	BIND_ENUM_CONSTANT(LAYOUT_SQUARE);
 	BIND_ENUM_CONSTANT(LAYOUT_HEXAGONAL);
@@ -1175,7 +1177,7 @@ void InteractiveGrid3D::apply_default_material() {
 
 	data.multimesh_instance->set_material_override(shader_material);
 
-	if (_debug_options.print_logs_enabled) {
+	if (_debug_options.logs_enabled) {
 		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Default ShaderMaterial created and applied.");
 	}
 }
@@ -1408,12 +1410,12 @@ void InteractiveGrid3D::center(godot::Vector3 p_center_position) {
 
 	auto end = std::chrono::high_resolution_clock::now();
 
-	if (_debug_options.print_execution_time_enabled) {
+	if (_debug_options.execution_time_enabled) {
 		std::chrono::duration<double, std::milli> duration = end - start;
 		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Execution time (ms): ", duration.count());
 	}
 
-	if (_debug_options.print_logs_enabled) {
+	if (_debug_options.logs_enabled) {
 		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Grid centered.");
 	}
 }
@@ -1444,12 +1446,12 @@ void InteractiveGrid3D::update_custom_data() {
 
 	auto end = std::chrono::high_resolution_clock::now();
 
-	if (_debug_options.print_execution_time_enabled) {
+	if (_debug_options.execution_time_enabled) {
 		std::chrono::duration<double, std::milli> duration = end - start;
 		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Execution time (ms): ", duration.count());
 	}
 
-	if (_debug_options.print_logs_enabled) {
+	if (_debug_options.logs_enabled) {
 		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Grid centered.");
 	}
 }
@@ -1467,7 +1469,7 @@ void InteractiveGrid3D::compute_unreachable_cells(int p_start_cell_index) {
 
 	auto end = std::chrono::high_resolution_clock::now();
 
-	if (_debug_options.print_execution_time_enabled) {
+	if (_debug_options.execution_time_enabled) {
 		std::chrono::duration<double, std::milli> duration = end - start;
 		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Execution time (ms): ", duration.count());
 	}
@@ -1695,7 +1697,7 @@ godot::PackedInt64Array InteractiveGrid3D::get_path(int p_start_cell_index, int 
 
 	auto end = std::chrono::high_resolution_clock::now();
 
-	if (_debug_options.print_execution_time_enabled) {
+	if (_debug_options.execution_time_enabled) {
 		std::chrono::duration<double, std::milli> duration = end - start;
 		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Execution time (ms): ", duration.count());
 	}
@@ -1707,20 +1709,20 @@ godot::Array InteractiveGrid3D::get_neighbors(int p_cell_index) const {
 	return data.cells[p_cell_index]->neighbors;
 }
 
-void InteractiveGrid3D::set_print_logs_enabled(bool p_enabled) {
-	_debug_options.print_logs_enabled = p_enabled;
+void InteractiveGrid3D::set_logs_enabled(bool p_enabled) {
+	_debug_options.logs_enabled = p_enabled;
 }
 
-bool InteractiveGrid3D::is_print_logs_enabled() const {
-	return _debug_options.print_logs_enabled;
+bool InteractiveGrid3D::is_logs_enabled() const {
+	return _debug_options.logs_enabled;
 }
 
-void InteractiveGrid3D::set_print_execution_time_enabled(bool p_enabled) {
-	_debug_options.print_execution_time_enabled = p_enabled;
+void InteractiveGrid3D::set_execution_time_enabled(bool p_enabled) {
+	_debug_options.execution_time_enabled = p_enabled;
 }
 
-bool InteractiveGrid3D::is_print_execution_time_enabled() const {
-	return _debug_options.print_execution_time_enabled;
+bool InteractiveGrid3D::is_execution_time_enabled() const {
+	return _debug_options.execution_time_enabled;
 }
 
 InteractiveGrid3D::InteractiveGrid3D() {}

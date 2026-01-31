@@ -67,8 +67,8 @@ public:
 	};
 
 	struct DebugOptions {
-		bool print_logs_enabled = false;
-		bool print_execution_time_enabled = false;
+		bool logs_enabled = false;
+		bool execution_time_enabled = false;
 	} _debug_options;
 
 private:
@@ -279,11 +279,11 @@ public:
 	godot::PackedInt64Array get_path(int p_start_cell_index, int p_target_cell_index) const;
 	godot::Array get_neighbors(int p_cell_index) const;
 
-	void set_print_logs_enabled(bool p_enabled);
-	bool is_print_logs_enabled() const;
+	void set_logs_enabled(bool p_enabled);
+	bool is_logs_enabled() const;
 
-	void set_print_execution_time_enabled(bool p_enabled);
-	bool is_print_execution_time_enabled() const;
+	void set_execution_time_enabled(bool p_enabled);
+	bool is_execution_time_enabled() const;
 
 	InteractiveGrid3D();
 	~InteractiveGrid3D();
