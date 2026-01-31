@@ -620,12 +620,12 @@ void InteractiveGrid3D::_scan_environnement_custom_data() {
 			}
 
 			godot::Transform3D global_xform = data.multimesh_instance->get_global_transform() * data.multimesh->get_instance_transform(cell_index);
-			const godot::Vector3 cell_global_pos = global_xform.origin;
+			global_xform.set_origin(global_xform.get_origin() + data.cell_shape_offset);
 
 			godot::Ref<godot::PhysicsShapeQueryParameters3D> query;
 			query.instantiate();
 			query->set_shape(data.cell_shape);
-			query->set_transform(godot::Transform3D(godot::Basis(), cell_global_pos));
+			query->set_transform(global_xform);
 			query->set_collision_mask(UINT32_MAX);
 			query->set_collide_with_bodies(true);
 			query->set_collide_with_areas(true);
