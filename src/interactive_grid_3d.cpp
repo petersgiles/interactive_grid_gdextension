@@ -46,7 +46,6 @@ constexpr const char *default_shader_code = R"(
 
 void InteractiveGrid3D::_create() {
 	if (!(data.flags & GFL_CREATED)) {
-
 		_init_multi_mesh();
 		_init_astar();
 
@@ -77,7 +76,7 @@ void InteractiveGrid3D::_delete() {
 void InteractiveGrid3D::_init_multi_mesh() {
 	data.multimesh_instance = memnew(godot::MultiMeshInstance3D);
 	this->add_child(data.multimesh_instance);
-	
+
 	data.multimesh.instantiate();
 	data.multimesh->set_mesh(data.cell_mesh);
 	data.multimesh->set_transform_format(godot::MultiMesh::TRANSFORM_3D);
@@ -85,7 +84,7 @@ void InteractiveGrid3D::_init_multi_mesh() {
 	data.multimesh->set_instance_count(data.columns * data.rows);
 	data.multimesh_instance->set_multimesh(data.multimesh);
 	data.multimesh_instance->set_visible(true);
-	
+
 	godot::Transform3D xform;
 	xform.origin = get_global_transform().origin;
 
@@ -99,8 +98,6 @@ void InteractiveGrid3D::_init_multi_mesh() {
 
 			data.cells.push_back(new Cell);
 			data.cells.write[index]->index = index;
-			data.cells.write[index]->local_xform = xform;
-			data.cells.write[index]->global_xform = xform;
 		}
 	}
 
@@ -147,14 +144,14 @@ void InteractiveGrid3D::_layout_cells_as_square_grid(godot::Vector3 p_center_pos
 		for (int column = 0; column < data.columns; column++) {
 			const int index = row * data.columns + column;
 
-			godot::Vector3 global_cell_pos;
-			global_cell_pos.x = top_left_global_position.x + column * data.cell_size.x;
-			global_cell_pos.y = get_global_transform().origin.y;
-			global_cell_pos.z = top_left_global_position.y + row * data.cell_size.y;
+			godot::Vector3 cell_global_pos;
+			cell_global_pos.x = top_left_global_position.x + column * data.cell_size.x;
+			cell_global_pos.y = get_global_transform().origin.y;
+			cell_global_pos.z = top_left_global_position.y + row * data.cell_size.y;
 
-			godot::Vector3 local_cell_pos = global_cell_pos - data.multimesh_instance->get_global_transform().origin;
+			godot::Vector3 cell_pos = cell_global_pos - data.multimesh_instance->get_global_transform().origin;
 			godot::Transform3D cell_transform;
-			cell_transform.origin = local_cell_pos;
+			cell_transform.origin = cell_pos;
 
 			cell_transform.basis = data.multimesh->get_instance_transform(index).basis;
 
@@ -166,9 +163,6 @@ void InteractiveGrid3D::_layout_cells_as_square_grid(godot::Vector3 p_center_pos
 			cell_transform.basis = cell_transform.basis * rotation_basis;
 
 			data.multimesh->set_instance_transform(index, cell_transform);
-
-			data.cells.write[index]->local_xform = data.multimesh->get_instance_transform(index);
-			data.cells.write[index]->global_xform = data.multimesh_instance->get_global_transform() * data.multimesh->get_instance_transform(index);
 
 			set_cell_visible(index, true);
 		}
@@ -208,20 +202,20 @@ void InteractiveGrid3D::_layout_cells_as_hexagonal_grid(godot::Vector3 p_center_
 		for (int column = 0; column < data.columns; column++) {
 			const int index = row * data.columns + column;
 
-			godot::Vector3 global_cell_pos;
+			godot::Vector3 cell_global_pos;
 
 			if (!(row % 2)) { // Even.
-				global_cell_pos.x = top_left_global_position.x + (column * data.cell_size.x);
+				cell_global_pos.x = top_left_global_position.x + (column * data.cell_size.x);
 			} else {
-				global_cell_pos.x = top_left_global_position.x + (column * data.cell_size.x) + hex_side_to_side;
+				cell_global_pos.x = top_left_global_position.x + (column * data.cell_size.x) + hex_side_to_side;
 			}
 
-			global_cell_pos.y = get_global_transform().origin.y;
-			global_cell_pos.z = top_left_global_position.y + (row * data.cell_size.y);
+			cell_global_pos.y = get_global_transform().origin.y;
+			cell_global_pos.z = top_left_global_position.y + (row * data.cell_size.y);
 
-			godot::Vector3 local_cell_pos = global_cell_pos - data.multimesh_instance->get_global_transform().origin;
+			godot::Vector3 cell_pos = cell_global_pos - data.multimesh_instance->get_global_transform().origin;
 			godot::Transform3D cell_transform;
-			cell_transform.origin = local_cell_pos;
+			cell_transform.origin = cell_pos;
 
 			cell_transform.basis = data.multimesh->get_instance_transform(index).basis;
 
@@ -233,9 +227,6 @@ void InteractiveGrid3D::_layout_cells_as_hexagonal_grid(godot::Vector3 p_center_
 			cell_transform.basis = cell_transform.basis * rotation_basis;
 
 			data.multimesh->set_instance_transform(index, cell_transform);
-
-			data.cells.write[index]->local_xform = data.multimesh->get_instance_transform(index);
-			data.cells.write[index]->global_xform = data.multimesh_instance->get_global_transform() * data.multimesh->get_instance_transform(index);
 
 			set_cell_visible(index, true);
 		}
@@ -462,11 +453,10 @@ void InteractiveGrid3D::_align_cells_with_floor() {
 
 		for (int row = 0; row < data.rows; row++) {
 			for (int column = 0; column < data.columns; column++) {
-				const int index =
-						row * data.columns + column;
+				const int index = row * data.columns + column;
 
-				godot::Vector3 local_from = data.cells[index]->local_xform.origin;
-				godot::Vector3 global_from = data.cells[index]->global_xform.origin;
+				godot::Transform3D global_xform = data.multimesh_instance->get_global_transform() * data.multimesh->get_instance_transform(index);
+				godot::Vector3 global_from = global_xform.origin;
 				global_from.y += 100.0f;
 				godot::Vector3 global_to = global_from - godot::Vector3(0, ray_length, 0);
 
@@ -509,8 +499,6 @@ void InteractiveGrid3D::_align_cells_with_floor() {
 					xform.basis.set_column(2, basis_z);
 					xform.basis = xform.basis.orthonormalized();
 					data.multimesh->set_instance_transform(index, xform);
-					data.cells.write[index]->local_xform = xform;
-					data.cells.write[index]->global_xform = data.multimesh_instance->get_global_transform() * data.multimesh->get_instance_transform(index);
 
 					set_cell_accessible(index, true);
 					set_cell_reachable(index, true);
@@ -566,11 +554,11 @@ void InteractiveGrid3D::_scan_environnement_obstacles() {
 		for (int column = 0; column < data.columns; column++) {
 			const int cell_index = row * data.columns + column;
 
-			godot::Transform3D cell_transform = data.cells.write[cell_index]->global_xform;
+			godot::Transform3D global_xform = data.multimesh_instance->get_global_transform() * data.multimesh->get_instance_transform(cell_index);
 			godot::Ref<godot::PhysicsShapeQueryParameters3D> query;
 			query.instantiate();
 			query->set_shape(data.cell_shape);
-			query->set_transform(cell_transform);
+			query->set_transform(global_xform);
 			query->set_collision_mask(data.obstacles_collision_masks);
 			query->set_collide_with_bodies(true);
 			query->set_collide_with_areas(true);
@@ -629,12 +617,13 @@ void InteractiveGrid3D::_scan_environnement_custom_data() {
 				continue;
 			}
 
-			const godot::Vector3 cell_pos = data.cells[cell_index]->global_xform.origin;
+			godot::Transform3D global_xform = data.multimesh_instance->get_global_transform() * data.multimesh->get_instance_transform(cell_index);
+			const godot::Vector3 cell_global_pos = global_xform.origin;
 
 			godot::Ref<godot::PhysicsShapeQueryParameters3D> query;
 			query.instantiate();
 			query->set_shape(data.cell_shape);
-			query->set_transform(godot::Transform3D(godot::Basis(), cell_pos));
+			query->set_transform(godot::Transform3D(godot::Basis(), cell_global_pos));
 			query->set_collision_mask(UINT32_MAX);
 			query->set_collide_with_bodies(true);
 			query->set_collide_with_areas(true);
@@ -906,7 +895,7 @@ void InteractiveGrid3D::_physics_process(double p_delta) {
 	_create();
 
 	if (godot::Engine::get_singleton()->is_editor_hint()) {
-		if (data.last_position  != get_global_transform().origin) {
+		if (data.last_position != get_global_transform().origin) {
 			_delete();
 		}
 	}
@@ -1256,7 +1245,8 @@ void InteractiveGrid3D::highlight_path(const godot::PackedInt64Array &p_path) {
 }
 
 godot::Vector3 InteractiveGrid3D::get_cell_global_position(int p_cell_index) const {
-	godot::Vector3 cell_global_position = data.cells[p_cell_index]->global_xform.origin;
+	godot::Transform3D global_xform = data.multimesh_instance->get_global_transform() * data.multimesh->get_instance_transform(p_cell_index);
+	godot::Vector3 cell_global_position = global_xform.origin;
 	return cell_global_position;
 }
 
@@ -1338,11 +1328,11 @@ int InteractiveGrid3D::get_cell_index_from_global_position(godot::Vector3 p_glob
 
 	for (int row = 0; row < data.rows; row++) {
 		for (int column = 0; column < data.columns; column++) {
-			const int index =
-					row * data.columns + column;
+			const int index = row * data.columns + column;
 
-			const godot::Vector3 cell_pos = data.cells[index]->global_xform.origin;
-			const float distance = p_global_position.distance_to(cell_pos);
+			godot::Transform3D global_xform = data.multimesh_instance->get_global_transform() * data.multimesh->get_instance_transform(index);
+			const godot::Vector3 cell_global_position = global_xform.origin;
+			const float distance = p_global_position.distance_to(cell_global_position);
 
 			if (distance < closest_distance) {
 				closest_distance = distance;
@@ -1355,11 +1345,12 @@ int InteractiveGrid3D::get_cell_index_from_global_position(godot::Vector3 p_glob
 }
 
 godot::Transform3D InteractiveGrid3D::get_cell_transform(int p_cell_index) const {
-	return data.cells[p_cell_index]->local_xform;
+	return data.multimesh->get_instance_transform(p_cell_index);
 }
 
 godot::Transform3D InteractiveGrid3D::get_cell_global_transform(int p_cell_index) const {
-	godot::Transform3D global_xform = data.multimesh_instance->get_global_transform() * data.cells[p_cell_index]->local_xform;
+	godot::Transform3D global_xform = data.multimesh_instance->get_global_transform() * data.multimesh->get_instance_transform(p_cell_index);
+	;
 	return global_xform;
 }
 
@@ -1470,10 +1461,10 @@ void InteractiveGrid3D::hide_distant_cells(int p_start_cell_index, float p_dista
 			for (int column = 0; column < data.columns; column++) {
 				const int index = row * data.columns + column;
 
-				godot::Vector3 start_cell_position = data.cells[p_start_cell_index]->global_xform.origin;
-				godot::Vector3 index_cell_position = data.cells[index]->global_xform.origin;
+				godot::Vector3 start_cell_global_pos = get_cell_global_position(p_start_cell_index);
+				godot::Vector3 cell_global_pos = get_cell_global_position(index);
 
-				if (start_cell_position.distance_to(index_cell_position) > p_distance) {
+				if (start_cell_global_pos.distance_to(cell_global_pos) > p_distance) {
 					set_cell_visible(index, false);
 					data.cells.write[index]->flags &= ~CFL_ACCESSIBLE;
 				}

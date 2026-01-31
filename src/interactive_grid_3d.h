@@ -74,8 +74,6 @@ public:
 private:
 	struct Cell {
 		int index = -1;
-		godot::Transform3D local_xform;
-		godot::Transform3D global_xform;
 		uint32_t flags = 0;
 		uint32_t collision_layer = 0;
 		godot::Color color;
