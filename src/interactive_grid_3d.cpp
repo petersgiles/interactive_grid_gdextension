@@ -230,7 +230,7 @@ void InteractiveGrid3D::_layout_cells_as_hexagonal_grid(godot::Vector3 p_center_
 			rotation_basis = rotation_basis.rotated(godot::Vector3(0, 0, 1), data.cell_rotation.z);
 
 			cell_transform.basis = cell_transform.basis * rotation_basis;
-			
+
 			data.multimesh->set_instance_transform(index, cell_transform);
 
 			data.cells.write[index]->local_xform = data.multimesh->get_instance_transform(index);
@@ -1280,21 +1280,21 @@ int InteractiveGrid3D::get_cell_index_from_global_position(godot::Vector3 p_glob
 			center_to_edge_x = (data.columns / 2) * data.cell_size.x + data.cell_size.x / 2;
 			center_to_edge_z = (data.rows / 2) * data.cell_size.y + data.cell_size.y / 2;
 
-			top_left_global_position.x = data.center_global_position.x - center_to_edge_x;
-			top_left_global_position.z = data.center_global_position.z - center_to_edge_z;
+			top_left_global_position.x = get_global_transform().origin.x - center_to_edge_x;
+			top_left_global_position.z = get_global_transform().origin.z - center_to_edge_z;
 
 			if (!(data.rows % 2)) { // Even.
-				if (p_global_position.x > (data.center_global_position.x + center_to_edge_x - data.cell_size.x) || p_global_position.x < (data.center_global_position.x - center_to_edge_x)) {
+				if (p_global_position.x > (get_global_transform().origin.x + center_to_edge_x - data.cell_size.x) || p_global_position.x < (get_global_transform().origin.x - center_to_edge_x)) {
 					return -1;
 				}
-				if (p_global_position.z > (data.center_global_position.z + center_to_edge_z - data.cell_size.y) || p_global_position.z < (data.center_global_position.z - center_to_edge_z)) {
+				if (p_global_position.z > (get_global_transform().origin.z + center_to_edge_z - data.cell_size.y) || p_global_position.z < (get_global_transform().origin.z - center_to_edge_z)) {
 					return -1;
 				}
 			} else {
-				if (p_global_position.x > (data.center_global_position.x + center_to_edge_x) || p_global_position.x < (data.center_global_position.x - center_to_edge_x)) {
+				if (p_global_position.x > (get_global_transform().origin.x + center_to_edge_x) || p_global_position.x < (get_global_transform().origin.x - center_to_edge_x)) {
 					return -1;
 				}
-				if (p_global_position.z > (data.center_global_position.z + center_to_edge_z) || p_global_position.z < (data.center_global_position.z - center_to_edge_z)) {
+				if (p_global_position.z > (get_global_transform().origin.z + center_to_edge_z) || p_global_position.z < (get_global_transform().origin.z - center_to_edge_z)) {
 					return -1;
 				}
 			}
@@ -1313,8 +1313,8 @@ int InteractiveGrid3D::get_cell_index_from_global_position(godot::Vector3 p_glob
 				center_to_edge_z += hex_side_length;
 			}
 
-			top_left_global_position.x = data.center_global_position.x - center_to_edge_x;
-			top_left_global_position.z = data.center_global_position.z - center_to_edge_z;
+			top_left_global_position.x = get_global_transform().origin.x - center_to_edge_x;
+			top_left_global_position.z = get_global_transform().origin.z - center_to_edge_z;
 
 			if (p_global_position.x < (top_left_global_position.x - hex_side_to_side)) {
 				return -1;
