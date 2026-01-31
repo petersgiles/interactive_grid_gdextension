@@ -1237,10 +1237,16 @@ void InteractiveGrid3D::highlight_on_hover(godot::Vector3 p_global_position) {
 		return;
 	}
 
-	if (!is_cell_selected(closest_index)) {
-		data.hovered_cell_index = closest_index;
-		_set_cell_hovered(data.hovered_cell_index, true);
+	if (is_cell_on_path(closest_index)) {
+		return;
 	}
+
+	if (is_cell_selected(closest_index)) {
+		return;
+	}
+
+	data.hovered_cell_index = closest_index;
+	_set_cell_hovered(data.hovered_cell_index, true);
 }
 
 void InteractiveGrid3D::highlight_path(const godot::PackedInt64Array &p_path) {
