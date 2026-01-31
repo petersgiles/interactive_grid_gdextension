@@ -133,15 +133,15 @@ void InteractiveGrid3D::_layout(godot::Vector3 p_center_position) {
 }
 
 void InteractiveGrid3D::_layout_cells_as_square_grid(godot::Vector3 p_center_position) {
-	data.center_global_position = p_center_position;
+	set_global_position(p_center_position);
 
 	godot::Vector2 center_to_edge;
 	center_to_edge.x = (data.columns / 2) * data.cell_size.x;
 	center_to_edge.y = (data.rows / 2) * data.cell_size.y;
 
 	godot::Vector2 top_left_global_position;
-	top_left_global_position.x = p_center_position.x - center_to_edge.x;
-	top_left_global_position.y = p_center_position.z - center_to_edge.y;
+	top_left_global_position.x = get_global_transform().origin.x - center_to_edge.x;
+	top_left_global_position.y = get_global_transform().origin.z - center_to_edge.y;
 
 	for (int row = 0; row < data.rows; row++) {
 		for (int column = 0; column < data.columns; column++) {
@@ -149,12 +149,13 @@ void InteractiveGrid3D::_layout_cells_as_square_grid(godot::Vector3 p_center_pos
 
 			godot::Vector3 global_cell_pos;
 			global_cell_pos.x = top_left_global_position.x + column * data.cell_size.x;
-			global_cell_pos.y = p_center_position.y;
+			global_cell_pos.y = get_global_transform().origin.y;
 			global_cell_pos.z = top_left_global_position.y + row * data.cell_size.y;
 
 			godot::Vector3 local_cell_pos = global_cell_pos - data.multimesh_instance->get_global_transform().origin;
 			godot::Transform3D cell_transform;
 			cell_transform.origin = local_cell_pos;
+
 			cell_transform.basis = data.multimesh->get_instance_transform(index).basis;
 
 			godot::Basis rotation_basis;
@@ -163,6 +164,7 @@ void InteractiveGrid3D::_layout_cells_as_square_grid(godot::Vector3 p_center_pos
 			rotation_basis = rotation_basis.rotated(godot::Vector3(0, 0, 1), data.cell_rotation.z);
 
 			cell_transform.basis = cell_transform.basis * rotation_basis;
+
 			data.multimesh->set_instance_transform(index, cell_transform);
 
 			data.cells.write[index]->local_xform = data.multimesh->get_instance_transform(index);
@@ -178,7 +180,7 @@ void InteractiveGrid3D::_layout_cells_as_square_grid(godot::Vector3 p_center_pos
 }
 
 void InteractiveGrid3D::_layout_cells_as_hexagonal_grid(godot::Vector3 p_center_position) {
-	data.center_global_position = p_center_position;
+	set_global_position(p_center_position);
 
 	const float hex_short_diagonal = data.cell_size.x; // s = a · √3
 	const float hex_side_length = hex_short_diagonal / sqrt(3); // a = s / √3.
@@ -198,8 +200,8 @@ void InteractiveGrid3D::_layout_cells_as_hexagonal_grid(godot::Vector3 p_center_
 	}
 
 	godot::Vector2 top_left_global_position;
-	top_left_global_position.x = p_center_position.x - center_to_edge.x;
-	top_left_global_position.y = p_center_position.z - center_to_edge.y;
+	top_left_global_position.x = get_global_transform().origin.x - center_to_edge.x;
+	top_left_global_position.y = get_global_transform().origin.z - center_to_edge.y;
 
 	for (int row = 0; row < data.rows; row++) {
 		for (int column = 0; column < data.columns; column++) {
@@ -213,7 +215,7 @@ void InteractiveGrid3D::_layout_cells_as_hexagonal_grid(godot::Vector3 p_center_
 				global_cell_pos.x = top_left_global_position.x + (column * data.cell_size.x) + hex_side_to_side;
 			}
 
-			global_cell_pos.y = p_center_position.y;
+			global_cell_pos.y = get_global_transform().origin.y;
 			global_cell_pos.z = top_left_global_position.y + (row * data.cell_size.y);
 
 			godot::Vector3 local_cell_pos = global_cell_pos - data.multimesh_instance->get_global_transform().origin;
@@ -228,6 +230,7 @@ void InteractiveGrid3D::_layout_cells_as_hexagonal_grid(godot::Vector3 p_center_
 			rotation_basis = rotation_basis.rotated(godot::Vector3(0, 0, 1), data.cell_rotation.z);
 
 			cell_transform.basis = cell_transform.basis * rotation_basis;
+			
 			data.multimesh->set_instance_transform(index, cell_transform);
 
 			data.cells.write[index]->local_xform = data.multimesh->get_instance_transform(index);
