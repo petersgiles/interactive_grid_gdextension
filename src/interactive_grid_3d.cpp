@@ -186,11 +186,7 @@ void InteractiveGrid3D::_layout_cells_as_hexagonal_grid(godot::Vector3 p_center_
 	center_to_edge.x = (data.columns / 2) * data.cell_size.x;
 	center_to_edge.y = (data.rows / 2) * data.cell_size.y;
 
-	if ((data.columns % 2)) {
-		center_to_edge.x;
-	}
-
-	if (!(data.rows % 2)) {
+	if (!(data.rows % 2)) { // Even.
 		center_to_edge.y -= hex_side_length;
 	}
 
