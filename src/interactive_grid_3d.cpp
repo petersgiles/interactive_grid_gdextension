@@ -53,7 +53,7 @@ void InteractiveGrid3D::_create() {
 
 		data.flags |= GFL_CREATED;
 
-		center(data.center_global_position);
+		center(get_global_transform().origin);
 		set_visible(true);
 	}
 }
