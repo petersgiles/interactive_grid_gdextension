@@ -95,7 +95,7 @@ private:
 
 		Layout layout_index = LAYOUT_SQUARE;
 		Movement movement = MOVEMENT_FOUR_DIRECTIONS;
-		uint32_t obstacles_collision_masks = 1 << 13;
+		uint32_t obstacles_collision_mask = 1 << 13;
 		uint32_t floor_collision_mask = 1 << 14;
 
 		godot::Ref<godot::Mesh> cell_mesh;
@@ -267,8 +267,8 @@ public:
 
 	void set_cell_color(int cell_index, const godot::Color &p_color);
 
-	void set_obstacles_collision_masks(int p_mask);
-	int get_obstacles_collision_masks();
+	void set_obstacles_collision_mask(int p_mask);
+	int get_obstacles_collision_mask();
 
 	void set_floor_collision_mask(int p_mask);
 	int get_floor_collision_mask();
