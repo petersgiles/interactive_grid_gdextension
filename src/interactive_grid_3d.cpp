@@ -46,7 +46,6 @@ constexpr const char *default_shader_code = R"(
 
 void InteractiveGrid3D::_create() {
 	if (!(data.flags & GFL_CREATED)) {
-		data.center_global_position = get_global_transform().origin;
 
 		_init_multi_mesh();
 		_init_astar();
@@ -134,6 +133,7 @@ void InteractiveGrid3D::_layout(godot::Vector3 p_center_position) {
 
 void InteractiveGrid3D::_layout_cells_as_square_grid(godot::Vector3 p_center_position) {
 	set_global_position(p_center_position);
+	data.last_position = data.multimesh_instance->get_global_transform().origin;
 
 	godot::Vector2 center_to_edge;
 	center_to_edge.x = (data.columns / 2) * data.cell_size.x;
@@ -181,6 +181,7 @@ void InteractiveGrid3D::_layout_cells_as_square_grid(godot::Vector3 p_center_pos
 
 void InteractiveGrid3D::_layout_cells_as_hexagonal_grid(godot::Vector3 p_center_position) {
 	set_global_position(p_center_position);
+	data.last_position = data.multimesh_instance->get_global_transform().origin;
 
 	const float hex_short_diagonal = data.cell_size.x; // s = a · √3
 	const float hex_side_length = hex_short_diagonal / sqrt(3); // a = s / √3.
@@ -824,7 +825,6 @@ void InteractiveGrid3D::_bind_methods() {
 	godot::ClassDB::bind_method(godot::D_METHOD("update_custom_data"), &InteractiveGrid3D::update_custom_data);
 	godot::ClassDB::bind_method(godot::D_METHOD("get_cell_global_position", "cell_index"), &InteractiveGrid3D::get_cell_global_position);
 	godot::ClassDB::bind_method(godot::D_METHOD("get_cell_index_from_global_position", "global_position"), &InteractiveGrid3D::get_cell_index_from_global_position);
-	godot::ClassDB::bind_method(godot::D_METHOD("get_center_global_position"), &InteractiveGrid3D::get_center_global_position);
 	godot::ClassDB::bind_method(godot::D_METHOD("get_cell_transform", "cell_index"), &InteractiveGrid3D::get_cell_transform);
 	godot::ClassDB::bind_method(godot::D_METHOD("get_cell_global_transform", "cell_index"), &InteractiveGrid3D::get_cell_global_transform);
 
@@ -906,7 +906,7 @@ void InteractiveGrid3D::_physics_process(double p_delta) {
 	_create();
 
 	if (godot::Engine::get_singleton()->is_editor_hint()) {
-		if (data.center_global_position != get_global_transform().origin) {
+		if (data.last_position  != get_global_transform().origin) {
 			_delete();
 		}
 	}
@@ -1352,10 +1352,6 @@ int InteractiveGrid3D::get_cell_index_from_global_position(godot::Vector3 p_glob
 	}
 
 	return closest_index;
-}
-
-godot::Vector3 InteractiveGrid3D::get_center_global_position() const {
-	return data.center_global_position;
 }
 
 godot::Transform3D InteractiveGrid3D::get_cell_transform(int p_cell_index) const {
