@@ -442,7 +442,7 @@ void InteractiveGrid3D::_breadth_first_search(int p_start_cell_index) {
 
 void InteractiveGrid3D::_align_cells_with_floor() {
 	if (data.flags & GFL_CREATED) {
-		if (data.floor_collision_mask == 0) {
+		if (data.floor_collision_enabled == false) {
 			return;
 		}
 
@@ -539,7 +539,7 @@ void InteractiveGrid3D::_scan_environnement_obstacles() {
 		return;
 	}
 
-	if (data.obstacles_collision_mask == 0) {
+	if (data.obstacles_collision_enabled == false) {
 		return;
 	}
 
@@ -851,6 +851,12 @@ void InteractiveGrid3D::_bind_methods() {
 
 	godot::ClassDB::bind_method(godot::D_METHOD("set_cell_color", "cell_index", "color"), &InteractiveGrid3D::set_cell_color);
 
+	godot::ClassDB::bind_method(godot::D_METHOD("set_obstacles_collision_enabled", "mask"), &InteractiveGrid3D::set_obstacles_collision_enabled);
+	godot::ClassDB::bind_method(godot::D_METHOD("get_obstacles_collision_enabled"), &InteractiveGrid3D::get_obstacles_collision_enabled);
+
+	godot::ClassDB::bind_method(godot::D_METHOD("set_floor_collision_enabled", "mask"), &InteractiveGrid3D::set_floor_collision_enabled);
+	godot::ClassDB::bind_method(godot::D_METHOD("get_floor_collision_enabled"), &InteractiveGrid3D::get_floor_collision_enabled);
+
 	godot::ClassDB::bind_method(godot::D_METHOD("set_obstacles_collision_mask", "mask"), &InteractiveGrid3D::set_obstacles_collision_mask);
 	godot::ClassDB::bind_method(godot::D_METHOD("get_obstacles_collision_mask"), &InteractiveGrid3D::get_obstacles_collision_mask);
 
@@ -890,6 +896,8 @@ void InteractiveGrid3D::_bind_methods() {
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::COLOR, "color_hovered"), "set_hovered_color", "get_hovered_color");
 
 	ADD_GROUP("Collision", "collision_");
+	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::BOOL, "collision_obstacles_enabled"), "set_obstacles_collision_enabled", "get_obstacles_collision_enabled");
+	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::BOOL, "collision_floor_enabled"), "set_floor_collision_enabled", "get_floor_collision_enabled");
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::INT, "collision_obstacles_mask", godot::PROPERTY_HINT_LAYERS_3D_PHYSICS), "set_obstacles_collision_mask", "get_obstacles_collision_mask");
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::INT, "collision_floor_mask", godot::PROPERTY_HINT_LAYERS_3D_PHYSICS), "set_floor_collision_mask", "get_floor_collision_mask");
 
@@ -1642,7 +1650,26 @@ void InteractiveGrid3D::set_cell_color(int p_cell_index, const godot::Color &p_c
 	}
 }
 
+void InteractiveGrid3D::set_obstacles_collision_enabled(bool p_enabled) {
+	_delete();
+	data.obstacles_collision_enabled = p_enabled;
+}
+
+bool InteractiveGrid3D::get_obstacles_collision_enabled() const {
+	return data.obstacles_collision_enabled;
+}
+
+void InteractiveGrid3D::set_floor_collision_enabled(bool p_enabled){
+	_delete();
+	data.floor_collision_enabled = p_enabled;
+}
+
+bool InteractiveGrid3D::get_floor_collision_enabled() const {
+	return data.floor_collision_enabled;
+}
+
 void InteractiveGrid3D::set_obstacles_collision_mask(int p_mask) {
+	_delete();
 	data.obstacles_collision_mask = p_mask;
 }
 
@@ -1651,6 +1678,7 @@ int InteractiveGrid3D::get_obstacles_collision_mask() {
 }
 
 void InteractiveGrid3D::set_floor_collision_mask(int p_mask) {
+	_delete();
 	data.floor_collision_mask = p_mask;
 }
 
