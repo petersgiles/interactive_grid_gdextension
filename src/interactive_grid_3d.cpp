@@ -1592,6 +1592,7 @@ void InteractiveGrid3D::reset_cells_state() {
 			clear_all_custom_cell_data(index);
 			data.cells.write[index]->flags = 0;
 			set_cell_accessible(index, true);
+			set_cell_reachable(index, true);
 		}
 	}
 
