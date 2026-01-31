@@ -412,7 +412,6 @@ void InteractiveGrid3D::_breadth_first_search(int p_start_cell_index) {
 	for (int index = 0; index < grid_size; index++) {
 		graph.write[index].is_accessible = is_cell_accessible(index);
 		graph.write[index].is_reachable = is_cell_reachable(index);
-		graph.write[index].is_reachable = is_cell_reachable(index);
 		graph.write[index].neighbors = get_neighbors(index);
 	}
 
