@@ -79,10 +79,19 @@ cell_size = Vector2(2, 1.732)
 cell_mesh = SubResource("CylinderMesh_788fa")
 cell_shape = SubResource("CylinderShape3D_8u2o4")
 cell_shape_offset = Vector3(0, 3, 0)
-custom_cells_data = [SubResource("CustomCellData_8u2o4"), SubResource("CustomCellData_2008n"), SubResource("CustomCellData_7d7wc"), SubResource("CustomCellData_k2v5m")]
-material_override = SubResource("ShaderMaterial_8u2o4")
 layout = 1
 movement = 1
+custom_cells_data = [SubResource("CustomCellData_8u2o4"), SubResource("CustomCellData_2008n"), SubResource("CustomCellData_7d7wc"), SubResource("CustomCellData_k2v5m")]
+material_override = SubResource("ShaderMaterial_8u2o4")
+color_accessible = Color(0.5037436, 0.65658814, 1, 1)
+color_unaccessible = Color(1, 0.14117648, 0.21176471, 1)
+color_selected = Color(6.3532593e-06, 0.7375326, 0.99917585, 1)
+color_path = Color(1, 1, 0.50980395, 1)
+color_hovered = Color(1, 0.6627451, 0.16470589, 1)
+collision_obstacles_mask = 8192
+collision_floor_mask = 16384
+debug_logs_enabled = true
+debug_execution_time_enabled = true
 script = ExtResource("3_j7dk7")
 
 [node name="DebugCollisionShapeArea3D" type="Area3D" parent="."]

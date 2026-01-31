@@ -13,11 +13,10 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 		move_and_slide()
 
-func move_to(global_position: Vector3)-> void:
+func move_to(p_global_position: Vector3)-> void:
 	var pawn_global_position:Vector3 = self.global_position
-	var target_global_position: Vector3 = Vector3(global_position.x, pawn_global_position.y, global_position.z)
+	var target_global_position: Vector3 = Vector3(p_global_position.x, pawn_global_position.y, p_global_position.z)
 	var direction:Vector3 = (target_global_position - pawn_global_position).normalized()
-	var distance_to_target: float = pawn_global_position.distance_to(target_global_position)
 
 	self.velocity = direction * SPEED
 

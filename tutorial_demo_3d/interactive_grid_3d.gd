@@ -39,7 +39,7 @@ func show_grid():
 	if _pawn == null:
 		return
 
-	if not self.is_grid_created():
+	if not self.is_created():
 		return
 				
 	print("show_grid")
@@ -94,7 +94,7 @@ func _input(event):
 			if selected_cells.is_empty():
 				return
 
-			var pawn_current_cell_index: int = self.get_cell_index_from_global_position(self.get_center_global_position())
+			var pawn_current_cell_index: int = self.get_cell_index_from_global_position(self.global_position)
 			self.set_cell_accessible(pawn_current_cell_index, true)
 			_path = self.get_path(pawn_current_cell_index, selected_cells[0])
 			print("Last selected cell:", self.get_latest_selected())
@@ -110,12 +110,12 @@ func move_along_path(path: PackedInt64Array)-> void:
 	var target_cell_index: int = path[0]
 	var target_global_position: Vector3 = get_cell_global_position(target_cell_index)
 	if not is_on_target_cell(_pawn.global_position, target_global_position, 0.20):
-		reaching_cell_target(target_cell_index, path)
+		reaching_cell_target(target_cell_index)
 	else:
 		target_cell_reached()
 
 
-func reaching_cell_target(target_cell_index: int, path: PackedInt64Array) -> void:
+func reaching_cell_target(target_cell_index: int) -> void:
 	if _path.size() > 0:
 		var target_cell_global_position: Vector3 = self.get_cell_global_position(target_cell_index)
 		if _pawn.has_method("move_to"):
