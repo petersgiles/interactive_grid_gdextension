@@ -1359,7 +1359,8 @@ godot::Transform3D InteractiveGrid3D::get_cell_transform(int p_cell_index) const
 }
 
 godot::Transform3D InteractiveGrid3D::get_cell_global_transform(int p_cell_index) const {
-	return data.cells[p_cell_index]->global_xform;
+	godot::Transform3D global_xform = data.multimesh_instance->get_global_transform() * data.cells[p_cell_index]->local_xform;
+	return global_xform;
 }
 
 void InteractiveGrid3D::center(godot::Vector3 p_center_position) {
