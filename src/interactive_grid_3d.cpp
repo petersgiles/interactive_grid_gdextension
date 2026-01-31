@@ -818,6 +818,7 @@ void InteractiveGrid3D::_bind_methods() {
 
 	godot::ClassDB::bind_method(godot::D_METHOD("center", "center_position"), &InteractiveGrid3D::center);
 	godot::ClassDB::bind_method(godot::D_METHOD("update_custom_data"), &InteractiveGrid3D::update_custom_data);
+	godot::ClassDB::bind_method(godot::D_METHOD("get_cell_position", "cell_index"), &InteractiveGrid3D::get_cell_position);
 	godot::ClassDB::bind_method(godot::D_METHOD("get_cell_global_position", "cell_index"), &InteractiveGrid3D::get_cell_global_position);
 	godot::ClassDB::bind_method(godot::D_METHOD("get_cell_index_from_global_position", "global_position"), &InteractiveGrid3D::get_cell_index_from_global_position);
 	godot::ClassDB::bind_method(godot::D_METHOD("get_cell_transform", "cell_index"), &InteractiveGrid3D::get_cell_transform);
@@ -1257,6 +1258,10 @@ void InteractiveGrid3D::highlight_path(const godot::PackedInt64Array &p_path) {
 			_set_cell_on_path(cell_index, true);
 		}
 	}
+}
+
+godot::Vector3 InteractiveGrid3D::get_cell_position(int p_cell_index) const {
+	return data.multimesh->get_instance_transform(p_cell_index).origin;
 }
 
 godot::Vector3 InteractiveGrid3D::get_cell_global_position(int p_cell_index) const {
