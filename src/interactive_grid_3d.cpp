@@ -718,9 +718,7 @@ void InteractiveGrid3D::_apply_material(const godot::Ref<godot::Material> &p_mat
 }
 
 void InteractiveGrid3D::_set_cell_in_void(int p_cell_index, bool p_is_in_void) {
-	if (is_cell_index_out_of_bounds(__FILE__, __FUNCTION__, __LINE__, p_cell_index)) {
-		return;
-	}
+	ERR_FAIL_COND_MSG(p_cell_index >= get_size(), "Cell index out of bounds");
 
 	if (p_is_in_void) {
 		data.cells.write[p_cell_index]->flags |= CFL_IN_VOID;
@@ -731,9 +729,7 @@ void InteractiveGrid3D::_set_cell_in_void(int p_cell_index, bool p_is_in_void) {
 }
 
 void InteractiveGrid3D::_set_cell_hovered(int p_cell_index, bool p_is_hovered) {
-	if (is_cell_index_out_of_bounds(__FILE__, __FUNCTION__, __LINE__, p_cell_index)) {
-		return;
-	}
+	ERR_FAIL_COND_MSG(p_cell_index >= get_size(), "Cell index out of bounds");
 
 	if (p_is_hovered) {
 		data.cells.write[p_cell_index]->flags |= CFL_HOVERED;
@@ -744,9 +740,7 @@ void InteractiveGrid3D::_set_cell_hovered(int p_cell_index, bool p_is_hovered) {
 }
 
 void InteractiveGrid3D::_set_cell_selected(int p_cell_index, bool p_is_selected) {
-	if (is_cell_index_out_of_bounds(__FILE__, __FUNCTION__, __LINE__, p_cell_index)) {
-		return;
-	}
+	ERR_FAIL_COND_MSG(p_cell_index >= get_size(), "Cell index out of bounds");
 
 	if (p_is_selected) {
 		data.cells.write[p_cell_index]->flags |= CFL_SELECTED;
@@ -757,9 +751,7 @@ void InteractiveGrid3D::_set_cell_selected(int p_cell_index, bool p_is_selected)
 }
 
 void InteractiveGrid3D::_set_cell_on_path(int p_cell_index, bool p_is_on_path) {
-	if (is_cell_index_out_of_bounds(__FILE__, __FUNCTION__, __LINE__, p_cell_index)) {
-		return;
-	}
+	ERR_FAIL_COND_MSG(p_cell_index >= get_size(), "Cell index out of bounds");
 
 	if (p_is_on_path) {
 		data.cells.write[p_cell_index]->flags |= CFL_PATH;
@@ -1070,9 +1062,7 @@ godot::Array InteractiveGrid3D::get_custom_cells_data() const {
 }
 
 void InteractiveGrid3D::add_custom_cell_data(int p_cell_index, godot::String p_custom_data_name) {
-	if (is_cell_index_out_of_bounds(__FILE__, __FUNCTION__, __LINE__, p_cell_index)) {
-		return;
-	}
+	ERR_FAIL_COND_MSG(p_cell_index >= get_size(), "Cell index out of bounds");
 
 	godot::Ref<CustomCellData> custom_cell_data;
 
@@ -1100,9 +1090,7 @@ void InteractiveGrid3D::add_custom_cell_data(int p_cell_index, godot::String p_c
 }
 
 bool InteractiveGrid3D::has_custom_cell_data(int p_cell_index, godot::String p_custom_data_name) {
-	if (is_cell_index_out_of_bounds(__FILE__, __FUNCTION__, __LINE__, p_cell_index)) {
-		return false;
-	}
+	ERR_FAIL_COND_V_MSG(p_cell_index >= get_size(), false, "Cell index out of bounds");
 
 	godot::Ref<CustomCellData> custom_cell_data;
 
@@ -1130,9 +1118,7 @@ bool InteractiveGrid3D::has_custom_cell_data(int p_cell_index, godot::String p_c
 }
 
 void InteractiveGrid3D::clear_custom_cell_data(int p_cell_index, godot::String p_custom_data_name, bool p_clear_custom_color) {
-	if (is_cell_index_out_of_bounds(__FILE__, __FUNCTION__, __LINE__, p_cell_index)) {
-		return;
-	}
+	ERR_FAIL_COND_MSG(p_cell_index >= get_size(), "Cell index out of bounds");
 
 	godot::Ref<CustomCellData> custom_cell_data;
 
@@ -1160,9 +1146,7 @@ void InteractiveGrid3D::clear_custom_cell_data(int p_cell_index, godot::String p
 }
 
 void InteractiveGrid3D::clear_all_custom_cell_data(int p_cell_index) {
-	if (is_cell_index_out_of_bounds(__FILE__, __FUNCTION__, __LINE__, p_cell_index)) {
-		return;
-	}
+	ERR_FAIL_COND_MSG(p_cell_index >= get_size(), "Cell index out of bounds");
 
 	data.cells.write[p_cell_index]->flags &= ~data.cells[p_cell_index]->custom_flags;
 	data.cells.write[p_cell_index]->custom_flags = 0;
@@ -1463,9 +1447,7 @@ void InteractiveGrid3D::update_custom_data() {
 }
 
 void InteractiveGrid3D::compute_unreachable_cells(int p_start_cell_index) {
-	if (is_cell_index_out_of_bounds(__FILE__, __FUNCTION__, __LINE__, p_start_cell_index)) {
-		return;
-	}
+	ERR_FAIL_COND_MSG(p_start_cell_index >= get_size(), "Cell index out of bounds");
 
 	auto start = std::chrono::high_resolution_clock::now();
 
@@ -1484,9 +1466,7 @@ void InteractiveGrid3D::compute_unreachable_cells(int p_start_cell_index) {
 }
 
 void InteractiveGrid3D::hide_distant_cells(int p_start_cell_index, float p_distance) {
-	if (is_cell_index_out_of_bounds(__FILE__, __FUNCTION__, __LINE__, p_start_cell_index)) {
-		return;
-	}
+	ERR_FAIL_COND_MSG(p_start_cell_index >= get_size(), "Cell index out of bounds");
 
 	if ((is_visible()) && !(data.flags & GFL_CELL_DISTANT_HIDDEN)) {
 		for (int row = 0; row < data.rows; row++) {
@@ -1532,37 +1512,42 @@ bool InteractiveGrid3D::is_centered() const {
 }
 
 bool InteractiveGrid3D::is_cell_accessible(int p_cell_index) const {
+	ERR_FAIL_COND_V_MSG(p_cell_index >= get_size(), false, "Cell index out of bounds");
 	return (data.cells[p_cell_index]->flags & CFL_ACCESSIBLE) != 0;
 }
 
 bool InteractiveGrid3D::is_cell_reachable(int p_cell_index) const {
+	ERR_FAIL_COND_V_MSG(p_cell_index >= get_size(), false, "Cell index out of bounds");
 	return (data.cells[p_cell_index]->flags & CFL_REACHABLE) != 0;
 }
 
 bool InteractiveGrid3D::is_cell_in_void(int p_cell_index) const {
+	ERR_FAIL_COND_V_MSG(p_cell_index >= get_size(), false, "Cell index out of bounds");
 	return (data.cells[p_cell_index]->flags & CFL_IN_VOID) != 0;
 }
 
 bool InteractiveGrid3D::is_cell_hovered(int p_cell_index) const {
+	ERR_FAIL_COND_V_MSG(p_cell_index >= get_size(), false, "Cell index out of bounds");
 	return (data.cells[p_cell_index]->flags & CFL_HOVERED) != 0;
 }
 
 bool InteractiveGrid3D::is_cell_selected(int p_cell_index) const {
+	ERR_FAIL_COND_V_MSG(p_cell_index >= get_size(), false, "Cell index out of bounds");
 	return (data.cells[p_cell_index]->flags & CFL_SELECTED) != 0;
 }
 
 bool InteractiveGrid3D::is_cell_on_path(int p_cell_index) const {
+	ERR_FAIL_COND_V_MSG(p_cell_index >= get_size(), false, "Cell index out of bounds");
 	return (data.cells[p_cell_index]->flags & CFL_PATH) != 0;
 }
 
 bool InteractiveGrid3D::is_cell_visible(int p_cell_index) const {
+	ERR_FAIL_COND_V_MSG(p_cell_index >= get_size(), false, "Cell index out of bounds");
 	return (data.cells[p_cell_index]->flags & CFL_VISIBLE) != 0;
 }
 
 void InteractiveGrid3D::set_cell_accessible(int p_cell_index, bool p_is_accessible) {
-	if (is_cell_index_out_of_bounds(__FILE__, __FUNCTION__, __LINE__, p_cell_index)) {
-		return;
-	}
+	ERR_FAIL_COND_MSG(p_cell_index >= get_size(), "Cell index out of bounds");
 
 	if (p_is_accessible) {
 		data.cells.write[p_cell_index]->flags |= CFL_ACCESSIBLE;
@@ -1574,9 +1559,7 @@ void InteractiveGrid3D::set_cell_accessible(int p_cell_index, bool p_is_accessib
 }
 
 void InteractiveGrid3D::set_cell_reachable(int p_cell_index, bool p_is_reachable) {
-	if (is_cell_index_out_of_bounds(__FILE__, __FUNCTION__, __LINE__, p_cell_index)) {
-		return;
-	}
+	ERR_FAIL_COND_MSG(p_cell_index >= get_size(), "Cell index out of bounds");
 
 	if (p_is_reachable) {
 		data.cells.write[p_cell_index]->flags |= CFL_REACHABLE;
@@ -1587,9 +1570,7 @@ void InteractiveGrid3D::set_cell_reachable(int p_cell_index, bool p_is_reachable
 }
 
 void InteractiveGrid3D::set_cell_visible(int p_cell_index, bool p_is_visible) {
-	if (is_cell_index_out_of_bounds(__FILE__, __FUNCTION__, __LINE__, p_cell_index)) {
-		return;
-	}
+	ERR_FAIL_COND_MSG(p_cell_index >= get_size(), "Cell index out of bounds");
 
 	godot::Color current_cell_color = data.cells[p_cell_index]->color;
 
@@ -1626,9 +1607,7 @@ void InteractiveGrid3D::reset_cells_state() {
 }
 
 void InteractiveGrid3D::set_cell_color(int p_cell_index, const godot::Color &p_color) {
-	if (is_cell_index_out_of_bounds(__FILE__, __FUNCTION__, __LINE__, p_cell_index)) {
-		return;
-	}
+	ERR_FAIL_COND_MSG(p_cell_index >= get_size(), "Cell index out of bounds");
 
 	if (data.material_override.is_valid()) {
 		uint32_t cell_flags = data.cells[p_cell_index]->flags;
@@ -1664,9 +1643,9 @@ void InteractiveGrid3D::select_cell(int p_cell_index) {
 
 	if (p_cell_index == -1) {
 		return;
-	} else if (is_cell_index_out_of_bounds(__FILE__, __FUNCTION__, __LINE__, p_cell_index)) {
-		return;
 	}
+
+	ERR_FAIL_COND_MSG(p_cell_index >= get_size(), "Cell index out of bounds");
 
 	bool visible = is_cell_visible(p_cell_index);
 	if (!visible) {
@@ -1733,18 +1712,6 @@ void InteractiveGrid3D::set_print_execution_time_enabled(bool p_enabled) {
 
 bool InteractiveGrid3D::is_print_execution_time_enabled() const {
 	return _debug_options.print_execution_time_enabled;
-}
-
-bool InteractiveGrid3D::is_cell_index_out_of_bounds(const godot::String &p_file, const godot::String &p_func, int p_line, int p_cell_index) {
-	bool is_out_of_bounds = false;
-	unsigned int grid_size = data.rows * data.columns;
-
-	if (p_cell_index >= (grid_size)) {
-		PrintError(p_file, p_func, p_line, "Cell index out of bounds: ", p_cell_index, " >= ", (grid_size));
-		is_out_of_bounds = true;
-	}
-
-	return is_out_of_bounds;
 }
 
 InteractiveGrid3D::InteractiveGrid3D() {}

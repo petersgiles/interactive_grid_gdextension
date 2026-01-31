@@ -287,8 +287,6 @@ public:
 	void set_print_execution_time_enabled(bool p_enabled);
 	bool is_print_execution_time_enabled() const;
 
-	bool is_cell_index_out_of_bounds(const godot::String &p_file, const godot::String &p_func, int p_line, int p_cell_index);
-
 	InteractiveGrid3D();
 	~InteractiveGrid3D();
 };
