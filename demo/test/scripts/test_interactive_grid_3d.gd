@@ -12,7 +12,7 @@ func before_each()->void:
 	interactive_grid_3d = test_scene.get_node("InteractiveGrid3D") as InteractiveGrid3D
 	assert_not_null(interactive_grid_3d, "InteractiveGrid3D node should exist")
 	
-	while not interactive_grid_3d.is_grid_created():
+	while not interactive_grid_3d.is_created():
 		await get_tree().process_frame
 	await wait_seconds(0.25)
 	
@@ -30,7 +30,7 @@ func test_add_custom_cell_data():
 	
 func test_center():
 	interactive_grid_3d.center(Vector3(-10.0,0.0,-10.0))
-	var center_global_position: Vector3 = interactive_grid_3d.get_center_global_position()
+	var center_global_position: Vector3 = interactive_grid_3d.global_position
 	assert_eq(center_global_position, Vector3(-10.0,0.0,-10.0), "Grid center global position should match the given position")
 	
 	
@@ -73,7 +73,7 @@ func test_get_cell_index_from_global_position():
 	
 func test_center_global_position():
 	interactive_grid_3d.center(Vector3(-10.0,0.0,-10.0))
-	assert_eq(interactive_grid_3d.get_center_global_position(), Vector3(-10.0,0.0,-10.0), "Grid center global position should match the given position")
+	assert_eq(interactive_grid_3d.global_position, Vector3(-10.0,0.0,-10.0), "Grid center global position should match the given position")
 	
 	
 func test_grid_visible():
@@ -136,6 +136,7 @@ func test_highlight_on_hover():
 func test_highlight_path():
 	var path : PackedInt64Array = [0, 9, 10, 19, 28, 29, 30, 39, 40, 49]
 	interactive_grid_3d.highlight_path(path)
+	assert_same(Color("90ee90"), interactive_grid_3d.get_cell_color(30), "Cell 40 color should match the assigned value Color(0, 1, 1)")
 	
 	
 func test_is_cell_accessible():
@@ -162,8 +163,8 @@ func test_is_cell_visible():
 	assert_true(interactive_grid_3d.is_cell_visible(0), "Cell 0 should be visible")
 	
 	
-func test_is_grid_created():
-	assert_true(interactive_grid_3d.is_grid_created(), "Grid should be created")
+func test_is_created():
+	assert_true(interactive_grid_3d.is_created(), "Grid should be created")
 	
 	
 func test_is_hover_enabled():
@@ -187,6 +188,7 @@ func test_set_cell_accesible():
 	
 func test_set_cell_color():
 	interactive_grid_3d.set_cell_color(40, Color(0.0, 1.0, 1.0))
+	assert_same(Color(0.0, 1.0, 1.0), interactive_grid_3d.get_cell_color(40), "Cell 40 color should match the assigned value Color(0, 1, 1)")
 	
 	
 func test_set_cell_reachable():
@@ -204,3 +206,8 @@ func test_set_hover_enabled():
 	
 func test_update_custom_data(): # TODO
 	pass
+
+
+func test_set_obstacles_collision_enabled():
+	interactive_grid_3d.set_obstacles_collision_enabled(false)
+	assert_false(interactive_grid_3d.get_obstacles_collision_enabled(), "obstacles_enabled should be disabled")

@@ -47,14 +47,11 @@ environment = SubResource("Environment_yxy7d")
 [node name="InteractiveGrid3D" type="InteractiveGrid3D" parent="."]
 cell_mesh = SubResource("BoxMesh_efabr")
 cell_shape = SubResource("BoxShape3D_efabr")
-accessible_color = Color(1, 1, 0, 1)
-unaccessible_color = Color(1, 0.36078432, 0.36078432, 1)
-selected_color = Color(0, 0, 1, 1)
-path_color = Color(0, 0.98039216, 0, 1)
-hovered_color = Color(0.8637763, 0.00079357985, 0.8959852, 1)
 custom_cells_data = [SubResource("CustomCellData_efabr")]
-print_logs_enabled = true
-print_execution_time_enabled = true
+collision_obstacles_mask = 8192
+collision_floor_mask = 16384
+debug_logs_enabled = true
+debug_execution_time_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.7071068, -0.5, 0.5, 0, 0.7071068, 0.70710677, -0.7071068, -0.5, 0.5, 9, 15, 9)
