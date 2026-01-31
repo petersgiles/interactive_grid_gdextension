@@ -872,17 +872,19 @@ void InteractiveGrid3D::_bind_methods() {
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::OBJECT, "cell_shape", godot::PROPERTY_HINT_RESOURCE_TYPE, "Shape3D"), "set_cell_shape", "get_cell_shape");
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::VECTOR3, "cell_shape_offset"), "set_cell_shape_offset", "get_cell_shape_offset");
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::VECTOR3, "cell_rotation", godot::PROPERTY_HINT_RANGE, "-360,360,0.1,or_less,or_greater,radians_as_degrees", godot::PROPERTY_USAGE_EDITOR), "set_cell_rotation", "get_cell_rotation");
-	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::COLOR, "accessible_color"), "set_accessible_color", "get_accessible_color");
-	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::COLOR, "unaccessible_color"), "set_unaccessible_color", "get_unaccessible_color");
-	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::COLOR, "unreachable_color"), "set_unreachable_color", "get_unreachable_color");
-	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::COLOR, "selected_color"), "set_selected_color", "get_selected_color");
-	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::COLOR, "path_color"), "set_path_color", "get_path_color");
-	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::COLOR, "hovered_color"), "set_hovered_color", "get_hovered_color");
-	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::ARRAY, "custom_cells_data", godot::PROPERTY_HINT_RESOURCE_TYPE, "CustomCellData"), "set_custom_cells_data", "get_custom_cells_data");
-	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::OBJECT, "material_override", godot::PROPERTY_HINT_RESOURCE_TYPE, "Material"), "set_material_override", "get_material_override");
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::INT, "layout", godot::PROPERTY_HINT_ENUM, "SQUARE, HEXAGONAL"), "set_layout", "get_layout");
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::INT, "movement", godot::PROPERTY_HINT_ENUM, "FOUR-DIRECTIONS,SIX-DIRECTIONS,EIGH-DIRECTIONS"), "set_movement", "get_movement");
-	
+	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::ARRAY, "custom_cells_data", godot::PROPERTY_HINT_RESOURCE_TYPE, "CustomCellData"), "set_custom_cells_data", "get_custom_cells_data");
+	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::OBJECT, "material_override", godot::PROPERTY_HINT_RESOURCE_TYPE, "Material"), "set_material_override", "get_material_override");
+
+	ADD_GROUP("Color", "color_");
+	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::COLOR, "color_accessible"), "set_accessible_color", "get_accessible_color");
+	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::COLOR, "color_unaccessible"), "set_unaccessible_color", "get_unaccessible_color");
+	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::COLOR, "color_unreachable"), "set_unreachable_color", "get_unreachable_color");
+	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::COLOR, "color_selected"), "set_selected_color", "get_selected_color");
+	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::COLOR, "color_path"), "set_path_color", "get_path_color");
+	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::COLOR, "color_hovered"), "set_hovered_color", "get_hovered_color");
+
 	ADD_GROUP("Collision", "collision_");
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::INT, "collision_obstacles_mask", godot::PROPERTY_HINT_LAYERS_3D_PHYSICS), "set_obstacles_collision_mask", "get_obstacles_collision_mask");
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::INT, "collision_floor_mask", godot::PROPERTY_HINT_LAYERS_3D_PHYSICS), "set_floor_collision_mask", "get_floor_collision_mask");
