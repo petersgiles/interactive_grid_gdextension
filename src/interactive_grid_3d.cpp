@@ -554,6 +554,10 @@ void InteractiveGrid3D::_scan_environnement_obstacles() {
 		for (int column = 0; column < data.columns; column++) {
 			const int cell_index = row * data.columns + column;
 
+			if (is_cell_in_void(cell_index)) {
+				continue;
+			}
+
 			godot::Transform3D global_xform = data.multimesh_instance->get_global_transform() * data.multimesh->get_instance_transform(cell_index);
 			global_xform.set_origin(global_xform.get_origin() + data.cell_shape_offset);
 			
