@@ -893,8 +893,8 @@ void InteractiveGrid3D::_bind_methods() {
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::COLOR, "color_hovered"), "set_hovered_color", "get_hovered_color");
 
 	ADD_GROUP("Collision", "collision_");
-	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::BOOL, "collision_obstacles_collision_enabled"), "set_obstacles_collision_enabled", "get_obstacles_collision_enabled");
-	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::BOOL, "collision_floor_collision_enabled"), "set_floor_collision_enabled", "get_floor_collision_enabled");
+	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::BOOL, "collision_obstacles_enabled"), "set_obstacles_collision_enabled", "get_obstacles_collision_enabled");
+	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::BOOL, "collision_floor_enabled"), "set_floor_collision_enabled", "get_floor_collision_enabled");
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::INT, "collision_obstacles_mask", godot::PROPERTY_HINT_LAYERS_3D_PHYSICS), "set_obstacles_collision_mask", "get_obstacles_collision_mask");
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::INT, "collision_floor_mask", godot::PROPERTY_HINT_LAYERS_3D_PHYSICS), "set_floor_collision_mask", "get_floor_collision_mask");
 
