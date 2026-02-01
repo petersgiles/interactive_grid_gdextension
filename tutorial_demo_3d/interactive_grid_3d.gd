@@ -94,7 +94,7 @@ func _input(event):
 			if selected_cells.is_empty():
 				return
 
-			var pawn_current_cell_index: int = self.get_cell_index_from_global_position(self.global_position)
+			var pawn_current_cell_index: int = self.get_cell_index_from_global_position(_pawn.global_position)
 			self.set_cell_accessible(pawn_current_cell_index, true)
 			_path = self.get_path(pawn_current_cell_index, selected_cells[0])
 			print("Last selected cell:", self.get_latest_selected())
