@@ -860,7 +860,7 @@ void InteractiveGrid3D::_bind_methods() {
 	godot::ClassDB::bind_method(godot::D_METHOD("set_floor_collision_mask", "mask"), &InteractiveGrid3D::set_floor_collision_mask);
 	godot::ClassDB::bind_method(godot::D_METHOD("get_floor_collision_mask"), &InteractiveGrid3D::get_floor_collision_mask);
 
-	godot::ClassDB::bind_method(godot::D_METHOD("select_cell", "global_position"), &InteractiveGrid3D::select_cell);
+	godot::ClassDB::bind_method(godot::D_METHOD("select_cell", "cell_index"), &InteractiveGrid3D::select_cell);
 	godot::ClassDB::bind_method(godot::D_METHOD("get_selected_cells"), &InteractiveGrid3D::get_selected_cells);
 	godot::ClassDB::bind_method(godot::D_METHOD("get_latest_selected"), &InteractiveGrid3D::get_latest_selected);
 	godot::ClassDB::bind_method(godot::D_METHOD("get_path", "start_cell_index", "target_cell_index"), &InteractiveGrid3D::get_path);
