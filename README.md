@@ -2,7 +2,7 @@
 ![GitHub Downloads](https://img.shields.io/github/downloads/antoinecharruel/interactive_grid_gdextension/total)
 [![Patreon](https://img.shields.io/badge/Patreon-Vivensoft-F96854?logo=patreon&logoColor=white)](https://www.patreon.com/c/vivensoft/)  
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-AntoineCharruel-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/antoinecharruel)
-[![AntoineCharruel on Itch.io](https://img.shields.io/badge/Itch.io-AntoineCharruel-FF5E5B?logo=itch.io&logoColor=white)](https://antoine-charruel.itch.io/)
+[![Vivensoft on Itch.io](https://img.shields.io/badge/Itch.io-Vivensoft-FF5E5B?logo=itch.io&logoColor=white)](https://vivensoft.itch.io/)
 [![Instagram](https://img.shields.io/badge/Instagram-VSFT%20GameDev-E4405F?logo=instagram&logoColor=white)](https://www.instagram.com/vsftgamedev/)
 [![Join the Discord](https://img.shields.io/static/v1?logo=discord&label=Discord&color=7289DA&message=Vivensoft)](https://discord.gg/hZb9PGrrt9)
 [![YouTube](https://img.shields.io/static/v1?logo=youtube&label=YouTube&color=FF0000&message=antoinecharruel)](https://www.youtube.com/@antoinecharruel)
@@ -21,15 +21,13 @@ Note: To use this plugin, simply download it and add the 'addons' folder to your
 
 - Select individual cells.
 
-- Detect obstacles (collision mask configurable from the editor).
+- Detect obstacles.
 
-- Align cells with the floor (collision mask configurable from the editor).
-
-- Hide distant cells to focus on the relevant area.
+- Align cells with the floor.
 
 - Calculate paths from a global position to selected cells using AStar2D.
 
-- Choose movement type: 4 directions, 6 directions, 8 directions, directly from the editor.
+- Choose movement type: 4 directions, 6 directions, 8 directions.
 
 - Customize the grid from the editor: grid size, cell size, mesh, colors, and shaders.
 
@@ -37,21 +35,25 @@ Note: To use this plugin, simply download it and add the 'addons' folder to your
 
 [![](/docs/preview/screenshot_003.png)]()
 
-## Compatibility:
-
-- Fully compatible with Godot 4.5.
-- Cross-platform support (Linux, Windows, macOS, Android, iOS, Web/HTML5).
-
-[![](/docs/youtube/image_with_play_button.png)](https://www.youtube.com/watch?v=L6V0UsJYBfg)
-
-## Try the demo on Itch.io! 🎮
-
 ![](/docs/preview/demo.gif)
 <div style="text-align:center;">
   <a href="https://ahappypapabear.itch.io/interactive-grid-gdextension" target="_blank" style="text-decoration:none;background-color:#28a745;color:white;padding:5px 12px;border-radius:5px;">
     🎮 Play on Itch.io
   </a>
 </div>
+
+[![](/docs/youtube/image_with_play_button.png)](https://www.youtube.com/watch?v=L6V0UsJYBfg)
+
+## Compatibility:
+
+- Fully compatible with Godot 4.5.
+- Cross-platform support (Linux, Windows, macOS, Android, iOS, Web/HTML5).
+
+## Itch.io Page 🎮
+
+[![](/docs/itch_io/full_cover_image.png)](https://vivensoft.itch.io/interactive-grid-gdextension)
+
+[![InteractiveGrid on Itch.io](https://img.shields.io/badge/Itch.io-InteractiveGrid-FF5E5B?logo=itch.io&logoColor=white)](https://vivensoft.itch.io/interactive-grid-gdextension)
 
 ## Online Documentation and Tutorial
 
@@ -103,7 +105,7 @@ func show_grid():
 	if _pawn == null:
 		return
 
-	if not self.is_grid_created():
+	if not self.is_created():
 		return
 				
 	print("show_grid")
@@ -158,7 +160,7 @@ func _input(event):
 			if selected_cells.is_empty():
 				return
 
-			var pawn_current_cell_index: int = self.get_cell_index_from_global_position(self.get_center_global_position())
+			var pawn_current_cell_index: int = self.get_cell_index_from_global_position(_pawn.global_position)
 			self.set_cell_accessible(pawn_current_cell_index, true)
 			_path = self.get_path(pawn_current_cell_index, selected_cells[0])
 			print("Last selected cell:", self.get_latest_selected())
@@ -174,12 +176,12 @@ func move_along_path(path: PackedInt64Array)-> void:
 	var target_cell_index: int = path[0]
 	var target_global_position: Vector3 = get_cell_global_position(target_cell_index)
 	if not is_on_target_cell(_pawn.global_position, target_global_position, 0.20):
-		reaching_cell_target(target_cell_index, path)
+		reaching_cell_target(target_cell_index)
 	else:
 		target_cell_reached()
 
 
-func reaching_cell_target(target_cell_index: int, path: PackedInt64Array) -> void:
+func reaching_cell_target(target_cell_index: int) -> void:
 	if _path.size() > 0:
 		var target_cell_global_position: Vector3 = self.get_cell_global_position(target_cell_index)
 		if _pawn.has_method("move_to"):
@@ -199,7 +201,6 @@ static func is_on_target_cell(current_global_position: Vector3, target_global_po
 
 func set_pawn(pawn: CharacterBody3D):
 	_pawn = pawn
-   
 ```
 
 More information about scripting the interactive 3D grid:  
@@ -306,11 +307,6 @@ For details on customizing shaders for the interactive 3D grid, see:
 
 ![Square layout](/docs/preview/square_layout.png)
 ![Hexagonal layout](/docs/preview/hexagonal_layout.png)
-
-## TODO
-
-- [x] Allow the user to choose custom cell flags: [Add Custom Cell Data](https://antoinecharruel.github.io/godot-gdextension-docs/interactive-grid/tutorial-interactive-grid-3d.html#add-custom-cell-data)
-- [ ] Create InteractiveGrid2D.
 
 ## Need Help, Found an Issue, or Want to Share Your Work? 🛠️🎨
 
