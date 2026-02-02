@@ -88,10 +88,15 @@ void InteractiveGrid3D::_init_multi_mesh() {
 	godot::Transform3D xform;
 	xform.origin = get_global_transform().origin;
 
+	godot::Basis rotation_basis;
+	rotation_basis = rotation_basis.rotated(godot::Vector3(1, 0, 0), data.cell_rotation.x);
+	rotation_basis = rotation_basis.rotated(godot::Vector3(0, 1, 0), data.cell_rotation.y);
+	rotation_basis = rotation_basis.rotated(godot::Vector3(0, 0, 1), data.cell_rotation.z);
+	xform.basis = rotation_basis;
+
 	for (int row = 0; row < data.rows; row++) {
 		for (int column = 0; column < data.columns; column++) {
-			const int index =
-					row * data.columns + column;
+			const int index = row * data.columns + column;
 
 			data.multimesh->set_instance_transform(index, xform);
 			data.multimesh->set_instance_custom_data(index, data.accessible_color);
@@ -150,18 +155,8 @@ void InteractiveGrid3D::_layout_cells_as_square_grid(godot::Vector3 p_center_pos
 			cell_global_pos.z = top_left_global_position.y + row * data.cell_size.y;
 
 			godot::Vector3 cell_pos = cell_global_pos - data.multimesh_instance->get_global_transform().origin;
-			godot::Transform3D cell_transform;
+			godot::Transform3D cell_transform = data.multimesh->get_instance_transform(index);
 			cell_transform.origin = cell_pos;
-
-			cell_transform.basis = data.multimesh->get_instance_transform(index).basis;
-
-			godot::Basis rotation_basis;
-			rotation_basis = rotation_basis.rotated(godot::Vector3(1, 0, 0), data.cell_rotation.x);
-			rotation_basis = rotation_basis.rotated(godot::Vector3(0, 1, 0), data.cell_rotation.y);
-			rotation_basis = rotation_basis.rotated(godot::Vector3(0, 0, 1), data.cell_rotation.z);
-
-			cell_transform.basis = cell_transform.basis * rotation_basis;
-
 			data.multimesh->set_instance_transform(index, cell_transform);
 
 			set_cell_visible(index, true);
@@ -207,7 +202,7 @@ void InteractiveGrid3D::_layout_cells_as_hexagonal_grid(godot::Vector3 p_center_
 			cell_global_pos.z = top_left_global_position.y + (row * data.cell_size.y);
 
 			godot::Vector3 cell_pos = cell_global_pos - data.multimesh_instance->get_global_transform().origin;
-			godot::Transform3D cell_transform;
+			godot::Transform3D cell_transform = data.multimesh->get_instance_transform(index);
 			cell_transform.origin = cell_pos;
 
 			cell_transform.basis = data.multimesh->get_instance_transform(index).basis;
@@ -875,7 +870,7 @@ void InteractiveGrid3D::_bind_methods() {
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::OBJECT, "cell_mesh", godot::PROPERTY_HINT_RESOURCE_TYPE, "Mesh"), "set_cell_mesh", "get_cell_mesh");
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::OBJECT, "cell_shape", godot::PROPERTY_HINT_RESOURCE_TYPE, "Shape3D"), "set_cell_shape", "get_cell_shape");
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::VECTOR3, "cell_shape_offset"), "set_cell_shape_offset", "get_cell_shape_offset");
-	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::VECTOR3, "cell_rotation", godot::PROPERTY_HINT_RANGE, "-360,360,0.1,or_less,or_greater,radians_as_degrees", godot::PROPERTY_USAGE_EDITOR), "set_cell_rotation", "get_cell_rotation");
+	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::VECTOR3, "cell_rotation", godot::PROPERTY_HINT_RANGE, "-360,360,0.1,or_less,or_greater,radians_as_degrees", godot::PROPERTY_USAGE_DEFAULT), "set_cell_rotation", "get_cell_rotation");
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::INT, "layout", godot::PROPERTY_HINT_ENUM, "SQUARE, HEXAGONAL"), "set_layout", "get_layout");
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::INT, "movement", godot::PROPERTY_HINT_ENUM, "FOUR-DIRECTIONS,SIX-DIRECTIONS,EIGH-DIRECTIONS"), "set_movement", "get_movement");
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::ARRAY, "custom_cells_data", godot::PROPERTY_HINT_RESOURCE_TYPE, "CustomCellData"), "set_custom_cells_data", "get_custom_cells_data");
@@ -990,7 +985,7 @@ void InteractiveGrid3D::set_cell_rotation(godot::Vector3 p_rotation) {
 	_delete();
 }
 
-godot::Vector3 InteractiveGrid3D::get_cell_rotation() {
+godot::Vector3 InteractiveGrid3D::get_cell_rotation() const {
 	return data.cell_rotation;
 }
 

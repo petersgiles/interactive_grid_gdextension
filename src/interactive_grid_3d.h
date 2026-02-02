@@ -193,7 +193,7 @@ public:
 	godot::Vector3 get_cell_shape_offset();
 
 	void set_cell_rotation(godot::Vector3 p_rotation);
-	godot::Vector3 get_cell_rotation();
+	godot::Vector3 get_cell_rotation() const;
 
 	void set_layout(Layout p_layout);
 	Layout get_layout() const;
