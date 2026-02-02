@@ -1,12 +1,1 @@
-
-- Add get_cell_position method.
-- Add get_cell_color method.
-- Rename is_grid_created to is_created.
-- Delete get_center_global_position
-- Fix: highlight path only for visible cells.
-- Fix highlight_on_hover, skip if cell is on path.
-- Fix: cell_shape_offset.
-- Fix documentation.
-- Organize colors properties into a group.
-- Organize collisions properties into a group.
-- Organize debug properties into a group.
+- Fix: Cell rotation property is now properly saved and no longer resets to default when restarting the editor or launching the scene.
