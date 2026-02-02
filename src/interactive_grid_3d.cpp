@@ -118,6 +118,9 @@ void InteractiveGrid3D::_layout(godot::Vector3 p_center_position) {
 		return;
 	}
 
+	set_global_position(p_center_position);
+	data.last_position = data.multimesh_instance->get_global_transform().origin;
+
 	switch (data.layout_index) {
 		case Layout::LAYOUT_SQUARE:
 			_layout_cells_as_square_grid(p_center_position);
@@ -129,9 +132,6 @@ void InteractiveGrid3D::_layout(godot::Vector3 p_center_position) {
 }
 
 void InteractiveGrid3D::_layout_cells_as_square_grid(godot::Vector3 p_center_position) {
-	set_global_position(p_center_position);
-	data.last_position = data.multimesh_instance->get_global_transform().origin;
-
 	godot::Vector2 center_to_edge;
 	center_to_edge.x = (data.columns / 2) * data.cell_size.x;
 	center_to_edge.y = (data.rows / 2) * data.cell_size.y;
@@ -174,9 +174,6 @@ void InteractiveGrid3D::_layout_cells_as_square_grid(godot::Vector3 p_center_pos
 }
 
 void InteractiveGrid3D::_layout_cells_as_hexagonal_grid(godot::Vector3 p_center_position) {
-	set_global_position(p_center_position);
-	data.last_position = data.multimesh_instance->get_global_transform().origin;
-
 	const float hex_short_diagonal = data.cell_size.x; // s = a · √3
 	const float hex_side_length = hex_short_diagonal / sqrt(3); // a = s / √3.
 	const float hex_side_to_side = data.cell_size.x / 2;
