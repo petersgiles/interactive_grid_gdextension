@@ -51,7 +51,7 @@ Note: To use this plugin, simply download it and add the 'addons' folder to your
 
 ## Itch.io Page 🎮
 
-[![](/docs/itch_io/full_cover_image.png)](https://vivensoft.itch.io/interactive-grid-gdextension)
+[![](docs/itch_io/logo/logo.png)](https://vivensoft.itch.io/interactive-grid-gdextension)
 
 [![InteractiveGrid on Itch.io](https://img.shields.io/badge/Itch.io-InteractiveGrid-FF5E5B?logo=itch.io&logoColor=white)](https://vivensoft.itch.io/interactive-grid-gdextension)
 
