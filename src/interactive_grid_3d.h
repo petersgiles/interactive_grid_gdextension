@@ -113,12 +113,12 @@ private:
 		godot::Array selected_cells;
 		int hovered_cell_index = -1;
 
-		godot::Color accessible_color{ godot::Color(1.0, 1.0, 1.0, 1.0) };
-		godot::Color unaccessible_color{ godot::Color(1.0, 1.0, 1.0, 1.0) };
-		godot::Color unreachable_color{ godot::Color(1.0, 1.0, 1.0, 1.0) };
-		godot::Color selected_color{ godot::Color(1.0, 1.0, 1.0, 1.0) };
-		godot::Color path_color{ godot::Color(1.0, 1.0, 1.0, 1.0) };
-		godot::Color hovered_color{ godot::Color(1.0, 1.0, 1.0, 1.0) };
+		godot::Color accessible_color{ godot::Color(1.0f, 1.0f, 1.0f, 1.0f) };
+		godot::Color unaccessible_color{ godot::Color(1.0f, 1.0f, 1.0f, 1.0f) };
+		godot::Color unreachable_color{ godot::Color(1.0f, 1.0f, 1.0f, 1.0f) };
+		godot::Color selected_color{ godot::Color(1.0f, 1.0f, 1.0f, 1.0f) };
+		godot::Color path_color{ godot::Color(1.0f, 1.0f, 1.0, 1.0f) };
+		godot::Color hovered_color{ godot::Color(1.0f, 1.0f, 1.0f, 1.0f) };
 
 		godot::Ref<godot::Material> material_override;
 
