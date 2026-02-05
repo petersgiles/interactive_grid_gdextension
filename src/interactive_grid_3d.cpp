@@ -818,8 +818,6 @@ void InteractiveGrid3D::_bind_methods() {
 	godot::ClassDB::bind_method(godot::D_METHOD("compute_unreachable_cells", "start_cell_index"), &InteractiveGrid3D::compute_unreachable_cells);
 	godot::ClassDB::bind_method(godot::D_METHOD("hide_distant_cells", "start_cell_index", "distance"), &InteractiveGrid3D::hide_distant_cells);
 
-	godot::ClassDB::bind_method(godot::D_METHOD("reset_cells_state"), &InteractiveGrid3D::reset_cells_state);
-
 	godot::ClassDB::bind_method(godot::D_METHOD("is_created"), &InteractiveGrid3D::is_created);
 	godot::ClassDB::bind_method(godot::D_METHOD("is_centered"), &InteractiveGrid3D::is_centered);
 	godot::ClassDB::bind_method(godot::D_METHOD("is_cell_accessible", "cell_index"), &InteractiveGrid3D::is_cell_accessible);
