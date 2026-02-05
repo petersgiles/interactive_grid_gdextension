@@ -1697,7 +1697,7 @@ void InteractiveGrid3D::select_cell(int p_cell_index) {
 	}
 }
 
-godot::Array InteractiveGrid3D::get_selected_cells() {
+godot::Array InteractiveGrid3D::get_selected_cells() const {
 	return data.selected_cells;
 }
 

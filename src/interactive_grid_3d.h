@@ -282,7 +282,7 @@ public:
 	int get_floor_collision_mask() const;
 
 	void select_cell(int p_cell_index);
-	godot::Array get_selected_cells();
+	godot::Array get_selected_cells() const;
 	int get_latest_selected() const;
 	godot::PackedInt64Array get_path(int p_start_cell_index, int p_target_cell_index) const;
 	godot::Array get_neighbors(int p_cell_index) const;
