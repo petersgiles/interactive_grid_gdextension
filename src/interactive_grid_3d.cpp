@@ -1656,7 +1656,7 @@ void InteractiveGrid3D::set_obstacles_collision_mask(int p_mask) {
 	data.obstacles_collision_mask = p_mask;
 }
 
-int InteractiveGrid3D::get_obstacles_collision_mask() {
+int InteractiveGrid3D::get_obstacles_collision_mask() const {
 	return data.obstacles_collision_mask;
 }
 
@@ -1665,7 +1665,7 @@ void InteractiveGrid3D::set_floor_collision_mask(int p_mask) {
 	data.floor_collision_mask = p_mask;
 }
 
-int InteractiveGrid3D::get_floor_collision_mask() {
+int InteractiveGrid3D::get_floor_collision_mask() const {
 	return data.floor_collision_mask;
 }
 

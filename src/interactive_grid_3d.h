@@ -276,10 +276,10 @@ public:
 	bool get_floor_collision_enabled() const;
 
 	void set_obstacles_collision_mask(int p_mask);
-	int get_obstacles_collision_mask();
+	int get_obstacles_collision_mask() const;
 
 	void set_floor_collision_mask(int p_mask);
-	int get_floor_collision_mask();
+	int get_floor_collision_mask() const;
 
 	void select_cell(int p_cell_index);
 	godot::Array get_selected_cells();
