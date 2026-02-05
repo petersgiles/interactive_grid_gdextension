@@ -96,13 +96,13 @@ void InteractiveGrid3D::_init_multi_mesh() {
 
 	for (int row = 0; row < data.rows; row++) {
 		for (int column = 0; column < data.columns; column++) {
-			const int index = row * data.columns + column;
+			const int cell_index = row * data.columns + column;
 
-			data.multimesh->set_instance_transform(index, xform);
-			data.multimesh->set_instance_custom_data(index, data.accessible_color);
+			data.multimesh->set_instance_transform(cell_index, xform);
+			data.multimesh->set_instance_custom_data(cell_index, data.accessible_color);
 
 			data.cells.push_back(new Cell);
-			data.cells.write[index]->index = index;
+			data.cells.write[cell_index]->index = cell_index;
 		}
 	}
 
@@ -147,7 +147,7 @@ void InteractiveGrid3D::_layout_cells_as_square_grid(godot::Vector3 p_center_pos
 
 	for (int row = 0; row < data.rows; row++) {
 		for (int column = 0; column < data.columns; column++) {
-			const int index = row * data.columns + column;
+			const int cell_index = row * data.columns + column;
 
 			godot::Vector3 cell_global_pos;
 			cell_global_pos.x = top_left_global_position.x + column * data.cell_size.x;
@@ -155,11 +155,11 @@ void InteractiveGrid3D::_layout_cells_as_square_grid(godot::Vector3 p_center_pos
 			cell_global_pos.z = top_left_global_position.y + row * data.cell_size.y;
 
 			godot::Vector3 cell_pos = cell_global_pos - data.multimesh_instance->get_global_transform().origin;
-			godot::Transform3D cell_transform = data.multimesh->get_instance_transform(index);
+			godot::Transform3D cell_transform = data.multimesh->get_instance_transform(cell_index);
 			cell_transform.origin = cell_pos;
-			data.multimesh->set_instance_transform(index, cell_transform);
+			data.multimesh->set_instance_transform(cell_index, cell_transform);
 
-			set_cell_visible(index, true);
+			set_cell_visible(cell_index, true);
 		}
 	}
 
@@ -188,7 +188,7 @@ void InteractiveGrid3D::_layout_cells_as_hexagonal_grid(godot::Vector3 p_center_
 
 	for (int row = 0; row < data.rows; row++) {
 		for (int column = 0; column < data.columns; column++) {
-			const int index = row * data.columns + column;
+			const int cell_index = row * data.columns + column;
 
 			godot::Vector3 cell_global_pos;
 
@@ -202,11 +202,11 @@ void InteractiveGrid3D::_layout_cells_as_hexagonal_grid(godot::Vector3 p_center_
 			cell_global_pos.z = top_left_global_position.y + (row * data.cell_size.y);
 
 			godot::Vector3 cell_pos = cell_global_pos - data.multimesh_instance->get_global_transform().origin;
-			godot::Transform3D cell_transform = data.multimesh->get_instance_transform(index);
+			godot::Transform3D cell_transform = data.multimesh->get_instance_transform(cell_index);
 			cell_transform.origin = cell_pos;
-			data.multimesh->set_instance_transform(index, cell_transform);
+			data.multimesh->set_instance_transform(cell_index, cell_transform);
 
-			set_cell_visible(index, true);
+			set_cell_visible(cell_index, true);
 		}
 	}
 
@@ -256,34 +256,34 @@ void InteractiveGrid3D::_configure_astar() {
 void InteractiveGrid3D::_configure_astar_4_dir() {
 	for (int row = 0; row < data.rows; row++) {
 		for (int column = 0; column < data.columns; column++) {
-			const int index = row * data.columns + column;
+			const int cell_index = row * data.columns + column;
 
 			// Connect to the right
 			if (column + 1 < data.columns) {
 				int right = row * data.columns + (column + 1);
-				data.astar->connect_points(index, right);
-				data.cells[index]->neighbors.push_back(right);
+				data.astar->connect_points(cell_index, right);
+				data.cells[cell_index]->neighbors.push_back(right);
 			}
 
 			// Connect to the left
 			if (column - 1 >= 0) {
 				int left = row * data.columns + (column - 1);
 				//_astar->connect_points(index, left);
-				data.cells[index]->neighbors.push_back(left);
+				data.cells[cell_index]->neighbors.push_back(left);
 			}
 
 			// Connect to the down
 			if (row + 1 < data.rows) {
 				int down = (row + 1) * data.columns + column;
-				data.astar->connect_points(index, down);
-				data.cells[index]->neighbors.push_back(down);
+				data.astar->connect_points(cell_index, down);
+				data.cells[cell_index]->neighbors.push_back(down);
 			}
 
 			// Connect to the up
 			if (row - 1 >= 0) {
 				int up = (row - 1) * data.columns + column;
 				//_astar->connect_points(index, up);
-				data.cells[index]->neighbors.push_back(up);
+				data.cells[cell_index]->neighbors.push_back(up);
 			}
 		}
 	}
@@ -310,7 +310,7 @@ void InteractiveGrid3D::_configure_astar_6_dir() {
 
 	for (int row = 0; row < data.rows; row++) {
 		for (int column = 0; column < data.columns; column++) {
-			const int index = row * data.columns + column;
+			const int cell_index = row * data.columns + column;
 
 			const int(*dirs)[2] = (row % 2 == 0) ? even_directions : odd_directions;
 
@@ -322,9 +322,9 @@ void InteractiveGrid3D::_configure_astar_6_dir() {
 				if (nx >= 0 && nx < data.columns && ny >= 0 && ny < data.rows) {
 					int neighbor_index = ny * data.columns + nx;
 
-					data.cells[index]->neighbors.push_back(neighbor_index);
+					data.cells[cell_index]->neighbors.push_back(neighbor_index);
 
-					if (!is_cell_accessible(index))
+					if (!is_cell_accessible(cell_index))
 						continue;
 
 					if (is_cell_accessible(neighbor_index)) {
@@ -332,7 +332,7 @@ void InteractiveGrid3D::_configure_astar_6_dir() {
 							data.astar->add_point(neighbor_index, godot::Vector2(nx, ny));
 						}
 
-						data.astar->connect_points(index, neighbor_index);
+						data.astar->connect_points(cell_index, neighbor_index);
 					}
 				}
 			}
@@ -343,7 +343,7 @@ void InteractiveGrid3D::_configure_astar_6_dir() {
 void InteractiveGrid3D::_configure_astar_8_dir() {
 	for (int row = 0; row < data.rows; row++) {
 		for (int column = 0; column < data.columns; column++) {
-			const int index = row * data.columns + column;
+			const int cell_index = row * data.columns + column;
 
 			for (int row_offset = -1; row_offset <= 1; ++row_offset) {
 				for (int col_offset = -1; col_offset <= 1; ++col_offset) {
@@ -355,11 +355,11 @@ void InteractiveGrid3D::_configure_astar_8_dir() {
 
 					if (nx >= 0 && nx < data.columns && ny >= 0 && ny < data.rows) {
 						int neighbor_index = ny * data.columns + nx;
-						data.cells[index]->neighbors.push_back(neighbor_index);
+						data.cells[cell_index]->neighbors.push_back(neighbor_index);
 
 						bool neighbor_accessible = is_cell_accessible(neighbor_index);
 						if (neighbor_accessible) {
-							data.astar->connect_points(index, neighbor_index);
+							data.astar->connect_points(cell_index, neighbor_index);
 						}
 					}
 				}
@@ -433,9 +433,9 @@ void InteractiveGrid3D::_align_cells_with_floor() {
 
 		for (int row = 0; row < data.rows; row++) {
 			for (int column = 0; column < data.columns; column++) {
-				const int index = row * data.columns + column;
+				const int cell_index = row * data.columns + column;
 
-				godot::Transform3D global_xform = data.multimesh_instance->get_global_transform() * data.multimesh->get_instance_transform(index);
+				godot::Transform3D global_xform = data.multimesh_instance->get_global_transform() * data.multimesh->get_instance_transform(cell_index);
 				godot::Vector3 global_from = global_xform.origin;
 				global_from.y += 100.0f;
 				godot::Vector3 global_to = global_from - godot::Vector3(0, ray_length, 0);
@@ -478,19 +478,19 @@ void InteractiveGrid3D::_align_cells_with_floor() {
 					basis_z = basis_x.cross(floor_normal).normalized();
 					xform.basis.set_column(2, basis_z);
 					xform.basis = xform.basis.orthonormalized();
-					data.multimesh->set_instance_transform(index, xform);
+					data.multimesh->set_instance_transform(cell_index, xform);
 
-					set_cell_accessible(index, true);
-					set_cell_reachable(index, true);
-					set_cell_visible(index, true);
+					set_cell_accessible(cell_index, true);
+					set_cell_reachable(cell_index, true);
+					set_cell_visible(cell_index, true);
 
 				} else if (!godot::Engine::get_singleton()->is_editor_hint()) {
-					_set_cell_in_void(index, true);
-					set_cell_accessible(index, false);
+					_set_cell_in_void(cell_index, true);
+					set_cell_accessible(cell_index, false);
 				} else {
-					set_cell_accessible(index, true);
-					set_cell_reachable(index, true);
-					set_cell_visible(index, true);
+					set_cell_accessible(cell_index, true);
+					set_cell_reachable(cell_index, true);
+					set_cell_visible(cell_index, true);
 				}
 			}
 		}
@@ -1345,15 +1345,15 @@ int InteractiveGrid3D::get_cell_index_from_global_position(godot::Vector3 p_glob
 
 	for (int row = 0; row < data.rows; row++) {
 		for (int column = 0; column < data.columns; column++) {
-			const int index = row * data.columns + column;
+			const int cell_index = row * data.columns + column;
 
-			godot::Transform3D global_xform = data.multimesh_instance->get_global_transform() * data.multimesh->get_instance_transform(index);
+			godot::Transform3D global_xform = data.multimesh_instance->get_global_transform() * data.multimesh->get_instance_transform(cell_index);
 			const godot::Vector3 cell_global_position = global_xform.origin;
 			const float distance = p_global_position.distance_to(cell_global_position);
 
 			if (distance < closest_distance) {
 				closest_distance = distance;
-				closest_index = index;
+				closest_index = cell_index;
 			}
 		}
 	}
@@ -1479,14 +1479,14 @@ void InteractiveGrid3D::hide_distant_cells(int p_start_cell_index, float p_dista
 	if ((is_visible()) && !(data.flags & GFL_CELL_DISTANT_HIDDEN)) {
 		for (int row = 0; row < data.rows; row++) {
 			for (int column = 0; column < data.columns; column++) {
-				const int index = row * data.columns + column;
+				const int cell_index = row * data.columns + column;
 
 				godot::Vector3 start_cell_global_pos = get_cell_global_position(p_start_cell_index);
-				godot::Vector3 cell_global_pos = get_cell_global_position(index);
+				godot::Vector3 cell_global_pos = get_cell_global_position(cell_index);
 
 				if (start_cell_global_pos.distance_to(cell_global_pos) > p_distance) {
-					set_cell_visible(index, false);
-					data.cells.write[index]->flags &= ~CFL_ACCESSIBLE;
+					set_cell_visible(cell_index, false);
+					data.cells.write[cell_index]->flags &= ~CFL_ACCESSIBLE;
 				}
 			}
 		}
@@ -1600,11 +1600,11 @@ void InteractiveGrid3D::reset_cells_state() {
 
 	for (int row = 0; row < data.rows; row++) {
 		for (int column = 0; column < data.columns; column++) {
-			const int index = row * data.columns + column;
-			clear_all_custom_cell_data(index);
-			data.cells.write[index]->flags = 0;
-			set_cell_accessible(index, true);
-			set_cell_reachable(index, true);
+			const int cell_index = row * data.columns + column;
+			clear_all_custom_cell_data(cell_index);
+			data.cells.write[cell_index]->flags = 0;
+			set_cell_accessible(cell_index, true);
+			set_cell_reachable(cell_index, true);
 		}
 	}
 
