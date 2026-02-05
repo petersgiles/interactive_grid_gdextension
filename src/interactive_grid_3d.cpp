@@ -124,7 +124,7 @@ void InteractiveGrid3D::_layout(godot::Vector3 p_center_position) {
 	}
 
 	set_global_position(p_center_position);
-	data.last_position = data.multimesh_instance->get_global_transform().origin;
+	data.last_xform = data.multimesh_instance->get_global_transform();
 
 	switch (data.layout_index) {
 		case Layout::LAYOUT_SQUARE:
@@ -899,7 +899,7 @@ void InteractiveGrid3D::_physics_process(double p_delta) {
 	_create();
 
 	if (godot::Engine::get_singleton()->is_editor_hint()) {
-		if (data.last_position != get_global_transform().origin) {
+		if (data.last_xform != get_global_transform()) {
 			_delete();
 		}
 	}

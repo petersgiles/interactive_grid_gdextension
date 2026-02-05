@@ -88,7 +88,7 @@ private:
 		unsigned int columns{ 9 };
 		uint32_t flags = 0;
 
-		godot::Vector3 last_position = godot::Vector3(0.0f, 0.0f, 0.0f);
+		godot::Transform3D last_xform;
 
 		godot::Ref<godot::AStar2D> astar;
 
