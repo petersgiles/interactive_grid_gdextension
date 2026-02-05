@@ -219,6 +219,9 @@ public:
 	void set_hovered_color(const godot::Color &p_color);
 	godot::Color get_hovered_color() const;
 
+	void set_cell_color(int cell_index, const godot::Color &p_color);
+	godot::Color get_cell_color(int cell_index);
+
 	void set_custom_cells_data(const godot::Array &p_custom_cell_data);
 	godot::Array get_custom_cells_data() const;
 
@@ -265,9 +268,6 @@ public:
 	void set_cell_visible(int p_cell_index, const bool p_is_visible);
 
 	void reset_cells_state();
-
-	void set_cell_color(int cell_index, const godot::Color &p_color);
-	godot::Color get_cell_color(int cell_index);
 
 	void set_obstacles_collision_enabled(bool p_enabled);
 	bool get_obstacles_collision_enabled() const;

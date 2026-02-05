@@ -781,6 +781,9 @@ void InteractiveGrid3D::_bind_methods() {
 	godot::ClassDB::bind_method(godot::D_METHOD("set_hovered_color"), &InteractiveGrid3D::set_hovered_color);
 	godot::ClassDB::bind_method(godot::D_METHOD("get_hovered_color"), &InteractiveGrid3D::get_hovered_color);
 
+	godot::ClassDB::bind_method(godot::D_METHOD("set_cell_color", "cell_index", "color"), &InteractiveGrid3D::set_cell_color);
+	godot::ClassDB::bind_method(godot::D_METHOD("get_cell_color", "cell_index"), &InteractiveGrid3D::get_cell_color);
+
 	godot::ClassDB::bind_method(godot::D_METHOD("set_custom_cells_data"), &InteractiveGrid3D::set_custom_cells_data);
 	godot::ClassDB::bind_method(godot::D_METHOD("get_custom_cells_data"), &InteractiveGrid3D::get_custom_cells_data);
 
@@ -826,9 +829,6 @@ void InteractiveGrid3D::_bind_methods() {
 
 	godot::ClassDB::bind_method(godot::D_METHOD("set_cell_accessible", "cell_index", "is_accessible"), &InteractiveGrid3D::set_cell_accessible);
 	godot::ClassDB::bind_method(godot::D_METHOD("set_cell_reachable", "cell_index", "set_cell_reachable"), &InteractiveGrid3D::set_cell_reachable);
-
-	godot::ClassDB::bind_method(godot::D_METHOD("set_cell_color", "cell_index", "color"), &InteractiveGrid3D::set_cell_color);
-	godot::ClassDB::bind_method(godot::D_METHOD("get_cell_color", "cell_index"), &InteractiveGrid3D::get_cell_color);
 
 	godot::ClassDB::bind_method(godot::D_METHOD("set_obstacles_collision_enabled", "mask"), &InteractiveGrid3D::set_obstacles_collision_enabled);
 	godot::ClassDB::bind_method(godot::D_METHOD("get_obstacles_collision_enabled"), &InteractiveGrid3D::get_obstacles_collision_enabled);
@@ -1044,6 +1044,24 @@ void InteractiveGrid3D::set_hovered_color(const godot::Color &p_color) {
 
 godot::Color InteractiveGrid3D::get_hovered_color() const {
 	return data.hovered_color;
+}
+
+void InteractiveGrid3D::set_cell_color(int p_cell_index, const godot::Color &p_color) {
+	ERR_FAIL_COND_MSG(p_cell_index >= get_size(), "Cell index out of bounds");
+
+	if (data.material_override.is_valid()) {
+		uint32_t cell_flags = data.cells[p_cell_index]->flags;
+		godot::Color new_cell_color{ p_color.r, p_color.g, p_color.b, static_cast<float>(cell_flags) };
+		data.cells.write[p_cell_index]->color = new_cell_color;
+		data.multimesh->set_instance_custom_data(p_cell_index, new_cell_color);
+	} else {
+		data.cells.write[p_cell_index]->color = p_color;
+		data.multimesh->set_instance_custom_data(p_cell_index, p_color);
+	}
+}
+
+godot::Color InteractiveGrid3D::get_cell_color(int p_cell_index) {
+	return data.cells[p_cell_index]->color;
 }
 
 void InteractiveGrid3D::set_custom_cells_data(const godot::Array &p_custom_cell_data) {
@@ -1612,24 +1630,6 @@ void InteractiveGrid3D::reset_cells_state() {
 
 	data.hovered_cell_index = -1;
 	data.selected_cells.clear();
-}
-
-void InteractiveGrid3D::set_cell_color(int p_cell_index, const godot::Color &p_color) {
-	ERR_FAIL_COND_MSG(p_cell_index >= get_size(), "Cell index out of bounds");
-
-	if (data.material_override.is_valid()) {
-		uint32_t cell_flags = data.cells[p_cell_index]->flags;
-		godot::Color new_cell_color{ p_color.r, p_color.g, p_color.b, static_cast<float>(cell_flags) };
-		data.cells.write[p_cell_index]->color = new_cell_color;
-		data.multimesh->set_instance_custom_data(p_cell_index, new_cell_color);
-	} else {
-		data.cells.write[p_cell_index]->color = p_color;
-		data.multimesh->set_instance_custom_data(p_cell_index, p_color);
-	}
-}
-
-godot::Color InteractiveGrid3D::get_cell_color(int p_cell_index) {
-	return data.cells[p_cell_index]->color;
 }
 
 void InteractiveGrid3D::set_obstacles_collision_enabled(bool p_enabled) {
