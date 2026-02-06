@@ -232,7 +232,7 @@ void InteractiveGrid3D::_align_cells_with_floor() {
 			for (int column = 0; column < data.columns; column++) {
 				const int cell_index = row * data.columns + column;
 
-				godot::Transform3D global_xform = data.multimesh_instance->get_global_transform() * data.multimesh->get_instance_transform(cell_index);
+				godot::Transform3D global_xform = get_cell_global_transform(cell_index);
 				godot::Vector3 global_from = global_xform.origin;
 				global_from.y += 100.0f;
 				godot::Vector3 global_to = global_from - godot::Vector3(0, ray_length, 0);
@@ -336,7 +336,7 @@ void InteractiveGrid3D::_scan_environnement_obstacles() {
 				continue;
 			}
 
-			godot::Transform3D global_xform = data.multimesh_instance->get_global_transform() * data.multimesh->get_instance_transform(cell_index);
+			godot::Transform3D global_xform = get_cell_global_transform(cell_index);
 			global_xform.set_origin(global_xform.get_origin() + data.cell_shape_offset);
 
 			godot::Ref<godot::PhysicsShapeQueryParameters3D> query;
@@ -402,7 +402,7 @@ void InteractiveGrid3D::_scan_environnement_custom_data() {
 				continue;
 			}
 
-			godot::Transform3D global_xform = data.multimesh_instance->get_global_transform() * data.multimesh->get_instance_transform(cell_index);
+			godot::Transform3D global_xform = get_cell_global_transform(cell_index);
 			global_xform.set_origin(global_xform.get_origin() + data.cell_shape_offset);
 
 			godot::Ref<godot::PhysicsShapeQueryParameters3D> query;
@@ -1364,8 +1364,7 @@ int InteractiveGrid3D::get_cell_index_from_global_position(godot::Vector3 p_glob
 		for (int column = 0; column < data.columns; column++) {
 			const int cell_index = row * data.columns + column;
 
-			godot::Transform3D global_xform = data.multimesh_instance->get_global_transform() * data.multimesh->get_instance_transform(cell_index);
-			const godot::Vector3 cell_global_position = global_xform.origin;
+			godot::Vector3 cell_global_position = get_cell_global_position(cell_index);
 			const float distance = p_global_position.distance_to(cell_global_position);
 
 			if (distance < closest_distance) {
