@@ -215,209 +215,6 @@ void InteractiveGrid3D::_layout_cells_as_hexagonal_grid(godot::Vector3 p_center_
 	}
 }
 
-void InteractiveGrid3D::_configure_astar() {
-	if (godot::Engine::get_singleton()->is_editor_hint()) {
-		return;
-	}
-
-	godot::Time *time = godot::Time::get_singleton();
-	uint64_t start_time = time->get_ticks_usec();
-
-	data.astar->clear();
-
-	// Register all grid points and mark obstacles.
-	for (int index = 0; index < data.cells.size(); ++index) {
-		int x = index % data.columns;
-		int y = index / data.columns;
-		data.astar->add_point(index, godot::Vector2(x, y), 1.0);
-		data.astar->set_point_disabled(index, !is_cell_accessible(index));
-	}
-
-	switch (data.movement) {
-		case Movement::MOVEMENT_FOUR_DIRECTIONS:
-			_configure_astar_4_dir();
-			break;
-		case Movement::MOVEMENT_SIX_DIRECTIONS:
-			_configure_astar_6_dir();
-			break;
-		case Movement::MOVEMENT_EIGH_DIRECTIONS:
-			_configure_astar_8_dir();
-			break;
-	}
-
-	if (_debug_options.execution_time_enabled) {
-		uint64_t end_time = time->get_ticks_usec();
-		uint64_t elapsed_us = end_time - start_time;
-		double elapsed_ms = static_cast<double>(elapsed_us) / 1000.0;
-		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Execution time: " + godot::String::num_real(elapsed_ms) + " ms");
-	}
-}
-
-void InteractiveGrid3D::_configure_astar_4_dir() {
-	for (int row = 0; row < data.rows; row++) {
-		for (int column = 0; column < data.columns; column++) {
-			const int cell_index = row * data.columns + column;
-
-			// Connect to the right
-			if (column + 1 < data.columns) {
-				int right = row * data.columns + (column + 1);
-				data.astar->connect_points(cell_index, right);
-				data.cells[cell_index]->neighbors.push_back(right);
-			}
-
-			// Connect to the left
-			if (column - 1 >= 0) {
-				int left = row * data.columns + (column - 1);
-				//_astar->connect_points(index, left);
-				data.cells[cell_index]->neighbors.push_back(left);
-			}
-
-			// Connect to the down
-			if (row + 1 < data.rows) {
-				int down = (row + 1) * data.columns + column;
-				data.astar->connect_points(cell_index, down);
-				data.cells[cell_index]->neighbors.push_back(down);
-			}
-
-			// Connect to the up
-			if (row - 1 >= 0) {
-				int up = (row - 1) * data.columns + column;
-				//_astar->connect_points(index, up);
-				data.cells[cell_index]->neighbors.push_back(up);
-			}
-		}
-	}
-}
-
-void InteractiveGrid3D::_configure_astar_6_dir() {
-	const int even_directions[6][2] = {
-		{ +1, 0 }, // East.
-		{ -1, 0 }, // West.
-		{ 0, -1 }, // North-East.
-		{ -1, -1 }, // North-West.
-		{ 0, +1 }, // South-East.
-		{ -1, +1 } // South-West.
-	};
-
-	const int odd_directions[6][2] = {
-		{ +1, 0 }, // East.
-		{ -1, 0 }, // West.
-		{ +1, -1 }, // North-East.
-		{ 0, -1 }, // North-West.
-		{ +1, +1 }, // South-East.
-		{ 0, +1 } // South-West.
-	};
-
-	for (int row = 0; row < data.rows; row++) {
-		for (int column = 0; column < data.columns; column++) {
-			const int cell_index = row * data.columns + column;
-
-			const int(*dirs)[2] = (row % 2 == 0) ? even_directions : odd_directions;
-
-			// Iterate over the 6 directions.
-			for (int d = 0; d < 6; d++) {
-				int nx = column + dirs[d][0];
-				int ny = row + dirs[d][1];
-
-				if (nx >= 0 && nx < data.columns && ny >= 0 && ny < data.rows) {
-					int neighbor_index = ny * data.columns + nx;
-
-					data.cells[cell_index]->neighbors.push_back(neighbor_index);
-
-					if (!is_cell_accessible(cell_index))
-						continue;
-
-					if (is_cell_accessible(neighbor_index)) {
-						if (!data.astar->has_point(neighbor_index)) {
-							data.astar->add_point(neighbor_index, godot::Vector2(nx, ny));
-						}
-
-						data.astar->connect_points(cell_index, neighbor_index);
-					}
-				}
-			}
-		}
-	}
-}
-
-void InteractiveGrid3D::_configure_astar_8_dir() {
-	for (int row = 0; row < data.rows; row++) {
-		for (int column = 0; column < data.columns; column++) {
-			const int cell_index = row * data.columns + column;
-
-			for (int row_offset = -1; row_offset <= 1; ++row_offset) {
-				for (int col_offset = -1; col_offset <= 1; ++col_offset) {
-					if (col_offset == 0 && row_offset == 0)
-						continue; // Do not connect to itself.
-
-					int nx = column + col_offset;
-					int ny = row + row_offset;
-
-					if (nx >= 0 && nx < data.columns && ny >= 0 && ny < data.rows) {
-						int neighbor_index = ny * data.columns + nx;
-						data.cells[cell_index]->neighbors.push_back(neighbor_index);
-
-						bool neighbor_accessible = is_cell_accessible(neighbor_index);
-						if (neighbor_accessible) {
-							data.astar->connect_points(cell_index, neighbor_index);
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-void InteractiveGrid3D::_breadth_first_search(int p_start_cell_index) {
-	struct BSFNode {
-		int index{ 0 };
-		bool visited = false;
-		bool is_accessible = false;
-		bool is_reachable = false;
-		godot::PackedInt64Array neighbors;
-	};
-
-	unsigned int grid_size = data.rows * data.columns;
-	godot::Vector<BSFNode> graph;
-	graph.resize(grid_size);
-
-	for (int index = 0; index < grid_size; index++) {
-		graph.write[index].is_accessible = is_cell_accessible(index);
-		graph.write[index].is_reachable = is_cell_reachable(index);
-		graph.write[index].neighbors = get_neighbors(index);
-	}
-
-	godot::List<int> queue;
-
-	graph.write[p_start_cell_index].visited = true;
-	queue.push_back(p_start_cell_index);
-
-	while (!queue.is_empty()) {
-		int current = queue.front()->get();
-		queue.pop_front();
-
-		if (!graph[current].is_accessible) {
-			continue;
-		}
-
-		for (const int &neighbor : graph[current].neighbors) {
-			if (!graph[neighbor].is_accessible) {
-				continue;
-			}
-
-			if (!graph[neighbor].visited) {
-				queue.push_back(neighbor);
-				graph.write[neighbor].visited = true;
-			}
-		}
-	}
-
-	for (int index = 0; index < grid_size; index++) {
-		if (graph[index].is_accessible && !graph[index].visited)
-			set_cell_reachable(index, false);
-	}
-}
-
 void InteractiveGrid3D::_align_cells_with_floor() {
 	if (data.flags & GFL_CREATED) {
 		if (data.floor_collision_enabled == false) {
@@ -677,6 +474,209 @@ void InteractiveGrid3D::_scan_environnement_custom_data() {
 
 	if (_debug_options.logs_enabled) {
 		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Scan complete.");
+	}
+}
+
+void InteractiveGrid3D::_configure_astar() {
+	if (godot::Engine::get_singleton()->is_editor_hint()) {
+		return;
+	}
+
+	godot::Time *time = godot::Time::get_singleton();
+	uint64_t start_time = time->get_ticks_usec();
+
+	data.astar->clear();
+
+	// Register all grid points and mark obstacles.
+	for (int index = 0; index < data.cells.size(); ++index) {
+		int x = index % data.columns;
+		int y = index / data.columns;
+		data.astar->add_point(index, godot::Vector2(x, y), 1.0);
+		data.astar->set_point_disabled(index, !is_cell_accessible(index));
+	}
+
+	switch (data.movement) {
+		case Movement::MOVEMENT_FOUR_DIRECTIONS:
+			_configure_astar_4_dir();
+			break;
+		case Movement::MOVEMENT_SIX_DIRECTIONS:
+			_configure_astar_6_dir();
+			break;
+		case Movement::MOVEMENT_EIGH_DIRECTIONS:
+			_configure_astar_8_dir();
+			break;
+	}
+
+	if (_debug_options.execution_time_enabled) {
+		uint64_t end_time = time->get_ticks_usec();
+		uint64_t elapsed_us = end_time - start_time;
+		double elapsed_ms = static_cast<double>(elapsed_us) / 1000.0;
+		PrintLine(__FILE__, __FUNCTION__, __LINE__, "Execution time: " + godot::String::num_real(elapsed_ms) + " ms");
+	}
+}
+
+void InteractiveGrid3D::_configure_astar_4_dir() {
+	for (int row = 0; row < data.rows; row++) {
+		for (int column = 0; column < data.columns; column++) {
+			const int cell_index = row * data.columns + column;
+
+			// Connect to the right
+			if (column + 1 < data.columns) {
+				int right = row * data.columns + (column + 1);
+				data.astar->connect_points(cell_index, right);
+				data.cells[cell_index]->neighbors.push_back(right);
+			}
+
+			// Connect to the left
+			if (column - 1 >= 0) {
+				int left = row * data.columns + (column - 1);
+				//_astar->connect_points(index, left);
+				data.cells[cell_index]->neighbors.push_back(left);
+			}
+
+			// Connect to the down
+			if (row + 1 < data.rows) {
+				int down = (row + 1) * data.columns + column;
+				data.astar->connect_points(cell_index, down);
+				data.cells[cell_index]->neighbors.push_back(down);
+			}
+
+			// Connect to the up
+			if (row - 1 >= 0) {
+				int up = (row - 1) * data.columns + column;
+				//_astar->connect_points(index, up);
+				data.cells[cell_index]->neighbors.push_back(up);
+			}
+		}
+	}
+}
+
+void InteractiveGrid3D::_configure_astar_6_dir() {
+	const int even_directions[6][2] = {
+		{ +1, 0 }, // East.
+		{ -1, 0 }, // West.
+		{ 0, -1 }, // North-East.
+		{ -1, -1 }, // North-West.
+		{ 0, +1 }, // South-East.
+		{ -1, +1 } // South-West.
+	};
+
+	const int odd_directions[6][2] = {
+		{ +1, 0 }, // East.
+		{ -1, 0 }, // West.
+		{ +1, -1 }, // North-East.
+		{ 0, -1 }, // North-West.
+		{ +1, +1 }, // South-East.
+		{ 0, +1 } // South-West.
+	};
+
+	for (int row = 0; row < data.rows; row++) {
+		for (int column = 0; column < data.columns; column++) {
+			const int cell_index = row * data.columns + column;
+
+			const int(*dirs)[2] = (row % 2 == 0) ? even_directions : odd_directions;
+
+			// Iterate over the 6 directions.
+			for (int d = 0; d < 6; d++) {
+				int nx = column + dirs[d][0];
+				int ny = row + dirs[d][1];
+
+				if (nx >= 0 && nx < data.columns && ny >= 0 && ny < data.rows) {
+					int neighbor_index = ny * data.columns + nx;
+
+					data.cells[cell_index]->neighbors.push_back(neighbor_index);
+
+					if (!is_cell_accessible(cell_index))
+						continue;
+
+					if (is_cell_accessible(neighbor_index)) {
+						if (!data.astar->has_point(neighbor_index)) {
+							data.astar->add_point(neighbor_index, godot::Vector2(nx, ny));
+						}
+
+						data.astar->connect_points(cell_index, neighbor_index);
+					}
+				}
+			}
+		}
+	}
+}
+
+void InteractiveGrid3D::_configure_astar_8_dir() {
+	for (int row = 0; row < data.rows; row++) {
+		for (int column = 0; column < data.columns; column++) {
+			const int cell_index = row * data.columns + column;
+
+			for (int row_offset = -1; row_offset <= 1; ++row_offset) {
+				for (int col_offset = -1; col_offset <= 1; ++col_offset) {
+					if (col_offset == 0 && row_offset == 0)
+						continue; // Do not connect to itself.
+
+					int nx = column + col_offset;
+					int ny = row + row_offset;
+
+					if (nx >= 0 && nx < data.columns && ny >= 0 && ny < data.rows) {
+						int neighbor_index = ny * data.columns + nx;
+						data.cells[cell_index]->neighbors.push_back(neighbor_index);
+
+						bool neighbor_accessible = is_cell_accessible(neighbor_index);
+						if (neighbor_accessible) {
+							data.astar->connect_points(cell_index, neighbor_index);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+void InteractiveGrid3D::_breadth_first_search(int p_start_cell_index) {
+	struct BSFNode {
+		int index{ 0 };
+		bool visited = false;
+		bool is_accessible = false;
+		bool is_reachable = false;
+		godot::PackedInt64Array neighbors;
+	};
+
+	unsigned int grid_size = data.rows * data.columns;
+	godot::Vector<BSFNode> graph;
+	graph.resize(grid_size);
+
+	for (int index = 0; index < grid_size; index++) {
+		graph.write[index].is_accessible = is_cell_accessible(index);
+		graph.write[index].is_reachable = is_cell_reachable(index);
+		graph.write[index].neighbors = get_neighbors(index);
+	}
+
+	godot::List<int> queue;
+
+	graph.write[p_start_cell_index].visited = true;
+	queue.push_back(p_start_cell_index);
+
+	while (!queue.is_empty()) {
+		int current = queue.front()->get();
+		queue.pop_front();
+
+		if (!graph[current].is_accessible) {
+			continue;
+		}
+
+		for (const int &neighbor : graph[current].neighbors) {
+			if (!graph[neighbor].is_accessible) {
+				continue;
+			}
+
+			if (!graph[neighbor].visited) {
+				queue.push_back(neighbor);
+				graph.write[neighbor].visited = true;
+			}
+		}
+	}
+
+	for (int index = 0; index < grid_size; index++) {
+		if (graph[index].is_accessible && !graph[index].visited)
+			set_cell_reachable(index, false);
 	}
 }
 

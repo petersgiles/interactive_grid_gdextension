@@ -144,13 +144,13 @@ private:
 	void _init_multi_mesh();
 	void _init_astar();
 
-	void _align_cells_with_floor();
-	void _scan_environnement_obstacles();
-	void _scan_environnement_custom_data();
-
 	void _layout(godot::Vector3 p_center_position);
 	void _layout_cells_as_square_grid(godot::Vector3 p_center_position);
 	void _layout_cells_as_hexagonal_grid(godot::Vector3 p_center_position);
+
+	void _align_cells_with_floor();
+	void _scan_environnement_obstacles();
+	void _scan_environnement_custom_data();
 
 	void _configure_astar();
 	void _configure_astar_4_dir();
