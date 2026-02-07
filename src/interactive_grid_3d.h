@@ -94,8 +94,8 @@ private:
 
 		Layout layout_index = LAYOUT_SQUARE;
 		Movement movement = MOVEMENT_FOUR_DIRECTIONS;
-		bool obstacles_collision_enabled = true;
-		bool floor_collision_enabled = true;
+		bool obstacles_collision_enabled = false;
+		bool floor_collision_enabled = false;
 		uint32_t obstacles_collision_mask = 1;
 		uint32_t floor_collision_mask = 1;
 
