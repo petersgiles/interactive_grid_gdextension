@@ -52,7 +52,6 @@ void InteractiveGrid3D::_create() {
 		data.flags |= GFL_CREATED;
 
 		center(get_global_transform().origin);
-		set_visible(true);
 	}
 }
 
@@ -83,7 +82,6 @@ void InteractiveGrid3D::_init_multi_mesh() {
 	data.multimesh->set_use_custom_data(true);
 	data.multimesh->set_instance_count(data.columns * data.rows);
 	data.multimesh_instance->set_multimesh(data.multimesh);
-	data.multimesh_instance->set_visible(true);
 
 	godot::Transform3D xform;
 	xform.origin = get_global_transform().origin;
@@ -963,6 +961,7 @@ godot::Ref<godot::Shape3D> InteractiveGrid3D::get_cell_shape() const {
 
 void InteractiveGrid3D::set_cell_shape_offset(godot::Vector3 p_offset) {
 	data.cell_shape_offset = p_offset;
+	_delete();
 }
 
 godot::Vector3 InteractiveGrid3D::get_cell_shape_offset() {
