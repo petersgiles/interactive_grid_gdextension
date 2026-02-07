@@ -1,1 +1,6 @@
-- Fix: Cell rotation property is now properly saved and no longer resets to default when restarting the editor or launching the scene.
+- Set default collision flags to false for floor and obstacles
+- Allow manual hiding/unhiding directly from the editor.
+- Added is_centered to bind_methods.
+- Removed reset_cells_state from bind_methods.
+- Reset the grid when set_cell_shape_offset is modified.
+- Renamed interractive_grid.gdshader to interactive_grid_3d.gdshader.
