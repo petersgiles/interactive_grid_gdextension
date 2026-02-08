@@ -1,5 +1,5 @@
 #**************************************************************************#
-#*  ray_cast_from_mouse.gd                                                *#
+#*  pawn_player.gd                                                        *#
 #**************************************************************************#
 #*                         This file is part of:                          *#
 #*                     INTERACTIVE GRID GDExtension                       *#
@@ -27,44 +27,62 @@
 #* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                 *#
 #**************************************************************************#
 
-extends RayCast3D
+extends CharacterBody3D
 
-@onready var camera_3d: Camera3D = $"../Camera3D_Iso"
-@export var debug_sphere_raycast: MeshInstance3D
+@onready var animation_player: AnimationPlayer = $model/AnimationPlayer
+@onready var model: Node3D = $model
+
+const SPEED:float = 5.0
+
+enum PawnMovementStates{
+	IDLE,
+	WALKING,
+	RUN
+}
+
+var _movement_state:int = PawnMovementStates.IDLE
+
 
 func _ready() -> void:
-	debug_sphere_raycast = MeshInstance3D.new()
-	debug_sphere_raycast.mesh = SphereMesh.new()
-	var mat_target: StandardMaterial3D = StandardMaterial3D.new()
-	mat_target.albedo_color = Color.GREEN
-	debug_sphere_raycast.material_override = mat_target
-	debug_sphere_raycast.scale = Vector3(0.3, 0.3, 0.3)
-	add_child(debug_sphere_raycast)
-	debug_sphere_raycast.visible = false
-	
-func _process(delta: float) -> void:
-		debug_sphere_raycast.global_transform.origin = get_ray_intersection_position()
-	
-func get_ray_intersection_position() -> Vector3:
-	var intersect_ray_position: Vector3 = Vector3.ZERO
-	var mouse_pos:Vector2 = get_viewport().get_mouse_position()
-	var ray_origin:Vector3 = camera_3d.project_ray_origin(mouse_pos)
-	var ray_direction:Vector3 = camera_3d.project_ray_normal(mouse_pos)
-	var ray_length:int = 2000
-	
-	self.global_position = ray_origin
-	self.target_position = ray_direction * ray_length
-	self.collide_with_areas = false
-	self.collision_mask = 0
-	self.set_collision_mask_value(15, true)
-	self.set_collision_mask_value(1, false)
-	self.force_raycast_update()
+	pass
 
-	if self.is_colliding():
-		var collider:Node3D = self.get_collider()
-		
-		intersect_ray_position = self.get_collision_point()
-		#print("[get_ray_intersection_position] Collision detected at: ", intersect_ray_position)
-		#print("[get_ray_intersection_position] Collision detected with: ", collider.name)
-		
-	return intersect_ray_position
+
+func _physics_process(delta: float) -> void:	
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+		move_and_slide()
+	
+	if self.velocity == Vector3.ZERO:
+		if _movement_state != PawnMovementStates.IDLE:
+			_movement_state = PawnMovementStates.IDLE
+		else:
+			animation_player.play("idle", 0.2)
+
+
+func move_to(p_global_position: Vector3)-> void:
+	var pawn_global_position:Vector3 = self.global_position
+	var target_global_position: Vector3 = Vector3(p_global_position.x, pawn_global_position.y, p_global_position.z)
+	var direction:Vector3 = (target_global_position - pawn_global_position).normalized()
+
+	self.velocity = direction * SPEED
+
+	if _movement_state != PawnMovementStates.RUN:
+		_movement_state = PawnMovementStates.RUN
+	else:
+		animation_player.play("run", 0.2)
+
+	var dir: Vector3 = (target_global_position - model.global_position)
+	dir.y = 0
+	dir = dir.normalized()
+
+	var target_rot: float = atan2(-dir.x, -dir.z)
+	model.rotation.y = lerp_angle(model.rotation.y, target_rot, 0.2)
+
+	move_and_slide()
+
+
+func idle():
+	if _movement_state != PawnMovementStates.IDLE:
+		_movement_state = PawnMovementStates.IDLE
+		animation_player.play("idle", 0.2)

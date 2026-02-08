@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=4 uid="uid://dbna5exmjhbhp"]
+[gd_scene format=4 uid="uid://ckqakmh33ydjs"]
 
-[ext_resource type="Script" uid="uid://1118fnkm8r3g" path="res://data/scripts/interactive_grid_3d_demo/pawn_player.gd" id="1_ak1kh"]
-[ext_resource type="Script" uid="uid://dwabf7i2a8d4o" path="res://data/scripts/interactive_grid_3d_demo/ray_cast_from_mouse.gd" id="2_x8n0i"]
+[ext_resource type="Script" uid="uid://dwabf7i2a8d4o" path="res://data/scripts/interactive_grid_3d_demo/main/ray_cast_from_mouse.gd" id="1_bx3ws"]
+[ext_resource type="Script" uid="uid://1118fnkm8r3g" path="res://data/scripts/interactive_grid_3d_demo/actors/actor_player.gd" id="1_qh1kv"]
 
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8yhgy"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qh1kv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_elofg"]
 resource_name = "Beta_Joints_MAT1"
@@ -13,7 +12,7 @@ albedo_color = Color(0.612501, 0.38787553, 0.35089412, 1)
 metallic = 0.5
 roughness = 0.8585786
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_dhoev"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_c2ocl"]
 resource_name = "player_Beta_Joints"
 _surfaces = [{
 "aabb": AABB(-0.8834671, -0.00035117482, -0.12990499, 1.7669338, 1.5967934, 0.2549244),
@@ -33,7 +32,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="Skin" id="Skin_fyibm"]
+[sub_resource type="Skin" id="Skin_pvnkq"]
 resource_name = "Skin"
 bind_count = 65
 bind/0/name = &"mixamorig_Hips"
@@ -238,7 +237,7 @@ cull_mode = 2
 albedo_color = Color(0.9246135, 0.58587474, 0.55036527, 1)
 roughness = 0.80829155
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_gyfig"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_uekqt"]
 resource_name = "player_Beta_Surface"
 _surfaces = [{
 "aabb": AABB(-0.9025662, -0.00032194963, -0.14895688, 1.805132, 1.8092052, 0.32069856),
@@ -3883,7 +3882,7 @@ tracks/102/interp = 1
 tracks/102/loop_wrap = true
 tracks/102/keys = PackedFloat32Array(0, 1, 0.34809455, 2.201568e-08, -1.2676661e-07, 0.9374594, 0.033333335, 1, 0.34958026, 3.683999e-08, -1.273865e-07, 0.93690646, 0.06666667, 1, 0.3358363, 1.0045711e-08, -1.0734398e-07, 0.9419204, 0.1, 1, 0.33669066, 1.0166303e-08, -1.3860569e-07, 0.9416154, 0.13333334, 1, 0.34221375, 1.2836058e-08, -1.153008e-07, 0.9396222, 0.16666667, 1, 0.3632523, 9.9372786e-09, -1.2955586e-07, 0.9316908, 0.2, 1, 0.38220593, 1.6334898e-08, -1.3377571e-07, 0.9240772, 0.23333333, 1, 0.40832815, -1.3262712e-09, -1.4316099e-07, 0.91283524, 0.26666668, 1, 0.4242381, -1.939133e-08, -1.3346443e-07, 0.9055507, 0.3, 1, 0.44951862, 7.10669e-09, -1.3605961e-07, 0.89327097, 0.33333334, 1, 0.42680657, 1.9047084e-08, -1.4118932e-07, 0.90434295, 0.36666667, 1, 0.35259002, 1.9464832e-08, -1.4173966e-07, 0.9357779, 0.4, 1, 0.3484697, 1.0068424e-08, -1.3587572e-07, 0.93732005, 0.43333334, 1, 0.35218224, 3.9001627e-08, -1.2805123e-07, 0.9359315, 0.46666667, 1, 0.3613196, 2.8391167e-08, -1.3014983e-07, 0.93244207, 0.5, 1, 0.3656539, 3.4778452e-08, -1.3639095e-07, 0.9307509, 0.53333336, 1, 0.37159213, 2.5698517e-08, -1.3273284e-07, 0.9283961, 0.56666666, 1, 0.37968713, 1.9336873e-08, -1.3458948e-07, 0.925115, 0.6, 1, 0.39404508, 2.7277713e-08, -1.2578587e-07, 0.91909117, 0.6333333, 1, 0.41449487, 2.3619114e-08, -1.4964523e-07, 0.91005164, 0.6666667, 1, 0.43741068, 4.8497366e-09, -1.313812e-07, 0.8992619, 0.7, 1, 0.4820383, 5.1994133e-09, -1.1521153e-07, 0.8761502, 0.73333335, 1, 0.5327215, 0.012816147, 0.0071655614, 0.8461633, 0.76666665, 1, 0.57494116, 0.040815525, 0.019851852, 0.81693494, 0.8, 1, 0.54139847, 0.054679338, 0.02198772, 0.8386981, 0.8333333, 1, 0.3614228, 4.7675503e-08, -7.118197e-08, 0.93240213, 0.8666667, 1, 0.33782223, 1.9218948e-08, -1.6557061e-07, 0.9412099, 0.9, 1, 0.35395974, -1.4678301e-08, -1.3868653e-07, 0.9352608, 0.93333334, 1, 0.35034955, 1.9583082e-08, -1.0978016e-07, 0.93661904, 0.96666664, 1, 0.34809458, 2.967635e-08, -1.1217725e-07, 0.9374594)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pd2x8"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qeljt"]
 _data = {
 &"aim_idle": SubResource("Animation_ce7jx"),
 &"aim_walk": SubResource("Animation_5ch3e"),
@@ -3892,18 +3891,18 @@ _data = {
 &"walk": SubResource("Animation_oukl8")
 }
 
-[node name="PawnPlayer" type="CharacterBody3D"]
-script = ExtResource("1_ak1kh")
+[node name="ActorPlayer" type="CharacterBody3D" unique_id=751160524]
+script = ExtResource("1_qh1kv")
 
-[node name="PlayerPawnCollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="PlayerPawnCollisionShape3D" type="CollisionShape3D" parent="." unique_id=1275279919]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_8yhgy")
+shape = SubResource("CapsuleShape3D_qh1kv")
 
-[node name="Camera3D_Iso" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1614000812]
 transform = Transform3D(0.7071067, -0.49999994, 0.49999994, 0, 0.7071067, 0.7071067, -0.7071067, -0.49999994, 0.49999994, 9, 15, 9)
 fov = 60.0
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D_Iso"]
+[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D" unique_id=1761283011]
 transform = Transform3D(0.9999615, 0.007917404, 0.0037746131, -0.008580297, 0.9722788, 0.23366728, -0.001819998, -0.23369059, 0.9723093, 0.058933496, 1.2201958, -5.202504)
 layers = 0
 light_color = Color(0.6264199, 0.762033, 1, 1)
@@ -3918,16 +3917,16 @@ distance_fade_enabled = true
 spot_range = 24.603949
 spot_angle = 15.72687
 
-[node name="RayCastFromMouse" type="RayCast3D" parent="."]
-script = ExtResource("2_x8n0i")
+[node name="RayCastFromMouse" type="RayCast3D" parent="." unique_id=675490528]
+script = ExtResource("1_bx3ws")
 
-[node name="model" type="Node3D" parent="."]
+[node name="model" type="Node3D" parent="." unique_id=913218116]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 
-[node name="Armature" type="Node3D" parent="model"]
+[node name="Armature" type="Node3D" parent="model" unique_id=364696453]
 transform = Transform3D(-0.01, -8.7422775e-10, 3.821371e-17, 0, -4.3711387e-10, -0.01, 8.7422775e-10, -0.01, 4.3711387e-10, 0, 0, 0)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="model/Armature"]
+[node name="Skeleton3D" type="Skeleton3D" parent="model/Armature" unique_id=1376719174]
 bones/0/name = "mixamorig_Hips"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, -5.0098134e-07, 6.4714376e-09, 0, 0.012916446, 0.99991655, -5.010231e-07, -0.9999166, 0.012916445, -7.727291e-06, 1.5543157, -104.27487)
@@ -4384,15 +4383,13 @@ bones/64/position = Vector3(4.0447674e-07, 9.278136, 1.0895258e-06)
 bones/64/rotation = Quaternion(1.2162601e-08, -0.011869151, -1.4435969e-10, 0.99992955)
 bones/64/scale = Vector3(1, 1, 1)
 
-[node name="Beta_Joints" type="MeshInstance3D" parent="model/Armature/Skeleton3D"]
-mesh = SubResource("ArrayMesh_dhoev")
-skin = SubResource("Skin_fyibm")
+[node name="Beta_Joints" type="MeshInstance3D" parent="model/Armature/Skeleton3D" unique_id=1432078017]
+mesh = SubResource("ArrayMesh_c2ocl")
+skin = SubResource("Skin_pvnkq")
 
-[node name="Beta_Surface" type="MeshInstance3D" parent="model/Armature/Skeleton3D"]
-mesh = SubResource("ArrayMesh_gyfig")
-skin = SubResource("Skin_fyibm")
+[node name="Beta_Surface" type="MeshInstance3D" parent="model/Armature/Skeleton3D" unique_id=583437608]
+mesh = SubResource("ArrayMesh_uekqt")
+skin = SubResource("Skin_pvnkq")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="model"]
-libraries = {
-&"": SubResource("AnimationLibrary_pd2x8")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="model" unique_id=583833646]
+libraries/ = SubResource("AnimationLibrary_qeljt")

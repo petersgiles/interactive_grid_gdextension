@@ -29,20 +29,27 @@
 
 extends InteractiveGrid3D
 
-@onready var ray_cast_from_mouse: RayCast3D = $"../PawnPlayer/RayCastFromMouse"
+@onready var ray_cast_from_mouse: RayCast3D = $"../RayCastFromMouse"
+@onready var button: Button = $"../UserInterface/Start/Button"
 
 var _path: PackedInt64Array = []
-var _pawn: CharacterBody3D = null
+var _actor: CharacterBody3D = null
 
 
 func _ready() -> void:
-	pass
-
+	var cells = get_node("/root/Main/World/Cell").get_children()
+	
+	for cell in cells:
+		var actors_node = cell.get_node_or_null("Actors")
+		if actors_node and actors_node.has_node("ActorPlayer"):
+			_actor = actors_node.get_node("ActorPlayer") as CharacterBody3D
+			break
 
 func _process(delta: float) -> void:
-	if _pawn == null: return
+	if _actor == null: return
 	
 	if self.get_selected_cells().is_empty():
+		_actor.idle()
 		self.highlight_on_hover(ray_cast_from_mouse.get_ray_intersection_position())
 	else:
 		move_along_path(_path)
@@ -58,13 +65,13 @@ func show_grid():
 	##     - compute_unreachable_cells
 	##     - Adding custom data
 
-	if _pawn == null: return
+	if _actor == null: return
 
 	_path = []
 	self.set_visible(true)
-	self.center(_pawn.global_position)
+	self.center(_actor.global_position)
 	
-	var pawn_current_cell_index: int = self.get_cell_index_from_global_position(_pawn.global_position)
+	var pawn_current_cell_index: int = self.get_cell_index_from_global_position(_actor.global_position)
 
 	# To prevent the player from getting stuck.
 	self.set_cell_accessible(pawn_current_cell_index, true)
@@ -85,9 +92,14 @@ func show_grid():
 	self.update_custom_data()
 	#endregion
 
+
 func _input(event):
+	if event.is_action_pressed("show_grid") and button.visible:
+		self.show_grid()
+		button.visible = false
+		
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if _pawn == null: 
+		if _actor == null: 
 			return
 
 		var ray_pos: Vector3 = ray_cast_from_mouse.get_ray_intersection_position()
@@ -102,7 +114,7 @@ func _input(event):
 			if selected_cells.is_empty():
 				return
 
-			var pawn_current_cell_index: int = self.get_cell_index_from_global_position(_pawn.global_position)
+			var pawn_current_cell_index: int = self.get_cell_index_from_global_position(_actor.global_position)
 			self.set_cell_accessible(pawn_current_cell_index, true)
 			_path = self.get_path(pawn_current_cell_index, selected_cells[0])
 			print("Last selected cell:", self.get_latest_selected())
@@ -112,13 +124,13 @@ func _input(event):
 
 func move_along_path(path: PackedInt64Array)-> void:
 	if path.is_empty():
-		_pawn.idle()
+		_actor.idle()
 		show_grid()
 		return
 	
 	var target_cell_index: int = path[0]
 	var target_global_position: Vector3 = get_cell_global_position(target_cell_index)
-	if not is_on_target_cell(_pawn.global_position, target_global_position, 0.20):
+	if not is_on_target_cell(_actor.global_position, target_global_position, 0.20):
 		reaching_cell_target(target_cell_index)
 	else:
 		target_cell_reached()
@@ -127,8 +139,8 @@ func move_along_path(path: PackedInt64Array)-> void:
 func reaching_cell_target(target_cell_index: int) -> void:
 	if _path.size() > 0:
 		var target_cell_global_position: Vector3 = self.get_cell_global_position(target_cell_index)
-		if _pawn.has_method("move_to"):
-			_pawn.move_to(target_cell_global_position)
+		if _actor.has_method("move_to"):
+			_actor.move_to(target_cell_global_position)
 		else:
 			printerr("pawn does not have the 'move_to' method.")
 
@@ -142,5 +154,10 @@ static func is_on_target_cell(current_global_position: Vector3, target_global_po
 	return current_global_position.distance_to(target_global_position) <= threshold
 
 
-func set_pawn(pawn: CharacterBody3D):
-	_pawn = pawn
+func set_actor(pawn: CharacterBody3D):
+	_actor = pawn
+
+
+func _on_button_pressed() -> void:
+	show_grid()
+	button.visible = false
