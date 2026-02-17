@@ -13,7 +13,7 @@
   <img src="/docs/thumbnail/thumbnail_300x300px.png"/>
 </p>
 
-InteractiveGrid is a Godot GDExtension that allows player interaction with a 3D grid, including cell selection, pathfinding, and hover highlights.
+InteractiveGrid is a Godot GDExtension that allows player interaction with a 2D/3D grid, including cell selection, pathfinding, and hover highlights.
 
 Note: To use this plugin, simply download it and add the 'addons' folder to your Godot project's root directory. You don't have to enable it in the plugins menu.
 
@@ -320,8 +320,11 @@ If you encounter any issues, have questions, want to share your project using In
 
 ## Assets and Resources Used
 
-- Kenney. Nature Kit · Kenney. https://kenney.nl/assets/nature-kit
+- Nature Kit · Kenney. https://kenney.nl/assets/nature-kit 
+- Map Pack · Kenney. https://kenney.nl/assets/map-pack.
 - Character movement in 3D | GDQuest Library. https://www.gdquest.com/library/character_movement_3d_platformer/#create-a-3d-character-controller-in-godot-4
+- Pixel Trees by LINHZVN (no date). https://linhzvn.itch.io/pixel-trees.
+- Adventurer 2D Top-Down by Mattz Art (no date). https://xzany.itch.io/top-down-adventurer-character
 
 ## References (Videos & Websites)
 
