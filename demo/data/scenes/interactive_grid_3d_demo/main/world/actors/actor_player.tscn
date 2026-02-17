@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://ckqakmh33ydjs"]
 
-[ext_resource type="Script" uid="uid://dwabf7i2a8d4o" path="res://data/scripts/interactive_grid_3d_demo/main/ray_cast_from_mouse.gd" id="1_bx3ws"]
 [ext_resource type="Script" uid="uid://1118fnkm8r3g" path="res://data/scripts/interactive_grid_3d_demo/actors/actor_player.gd" id="1_qh1kv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qh1kv"]
@@ -3916,9 +3915,6 @@ shadow_caster_mask = 4293918720
 distance_fade_enabled = true
 spot_range = 24.603949
 spot_angle = 15.72687
-
-[node name="RayCastFromMouse" type="RayCast3D" parent="." unique_id=675490528]
-script = ExtResource("1_bx3ws")
 
 [node name="model" type="Node3D" parent="." unique_id=913218116]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)

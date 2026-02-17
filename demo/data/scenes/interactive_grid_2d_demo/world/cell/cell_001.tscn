@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bg68id78awj6q"]
+
+[ext_resource type="PackedScene" uid="uid://dpwnibl6kqc0t" path="res://data/scenes/interactive_grid_2d_demo/world/actors/actor_player.tscn" id="1_tii6i"]
+[ext_resource type="PackedScene" uid="uid://cxvak15b2ottb" path="res://data/scenes/interactive_grid_2d_demo/world/cell/tree_001.tscn" id="2_1ylvb"]
+[ext_resource type="PackedScene" uid="uid://hvr13slgumo8" path="res://data/scenes/interactive_grid_2d_demo/world/cell/tree_002.tscn" id="3_o33rd"]
+[ext_resource type="PackedScene" uid="uid://cr102m6hchjbn" path="res://data/scenes/interactive_grid_2d_demo/world/cell/tree_003.tscn" id="4_u57d0"]
+[ext_resource type="PackedScene" uid="uid://bj6byj4yp2bxy" path="res://data/scenes/interactive_grid_2d_demo/world/cell/tree_004.tscn" id="5_ckgm7"]
+
+[node name="Cell001" type="Node2D" unique_id=558630872]
+y_sort_enabled = true
+
+[node name="ActorPlayer" parent="." unique_id=1269845574 instance=ExtResource("1_tii6i")]
+
+[node name="Tree" parent="." unique_id=716317946 instance=ExtResource("2_1ylvb")]
+position = Vector2(218, 211)
+
+[node name="Tree2" parent="." unique_id=1496131572 instance=ExtResource("2_1ylvb")]
+position = Vector2(-456, 426)
+
+[node name="Tree3" parent="." unique_id=28155365 instance=ExtResource("2_1ylvb")]
+position = Vector2(-586, -19)
+
+[node name="Tree002" parent="." unique_id=372221075 instance=ExtResource("3_o33rd")]
+position = Vector2(297, 714)
+
+[node name="Tree001" parent="." unique_id=635911319 instance=ExtResource("2_1ylvb")]
+position = Vector2(-747, 828)
+
+[node name="Tree003" parent="." unique_id=595996089 instance=ExtResource("4_u57d0")]
+position = Vector2(-765, 353)
+
+[node name="Tree004" parent="." unique_id=519730702 instance=ExtResource("4_u57d0")]
+position = Vector2(-74, 838)
+
+[node name="Tree005" parent="." unique_id=55902226 instance=ExtResource("5_ckgm7")]
+position = Vector2(-329, -329)
+
+[node name="Tree006" parent="." unique_id=1137019529 instance=ExtResource("4_u57d0")]
+position = Vector2(592, -116)
+
+[node name="Tree007" parent="." unique_id=101483072 instance=ExtResource("5_ckgm7")]
+position = Vector2(683, -213)
+
+[node name="Tree008" parent="." unique_id=533108733 instance=ExtResource("5_ckgm7")]
+position = Vector2(746, -91)
+
+[node name="Tree009" parent="." unique_id=1595421559 instance=ExtResource("4_u57d0")]
+position = Vector2(953, 289)
+
+[node name="Tree010" parent="." unique_id=229898448 instance=ExtResource("5_ckgm7")]
+position = Vector2(-158, -417)
+
+[node name="Tree011" parent="." unique_id=25262151 instance=ExtResource("4_u57d0")]
+position = Vector2(-158, -355)
+
+[node name="Tree012" parent="." unique_id=698798939 instance=ExtResource("2_1ylvb")]
+position = Vector2(1185, 781)

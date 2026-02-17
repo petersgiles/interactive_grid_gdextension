@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bndwlm27xl2yc" path="res://data/scripts/interactive_grid_3d_demo/main/main.gd" id="1_3vpdd"]
 [ext_resource type="PackedScene" uid="uid://cxwiwkhksjad8" path="res://data/scenes/interactive_grid_3d_demo/main/world/world.tscn" id="1_no8w7"]
-[ext_resource type="Script" uid="uid://dwabf7i2a8d4o" path="res://data/scripts/interactive_grid_3d_demo/main/ray_cast_from_mouse.gd" id="3_am8kc"]
+[ext_resource type="Script" uid="uid://dwabf7i2a8d4o" path="res://data/scripts/interactive_grid_3d_demo/main/ray_cast_from_mouse.gd" id="3_q31dh"]
 [ext_resource type="Shader" uid="uid://bolyk0gis3vly" path="res://data/ressources/shaders/interractive_grid_3d.gdshader" id="4_rlwvc"]
-[ext_resource type="Script" uid="uid://cnxwc4e8vdiox" path="res://data/scripts/interactive_grid_3d_demo/main/interactive_grid_3d.gd" id="5_ve3p0"]
+[ext_resource type="Script" uid="uid://cnxwc4e8vdiox" path="res://data/scripts/interactive_grid_3d_demo/main/interactive_grid_3d.gd" id="5_ayx4p"]
 
 [sub_resource type="FontVariation" id="FontVariation_kcb5k"]
 
@@ -97,7 +97,7 @@ theme_override_font_sizes/font_size = 32
 text = "(Press SPACE)"
 
 [node name="RayCastFromMouse" type="RayCast3D" parent="." unique_id=1040400427]
-script = ExtResource("3_am8kc")
+script = ExtResource("3_q31dh")
 
 [node name="InteractiveGrid3D" type="InteractiveGrid3D" parent="." unique_id=1033096384]
 cell_size = Vector2(1.5, 1.29)
@@ -121,6 +121,6 @@ collision_floor_mask = 16384
 debug_logs_enabled = true
 debug_execution_time_enabled = true
 visible = false
-script = ExtResource("5_ve3p0")
+script = ExtResource("5_ayx4p")
 
 [connection signal="pressed" from="UserInterface/Start/Button" to="InteractiveGrid3D" method="_on_button_pressed"]

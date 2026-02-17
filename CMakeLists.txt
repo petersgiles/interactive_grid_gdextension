@@ -51,9 +51,12 @@ target_sources(${LIBNAME}
     src/register_types.h
     src/custom_cell_data.cpp
     src/custom_cell_data.h
-    src/interactive_grid.cpp
-    src/interactive_grid.h
+    src/interactive_grid_2d.cpp
+    src/interactive_grid_2d.h
+    src/interactive_grid_3d.cpp
+    src/interactive_grid_3d.h
 )
+
 
 # Fetch a list of the xml files to use for documentation and add to our target
 file(GLOB_RECURSE DOC_XML LIST_DIRECTORIES NO CONFIGURE_DEPENDS "${PROJECT_SOURCE_DIR}/doc_classes/*.xml")

@@ -890,6 +890,7 @@ void InteractiveGrid3D::_bind_methods() {
 }
 
 void InteractiveGrid3D::_ready() {
+	_create();
 }
 
 void InteractiveGrid3D::_physics_process(double p_delta) {

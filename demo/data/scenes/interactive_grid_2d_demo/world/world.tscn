@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://32ryyhr4bfg0"]
+
+[ext_resource type="Texture2D" uid="uid://bnmwe4h583tpr" path="res://data/ressources/textures/hexagon.png" id="2_3vjgh"]
+[ext_resource type="PackedScene" uid="uid://brf3m3v23fxvj" path="res://data/scenes/interactive_grid_2d_demo/world/terrain/terrain_001.tscn" id="2_jvhf5"]
+[ext_resource type="PackedScene" uid="uid://bg68id78awj6q" path="res://data/scenes/interactive_grid_2d_demo/world/cell/cell_001.tscn" id="2_k5bcg"]
+[ext_resource type="Script" uid="uid://b5qnv5cfqaogj" path="res://data/scripts/interactive_grid_2d_demo/interactive_grid_2d.gd" id="3_3vjgh"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_kgfn7"]
+size = Vector2(192, -192)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s8pms"]
+radius = 80.0
+
+[sub_resource type="CustomCellData" id="CustomCellData_3vjgh"]
+custom_data_name = "CFL_NEIGHBORS"
+layer_mask = 1024
+collision_layer = 0
+use_custom_color = true
+color = Color(1, 0, 1, 0.39215687)
+
+[sub_resource type="CustomCellData" id="CustomCellData_kgfn7"]
+custom_data_name = "CFL_PLAYER"
+layer_mask = 131072
+collision_layer = 0
+use_custom_color = true
+color = Color(4.7168137e-06, 0.732735, 0.5368973, 1)
+
+[node name="World" type="Node2D" unique_id=1435378074]
+
+[node name="Terrain" type="Node2D" parent="." unique_id=914193975]
+
+[node name="Terrain001" parent="Terrain" unique_id=7430599 instance=ExtResource("2_jvhf5")]
+
+[node name="InteractiveGrid2D" type="InteractiveGrid2D" parent="." unique_id=1163617869]
+cell_size = Vector2(150, 129)
+cell_mesh = SubResource("QuadMesh_kgfn7")
+cell_texture = ExtResource("2_3vjgh")
+cell_shape = SubResource("CircleShape2D_s8pms")
+layout = 1
+movement = 1
+custom_cells_data = [SubResource("CustomCellData_3vjgh"), SubResource("CustomCellData_kgfn7")]
+color_accessible = Color(0.61960787, 1, 1, 0.39215687)
+color_unaccessible = Color(1, 0, 0, 0.5882353)
+color_unreachable = Color(1, 1, 1, 0)
+color_path = Color(1, 1, 0, 1)
+color_hovered_color = Color(0.92941177, 0.5137255, 0.42745098, 1)
+collision_obstacles_enabled = true
+collision_obstacles_mask = 8192
+collision_floor_mask = 16384
+debug_logs_enabled = true
+debug_execution_time_enabled = true
+visible = false
+script = ExtResource("3_3vjgh")
+
+[node name="Cell" type="Node2D" parent="." unique_id=1868300501]
+
+[node name="Cell001" parent="Cell" unique_id=558630872 instance=ExtResource("2_k5bcg")]

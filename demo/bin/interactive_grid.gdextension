@@ -58,4 +58,5 @@ web.wasm32.double.release = "./web/libinteractive_grid.web.template_release.wasm
 
 [icons]
 
+InteractiveGrid2D = "res://addons/interactive-grid/data/editor/icons/InteractiveGrid2D.svg"
 InteractiveGrid3D = "res://addons/interactive-grid/data/editor/icons/InteractiveGrid3D.svg"

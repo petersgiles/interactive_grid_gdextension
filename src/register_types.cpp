@@ -6,6 +6,7 @@
 #include <godot_cpp/godot.hpp>
 
 #include "custom_cell_data.h"
+#include "interactive_grid_2d.h"
 #include "interactive_grid_3d.h"
 
 using namespace godot;
@@ -14,6 +15,7 @@ void initialize_gdextension_types(ModuleInitializationLevel p_level) {
 	if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
 		return;
 	}
+	GDREGISTER_CLASS(InteractiveGrid2D);
 	GDREGISTER_CLASS(InteractiveGrid3D);
 	GDREGISTER_CLASS(CustomCellData);
 }
