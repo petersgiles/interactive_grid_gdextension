@@ -31,7 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://dwnp82ouku2d6" path="res://data/ressources/third_party_assets/kenney_nature-kit/Models/GLTF format/flower_purpleA.glb" id="29_hq61o"]
 [ext_resource type="PackedScene" uid="uid://0j52v41rw3bv" path="res://data/ressources/third_party_assets/kenney_nature-kit/Models/GLTF format/flower_redC.glb" id="30_ql82f"]
 [ext_resource type="PackedScene" uid="uid://bcgth1gwbv1re" path="res://data/ressources/third_party_assets/kenney_nature-kit/Models/GLTF format/flower_yellowB.glb" id="31_ede66"]
-[ext_resource type="PackedScene" uid="uid://ckqakmh33ydjs" path="res://data/scenes/interactive_grid_3d_demo/main/world/actors/actor_player.tscn" id="32_c2ysd"]
+[ext_resource type="PackedScene" uid="uid://ckqakmh33ydjs" path="res://data/scenes/interactive_grid_3d_demo/world/actors/actor_player.tscn" id="32_c2ysd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4nhj"]
 resource_name = "leafsGreen"
@@ -2443,7 +2443,7 @@ shape = SubResource("ConcavePolygonShape3D_k62qn")
 [node name="rock_largeF3" parent="props/Rocks" unique_id=1168694044 instance=ExtResource("18_clqx7")]
 transform = Transform3D(1.0000002, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1.0000002, 4.4600134, 0, -3.8645449)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="props/Rocks/rock_largeF3/rock_largeF" index="0" unique_id=354610001]
+[node name="StaticBody3D" type="StaticBody3D" parent="props/Rocks/rock_largeF3/rock_largeF" parent_id_path=PackedInt32Array(1168694044, 263915833) index="0" unique_id=354610001]
 collision_layer = 8193
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="props/Rocks/rock_largeF3/rock_largeF/StaticBody3D" unique_id=691158122]
@@ -2469,7 +2469,7 @@ shape = SubResource("ConcavePolygonShape3D_03feq")
 [node name="rock_tallB2" parent="props/Rocks" unique_id=1007281819 instance=ExtResource("19_14kjn")]
 transform = Transform3D(1.0000002, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1.0000002, 5.0596056, 0, -3.0154119)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="props/Rocks/rock_tallB2/rock_tallB" index="0" unique_id=2035056037]
+[node name="StaticBody3D" type="StaticBody3D" parent="props/Rocks/rock_tallB2/rock_tallB" parent_id_path=PackedInt32Array(1007281819, 477866393) index="0" unique_id=2035056037]
 collision_layer = 8193
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="props/Rocks/rock_tallB2/rock_tallB/StaticBody3D" unique_id=1041604058]

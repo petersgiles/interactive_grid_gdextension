@@ -1,11 +1,13 @@
 extends InteractiveGrid2D
 
+@onready var button: Button = $"../../UserInterface/Start/Button"
+@onready var user_interface: Control = $"../../UserInterface"
+
 var _actor: CharacterBody2D = null
 var _path: PackedInt64Array = []
 
 func _ready() -> void:
 	for cell in get_node("/root/Main/World/Cell").get_children():
-		#var actors_node = cell.get_node("Actors")
 		if cell.has_node("ActorPlayer"):
 			_actor = cell.get_node("ActorPlayer") as CharacterBody2D
 			self.set_actor(_actor)
@@ -23,7 +25,8 @@ func _process(delta: float) -> void:
 func _input(event):
 	if event.is_action_pressed("show_grid"):
 		if _actor: 
-			show_grid()
+			self.show_grid()
+			button.visible = false
 		
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if _actor == null: 
@@ -116,3 +119,8 @@ static func is_on_target_cell(current_global_position: Vector2, target_global_po
 
 func set_actor(actor: CharacterBody2D):
 	_actor = actor
+	
+	
+func _on_button_pressed() -> void:
+	show_grid()
+	button.visible = false

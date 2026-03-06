@@ -1,7 +1,17 @@
 [gd_scene format=3 uid="uid://b6bnfmk8q7f7h"]
 
 [ext_resource type="PackedScene" uid="uid://32ryyhr4bfg0" path="res://data/scenes/interactive_grid_2d_demo/world/world.tscn" id="1_al1v5"]
+[ext_resource type="Script" uid="uid://ey5bqvielx21" path="res://data/scripts/interactive_grid_2d_demo/main.gd" id="1_du4ro"]
+[ext_resource type="PackedScene" uid="uid://b5kwcco2snh4r" path="res://data/scenes/interactive_grid_2d_demo/world/user_interface/user_interface.tscn" id="2_pxc5i"]
 
 [node name="Main" type="Node2D" unique_id=1822087979]
+script = ExtResource("1_du4ro")
 
 [node name="World" parent="." unique_id=1435378074 instance=ExtResource("1_al1v5")]
+
+[node name="UserInterface" parent="." unique_id=197762114 instance=ExtResource("2_pxc5i")]
+
+[connection signal="pressed" from="UserInterface/Start/Button" to="World/InteractiveGrid2D" method="_on_button_pressed"]
+
+[editable path="World"]
+[editable path="UserInterface"]

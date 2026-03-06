@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://cxwiwkhksjad8"]
+
+[ext_resource type="PackedScene" uid="uid://co4uut3is4ws2" path="res://data/scenes/interactive_grid_3d_demo/world/cells/cell_001.tscn" id="1_4s20w"]
+[ext_resource type="Shader" uid="uid://bolyk0gis3vly" path="res://data/ressources/shaders/interractive_grid_3d.gdshader" id="2_uk8l7"]
+[ext_resource type="Script" uid="uid://cnxwc4e8vdiox" path="res://data/scripts/interactive_grid_3d_demo/main/interactive_grid_3d.gd" id="3_edj6e"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_evogv"]
+top_radius = 0.866
+bottom_radius = 0.866
+height = 0.1
+radial_segments = 6
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2ufw3"]
+radius = 0.75
+
+[sub_resource type="CustomCellData" id="CustomCellData_eqrjm"]
+custom_data_name = "CFL_PLAYER"
+layer_mask = 128
+collision_layer = 0
+use_custom_color = true
+color = Color(1, 1, 0, 1)
+
+[sub_resource type="CustomCellData" id="CustomCellData_g470t"]
+custom_data_name = "CFL_PULSE"
+layer_mask = 1048832
+collision_layer = 0
+
+[sub_resource type="CustomCellData" id="CustomCellData_yeeyf"]
+custom_data_name = "CFL_NEIGHBORS"
+layer_mask = 512
+collision_layer = 0
+
+[sub_resource type="CustomCellData" id="CustomCellData_pbhab"]
+custom_data_name = "CFL_TRAP"
+layer_mask = 1280
+collision_layer = 536870912
+use_custom_color = true
+color = Color(1, 0.1764706, 0, 1)
+
+[sub_resource type="CustomCellData" id="CustomCellData_fatw5"]
+custom_data_name = "CFL_ENEMY"
+layer_mask = 2304
+collision_layer = 65536
+use_custom_color = true
+color = Color(1, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_37wyr"]
+render_priority = 0
+shader = ExtResource("2_uk8l7")
+
+[node name="World" type="Node3D" unique_id=1482649429]
+
+[node name="Cell" type="Node3D" parent="." unique_id=555344952]
+
+[node name="Cell001" parent="Cell" unique_id=1470776955 instance=ExtResource("1_4s20w")]
+
+[node name="InteractiveGrid3D" type="InteractiveGrid3D" parent="." unique_id=822212612]
+cell_size = Vector2(1.5, 1.29)
+cell_mesh = SubResource("CylinderMesh_evogv")
+cell_shape = SubResource("CylinderShape3D_2ufw3")
+cell_shape_offset = Vector3(0, 1, 0)
+layout = 1
+movement = 1
+custom_cells_data = [SubResource("CustomCellData_eqrjm"), SubResource("CustomCellData_g470t"), SubResource("CustomCellData_yeeyf"), SubResource("CustomCellData_pbhab"), SubResource("CustomCellData_fatw5")]
+material_override = SubResource("ShaderMaterial_37wyr")
+color_accessible = Color(0.34458235, 0.543337, 0.9941997, 1)
+color_unaccessible = Color(0.9999866, 0.2454279, 0.18635419, 1)
+color_unreachable = Color(1, 1, 1, 0)
+color_selected = Color(0.63189256, 0.7538777, 1, 1)
+color_path = Color(0.8258814, 1, 0.604925, 1)
+color_hovered = Color(1, 0.7955818, 0.516218, 1)
+collision_obstacles_enabled = true
+collision_floor_enabled = true
+collision_obstacles_mask = 8192
+collision_floor_mask = 16384
+debug_logs_enabled = true
+debug_execution_time_enabled = true
+visible = false
+script = ExtResource("3_edj6e")

@@ -15,14 +15,10 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="demo"
-run/main_scene="uid://b6bnfmk8q7f7h"
+run/main_scene="uid://b1qdgwqab4k3b"
 config/features=PackedStringArray("4.6", "Forward Plus")
 run/max_fps=160
 config/icon="res://icon.svg"
-
-[autoload]
-
-DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
 
 [display]
 
@@ -32,7 +28,7 @@ window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gut/plugin.cfg")
+enabled=PackedStringArray()
 
 [filesystem]
 

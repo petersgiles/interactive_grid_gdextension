@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://cxwiwkhksjad8"]
-
-[ext_resource type="PackedScene" uid="uid://co4uut3is4ws2" path="res://data/scenes/interactive_grid_3d_demo/main/world/cells/cell_001.tscn" id="1_4s20w"]
-
-[node name="World" type="Node3D" unique_id=1482649429]
-
-[node name="Cell" type="Node3D" parent="." unique_id=555344952]
-
-[node name="Cell001" parent="Cell" unique_id=1470776955 instance=ExtResource("1_4s20w")]
