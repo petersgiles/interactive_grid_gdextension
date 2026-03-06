@@ -19,6 +19,10 @@ Note: To use this plugin, simply download it and add the 'addons' folder to your
 
 ## Features
 
+- Add a new InteractiveGrid2D Node to your Godot project.
+
+- Add a new InteractiveGrid3D Node to your Godot project.
+- 
 - Select individual cells.
 
 - Detect obstacles.
@@ -323,8 +327,8 @@ If you encounter any issues, have questions, want to share your project using In
 - Nature Kit · Kenney. https://kenney.nl/assets/nature-kit 
 - Map Pack · Kenney. https://kenney.nl/assets/map-pack.
 - Character movement in 3D | GDQuest Library. https://www.gdquest.com/library/character_movement_3d_platformer/#create-a-3d-character-controller-in-godot-4
-- Pixel Trees by LINHZVN (no date). https://linhzvn.itch.io/pixel-trees.
-- Adventurer 2D Top-Down by Mattz Art (no date). https://xzany.itch.io/top-down-adventurer-character
+- Pixel Trees by LINHZVN. https://linhzvn.itch.io/pixel-trees.
+- Adventurer 2D Top-Down by Mattz Art. https://xzany.itch.io/top-down-adventurer-character
 
 ## References (Videos & Websites)
 
