@@ -52,6 +52,6 @@ debug_execution_time_enabled = true
 visible = false
 script = ExtResource("3_3vjgh")
 
-[node name="Cell" type="Node2D" parent="." unique_id=1868300501]
+[node name="Cells" type="Node2D" parent="." unique_id=1868300501]
 
-[node name="Cell001" parent="Cell" unique_id=558630872 instance=ExtResource("2_k5bcg")]
+[node name="Cell001" parent="Cells" unique_id=558630872 instance=ExtResource("2_k5bcg")]

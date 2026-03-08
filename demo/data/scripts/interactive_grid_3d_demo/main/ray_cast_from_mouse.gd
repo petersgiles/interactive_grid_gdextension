@@ -6,7 +6,7 @@ var _actor: CharacterBody3D = null
 @export var debug_sphere_raycast: MeshInstance3D
 
 func _ready() -> void:
-	var cells = get_node("/root/Main/World/Cell").get_children()
+	var cells = get_node("/root/Main/World/Cells").get_children()
 	
 	for cell in cells:
 		var actors_node = cell.get_node_or_null("Actors")

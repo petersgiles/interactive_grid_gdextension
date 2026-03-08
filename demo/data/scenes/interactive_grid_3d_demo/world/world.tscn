@@ -50,9 +50,9 @@ shader = ExtResource("2_uk8l7")
 
 [node name="World" type="Node3D" unique_id=1482649429]
 
-[node name="Cell" type="Node3D" parent="." unique_id=555344952]
+[node name="Cells" type="Node3D" parent="." unique_id=555344952]
 
-[node name="Cell001" parent="Cell" unique_id=1470776955 instance=ExtResource("1_4s20w")]
+[node name="Cell001" parent="Cells" unique_id=1470776955 instance=ExtResource("1_4s20w")]
 
 [node name="InteractiveGrid3D" type="InteractiveGrid3D" parent="." unique_id=822212612]
 cell_size = Vector2(1.5, 1.29)

@@ -22,7 +22,7 @@ Note: To use this plugin, simply download it and add the 'addons' folder to your
 - Add a new InteractiveGrid2D Node to your Godot project.
 
 - Add a new InteractiveGrid3D Node to your Godot project.
-- 
+
 - Select individual cells.
 
 - Detect obstacles.

@@ -1,13 +1,13 @@
 extends InteractiveGrid2D
 
 @onready var button: Button = $"../../UserInterface/Start/Button"
-@onready var user_interface: Control = $"../../UserInterface"
+@onready var user_interface: CanvasLayer = $"../../UserInterface"
 
 var _actor: CharacterBody2D = null
 var _path: PackedInt64Array = []
 
 func _ready() -> void:
-	for cell in get_node("/root/Main/World/Cell").get_children():
+	for cell in get_node("/root/Main/World/Cells").get_children():
 		if cell.has_node("ActorPlayer"):
 			_actor = cell.get_node("ActorPlayer") as CharacterBody2D
 			self.set_actor(_actor)
