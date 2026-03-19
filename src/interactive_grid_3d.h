@@ -237,6 +237,8 @@ public:
 	void highlight_on_hover(godot::Vector3 p_global_position);
 	void highlight_path(const godot::PackedInt64Array &p_path);
 
+	godot::MultiMeshInstance3D *get_multimesh_instance();
+	godot::Ref<godot::MultiMesh> get_multimesh() const;
 	godot::Vector3 get_cell_position(int p_cell_index) const;
 	godot::Vector3 get_cell_global_position(int p_cell_index) const;
 	int get_cell_index_from_global_position(godot::Vector3 p_global_position) const;
