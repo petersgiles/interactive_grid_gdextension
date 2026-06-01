@@ -53,6 +53,29 @@ Note: To use this plugin, simply download it and add the 'addons' folder to your
 - Fully compatible with Godot 4.5.
 - Cross-platform support (Linux, Windows, macOS, Android, iOS, Web/HTML5).
 
+## Building from Source
+
+```bash
+# Editor (required to use the extension inside the Godot editor)
+scons platform=linux target=editor -j$(nproc)
+
+# Export templates (optional, needed for exported builds)
+scons platform=linux target=template_debug -j$(nproc)
+scons platform=linux target=template_release -j$(nproc)
+```
+
+The compiled `.so` is automatically copied to `demo/bin/linux/`.
+
+### `.gdextension` key for the editor binary
+
+When registering the library in your `.gdextension` file, the Godot editor on Linux requires a key that includes the precision qualifier:
+
+```ini
+linux.x86_64.single.editor = "./linux/libinteractive_grid.linux.editor.x86_64.so"
+```
+
+Using only `linux.x86_64.editor` (without `single`) is **not** sufficient — Godot 4.6 will fail to locate the library and the extension will not load.
+
 ## Itch.io Page 🎮
 
 [![](docs/itch_io/logo/logo.png)](https://vivensoft.itch.io/interactive-grid-gdextension)

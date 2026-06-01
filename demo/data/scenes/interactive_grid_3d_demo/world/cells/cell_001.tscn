@@ -2108,7 +2108,6 @@ transform = Transform3D(0.9977069, 0, 0.06766707, 0, 1, 0, -0.06766707, 0, 0.997
 [node name="tree_detailed" type="MeshInstance3D" parent="props/Trees/tree_detailed5" unique_id=867327259]
 transform = Transform3D(-0.6510309, 0, -1.3513544, 0, 1.5, 0, 1.3513544, 0, -0.6510309, 0, -0.049999997, 0)
 mesh = SubResource("ArrayMesh_uk64r")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Trees/tree_detailed5/tree_detailed" unique_id=866321626]
 collision_layer = 8193
@@ -2122,7 +2121,6 @@ transform = Transform3D(0.99770683, 0, 0.06766707, 0, 1, 0, -0.06766707, 0, 0.99
 [node name="tree_detailed" type="MeshInstance3D" parent="props/Trees/tree_detailed6" unique_id=2021444898]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_uk64r")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Trees/tree_detailed6/tree_detailed" unique_id=1983740712]
 collision_layer = 8193
@@ -2151,7 +2149,6 @@ transform = Transform3D(-0.14274979, 0, -0.9897592, 0, 1, 0, 0.9897592, 0, -0.14
 [node name="tree_pineDefaultA" type="MeshInstance3D" parent="props/Trees/tree_pineDefaultA11" unique_id=1139412972]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42397332, -0.05, 0.34259415)
 mesh = SubResource("ArrayMesh_5rkwq")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Trees/tree_pineDefaultA11/tree_pineDefaultA" unique_id=1263857665]
 collision_layer = 8193
@@ -2212,7 +2209,6 @@ transform = Transform3D(0.97153705, 0, -0.23688897, 0, 1, 0, 0.23688897, 0, 0.97
 [node name="rock_largeD" type="MeshInstance3D" parent="props/Rocks/rock_largeD2" unique_id=222339278]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_igt3x")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Rocks/rock_largeD2/rock_largeD" unique_id=1716566456]
 collision_layer = 8193
@@ -2241,7 +2237,6 @@ transform = Transform3D(1.0000002, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0,
 [node name="rock_smallE" type="MeshInstance3D" parent="props/Rocks/rock_smallE2" unique_id=14776220]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_cdo26")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Rocks/rock_smallE2/rock_smallE" unique_id=1723499263]
 collision_layer = 8193
@@ -2258,7 +2253,6 @@ transform = Transform3D(1.0000002, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0,
 [node name="rock_smallFlatA" type="MeshInstance3D" parent="props/Rocks/rock_smallFlatA2" unique_id=1466745847]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_lk1r5")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Rocks/rock_smallFlatA2/rock_smallFlatA" unique_id=1937317389]
 collision_layer = 8193
@@ -2293,7 +2287,6 @@ transform = Transform3D(1.0000002, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0,
 [node name="rock_largeA" type="MeshInstance3D" parent="props/Rocks/rock_largeA2" unique_id=448325792]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_wmyhf")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Rocks/rock_largeA2/rock_largeA" unique_id=2014518128]
 collision_layer = 8193
@@ -2307,7 +2300,6 @@ transform = Transform3D(0.8317511, 0, -0.55514973, 0, 1, 0, 0.55514973, 0, 0.831
 [node name="rock_largeB" type="MeshInstance3D" parent="props/Rocks/rock_largeB2" unique_id=443931522]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_577gb")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Rocks/rock_largeB2/rock_largeB" unique_id=506508323]
 collision_layer = 8193
@@ -2318,7 +2310,6 @@ shape = SubResource("ConcavePolygonShape3D_eswmo")
 [node name="rock_largeB2" type="MeshInstance3D" parent="props/Rocks/rock_largeB2" unique_id=657398378]
 transform = Transform3D(-0.6948092, 0, 0.71919435, 0, 1, 0, -0.71919435, 0, -0.6948092, -0.3327942, -0.05, -1.2869055)
 mesh = SubResource("ArrayMesh_577gb")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Rocks/rock_largeB2/rock_largeB2" unique_id=363528417]
 collision_layer = 8193
@@ -2332,7 +2323,6 @@ transform = Transform3D(1.0000002, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0,
 [node name="rock_largeC" type="MeshInstance3D" parent="props/Rocks/rock_largeC2" unique_id=34908217]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_jfh8b")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Rocks/rock_largeC2/rock_largeC" unique_id=1762949548]
 collision_layer = 8193
@@ -2346,7 +2336,6 @@ transform = Transform3D(0.4565081, 0, -0.88971984, 0, 1, 0, 0.88971984, 0, 0.456
 [node name="rock_largeD" type="MeshInstance3D" parent="props/Rocks/rock_largeD4" unique_id=1592761160]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_igt3x")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Rocks/rock_largeD4/rock_largeD" unique_id=315991878]
 collision_layer = 8193
@@ -2360,7 +2349,6 @@ transform = Transform3D(-0.29712507, 0, -0.9548389, 0, 1, 0, 0.9548389, 0, -0.29
 [node name="rock_largeE" type="MeshInstance3D" parent="props/Rocks/rock_largeE2" unique_id=1796621878]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_72vai")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Rocks/rock_largeE2/rock_largeE" unique_id=1936171469]
 collision_layer = 8193
@@ -2374,7 +2362,6 @@ transform = Transform3D(1.0000002, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0,
 [node name="rock_largeF" type="MeshInstance3D" parent="props/Rocks/rock_largeF2" unique_id=737321049]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_gsc7b")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Rocks/rock_largeF2/rock_largeF" unique_id=760666616]
 collision_layer = 8193
@@ -2387,7 +2374,6 @@ shape = SubResource("ConcavePolygonShape3D_jn722")
 [node name="rock_largeA" type="MeshInstance3D" parent="props/Rocks/rock_largeA3" unique_id=287809022]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_wmyhf")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Rocks/rock_largeA3/rock_largeA" unique_id=675126419]
 collision_layer = 8193
@@ -2401,7 +2387,6 @@ transform = Transform3D(1.0000002, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0,
 [node name="rock_largeB" type="MeshInstance3D" parent="props/Rocks/rock_largeB3" unique_id=5939983]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_577gb")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Rocks/rock_largeB3/rock_largeB" unique_id=1537078827]
 collision_layer = 8193
@@ -2418,7 +2403,6 @@ transform = Transform3D(0.964424, 0, 0.26436126, 0, 1, 0, -0.26436126, 0, 0.9644
 [node name="rock_largeD" type="MeshInstance3D" parent="props/Rocks/rock_largeD5" unique_id=1605963902]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_igt3x")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Rocks/rock_largeD5/rock_largeD" unique_id=979218735]
 collision_layer = 8193
@@ -2432,7 +2416,6 @@ transform = Transform3D(0.9326018, 0, -0.36090872, 0, 1, 0, 0.36090872, 0, 0.932
 [node name="rock_largeE" type="MeshInstance3D" parent="props/Rocks/rock_largeE3" unique_id=1711361343]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_72vai")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Rocks/rock_largeE3/rock_largeE" unique_id=641324665]
 collision_layer = 8193
@@ -2443,7 +2426,7 @@ shape = SubResource("ConcavePolygonShape3D_k62qn")
 [node name="rock_largeF3" parent="props/Rocks" unique_id=1168694044 instance=ExtResource("18_clqx7")]
 transform = Transform3D(1.0000002, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1.0000002, 4.4600134, 0, -3.8645449)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="props/Rocks/rock_largeF3/rock_largeF" parent_id_path=PackedInt32Array(1168694044, 263915833) index="0" unique_id=354610001]
+[node name="StaticBody3D" type="StaticBody3D" parent="props/Rocks/rock_largeF3/rock_largeF" parent_id_path=PackedInt32Array(1168694044, 903225565) index="0" unique_id=354610001]
 collision_layer = 8193
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="props/Rocks/rock_largeF3/rock_largeF/StaticBody3D" unique_id=691158122]
@@ -2458,7 +2441,6 @@ transform = Transform3D(1.0000002, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0,
 [node name="rock_tallA" type="MeshInstance3D" parent="props/Rocks/rock_tallA2" unique_id=1735117517]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_eju44")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Rocks/rock_tallA2/rock_tallA" unique_id=152607937]
 collision_layer = 8193
@@ -2469,7 +2451,7 @@ shape = SubResource("ConcavePolygonShape3D_03feq")
 [node name="rock_tallB2" parent="props/Rocks" unique_id=1007281819 instance=ExtResource("19_14kjn")]
 transform = Transform3D(1.0000002, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1.0000002, 5.0596056, 0, -3.0154119)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="props/Rocks/rock_tallB2/rock_tallB" parent_id_path=PackedInt32Array(1007281819, 477866393) index="0" unique_id=2035056037]
+[node name="StaticBody3D" type="StaticBody3D" parent="props/Rocks/rock_tallB2/rock_tallB" parent_id_path=PackedInt32Array(1007281819, 1934355045) index="0" unique_id=2035056037]
 collision_layer = 8193
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="props/Rocks/rock_tallB2/rock_tallB/StaticBody3D" unique_id=1041604058]
@@ -2484,7 +2466,6 @@ transform = Transform3D(1.0000002, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0,
 [node name="rock_tallG" type="MeshInstance3D" parent="props/Rocks/rock_tallG2" unique_id=1918207170]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_b8esd")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Rocks/rock_tallG2/rock_tallG" unique_id=1917446248]
 collision_layer = 8193
@@ -2498,7 +2479,6 @@ transform = Transform3D(1.0000002, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0,
 [node name="rock_tallH" type="MeshInstance3D" parent="props/Rocks/rock_tallH2" unique_id=1742354586]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_7rhob")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Rocks/rock_tallH2/rock_tallH" unique_id=1606176707]
 collision_layer = 8193
@@ -2517,7 +2497,6 @@ transform = Transform3D(-0.34528202, 0, 0.9385001, 0, 1, 0, -0.9385001, 0, -0.34
 [node name="tent_detailedClosed" type="MeshInstance3D" parent="props/Tents/tent_detailedClosed2" unique_id=2018775019]
 transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -0.08442551, -0.05, -0.4389465)
 mesh = SubResource("ArrayMesh_jmukc")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Tents/tent_detailedClosed2/tent_detailedClosed" unique_id=1145507707]
 collision_layer = 8193
@@ -2531,7 +2510,6 @@ transform = Transform3D(0.015393198, 0, 0.99988234, 0, 1, 0, -0.99988234, 0, 0.0
 [node name="tent_detailedOpen" type="MeshInstance3D" parent="props/Tents/tent_detailedOpen2" unique_id=1917201608]
 transform = Transform3D(-0.9922541, 0, 0.12422493, 0, 1, 0, -0.12422493, 0, -0.9922541, 0.7463591, -0.05, -0.4900458)
 mesh = SubResource("ArrayMesh_mhopx")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Tents/tent_detailedOpen2/tent_detailedOpen" unique_id=370254239]
 collision_layer = 8193
@@ -2545,7 +2523,6 @@ transform = Transform3D(-0.5035035, 0, -0.8639948, 0, 1, 0, 0.8639948, 0, -0.503
 [node name="tent_smallClosed" type="MeshInstance3D" parent="props/Tents/tent_smallClosed2" unique_id=620814855]
 transform = Transform3D(0.94984114, 0, -0.31273282, 0, 1, 0, 0.31273282, 0, 0.94984114, -0.116641045, -0.05, -0.36456394)
 mesh = SubResource("ArrayMesh_ijpb4")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Tents/tent_smallClosed2/tent_smallClosed" unique_id=1105085618]
 collision_layer = 8193
@@ -2559,7 +2536,6 @@ transform = Transform3D(-0.85701543, 0, 0.515293, 0, 1, 0, -0.515293, 0, -0.8570
 [node name="tent_smallOpen" type="MeshInstance3D" parent="props/Tents/tent_smallOpen2" unique_id=232531738]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_rt5jy")
-skeleton = NodePath("")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Tents/tent_smallOpen2/tent_smallOpen" unique_id=768149808]
@@ -2579,7 +2555,6 @@ transform = Transform3D(1.0000002, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0,
 [node name="campfire_stones" type="MeshInstance3D" parent="props/campfire/campfire_stones2" unique_id=1806573022]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_0dsjx")
-skeleton = NodePath("")
 
 [node name="log2" type="Node3D" parent="props/campfire" unique_id=1855521208]
 transform = Transform3D(1.0000002, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1.0000002, 4.359452, -0.003596425, 4.617382)
@@ -2587,7 +2562,6 @@ transform = Transform3D(1.0000002, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0,
 [node name="log" type="MeshInstance3D" parent="props/campfire/log2" unique_id=798801459]
 transform = Transform3D(0.98733634, 0, 0.15864064, 0, 1, 0, -0.15864064, 0, 0.98733634, -0.15501356, -0.05, 0.056328416)
 mesh = SubResource("ArrayMesh_v4dl2")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/campfire/log2/log" unique_id=1923555268]
 collision_layer = 8193
@@ -2601,7 +2575,6 @@ transform = Transform3D(0.3953053, 0, -0.91855043, 0, 1, 0, 0.91855043, 0, 0.395
 [node name="log" type="MeshInstance3D" parent="props/campfire/log3" unique_id=1467267874]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.087044, -0.05, -0.005041778)
 mesh = SubResource("ArrayMesh_v4dl2")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/campfire/log3/log" unique_id=239061822]
 collision_layer = 8193
@@ -2615,7 +2588,6 @@ transform = Transform3D(-0.20241138, 0, 0.9793016, 0, 1, 0, -0.9793016, 0, -0.20
 [node name="log" type="MeshInstance3D" parent="props/campfire/log4" unique_id=533640089]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -0.27328944, -0.05, 0.03982967)
 mesh = SubResource("ArrayMesh_v4dl2")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/campfire/log4/log" unique_id=1316557074]
 collision_layer = 8193
@@ -2629,7 +2601,6 @@ transform = Transform3D(-0.76192296, 0, 0.6476681, 0, 1, 0, -0.6476681, 0, -0.76
 [node name="log_stack" type="MeshInstance3D" parent="props/log_stack2" unique_id=251108064]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_crhmr")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/log_stack2/log_stack" unique_id=1905728679]
 collision_layer = 8193
@@ -2643,7 +2614,6 @@ transform = Transform3D(0.8263354, 0, 0.56318045, 0, 1, 0, -0.56318045, 0, 0.826
 [node name="log_stackLarge" type="MeshInstance3D" parent="props/log_stackLarge2" unique_id=265006299]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_bf80x")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/log_stackLarge2/log_stackLarge" unique_id=2109838002]
 collision_layer = 8193
@@ -2657,7 +2627,6 @@ transform = Transform3D(-0.707724, 0, -0.7064898, 0, 1, 0, 0.7064898, 0, -0.7077
 [node name="sign" type="MeshInstance3D" parent="props/sign2" unique_id=1064932772]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_itc48")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/sign2/sign" unique_id=102398935]
 collision_layer = 8193
@@ -2704,7 +2673,6 @@ transform = Transform3D(-0.5176382, 0, 0.9659261, 0, 1, 0, -1.9318522, 0, -0.258
 [node name="cliff_cave_rock" type="MeshInstance3D" parent="props/cliff_cave_rock2" unique_id=1212143448]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_1qpnq")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/cliff_cave_rock2/cliff_cave_rock" unique_id=990894433]
 collision_layer = 8193
@@ -2721,7 +2689,6 @@ transform = Transform3D(0.9372899, 0, 0.34855616, 0, 1, 0, -0.34855616, 0, 0.937
 [node name="fence_planksDouble" type="MeshInstance3D" parent="props/Fences/fence_planksDouble2" unique_id=1379533091]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_dvpwa")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Fences/fence_planksDouble2/fence_planksDouble" unique_id=446220196]
 collision_layer = 8193
@@ -2735,7 +2702,6 @@ transform = Transform3D(0.24559551, 0, 0.96937406, 0, 1, 0, -0.96937406, 0, 0.24
 [node name="fence_planksDouble" type="MeshInstance3D" parent="props/Fences/fence_planksDouble3" unique_id=1218937659]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_dvpwa")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Fences/fence_planksDouble3/fence_planksDouble" unique_id=1028147580]
 collision_layer = 8193
@@ -2749,7 +2715,6 @@ transform = Transform3D(-0.176631, 0.037265558, 0.98357403, 0.0059249955, 0.9993
 [node name="fence_planksDouble" type="MeshInstance3D" parent="props/Fences/fence_planksDouble4" unique_id=857901704]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_dvpwa")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Fences/fence_planksDouble4/fence_planksDouble" unique_id=2018517337]
 collision_layer = 8193
@@ -2763,7 +2728,6 @@ transform = Transform3D(1, 0, -1.8626451e-09, 0, 1, 0, 1.8626451e-09, 0, 1, 0, 0
 [node name="fence_planksDouble" type="MeshInstance3D" parent="props/Fences/fence_planksDouble5" unique_id=2022263661]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_dvpwa")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="props/Fences/fence_planksDouble5/fence_planksDouble" unique_id=1408833214]
 collision_layer = 8193

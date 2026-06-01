@@ -319,7 +319,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.088684, 0, 35.677925)
 [node name="ground_grass" type="MeshInstance3D" parent="ground_grass2" unique_id=1385717007]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 16, -0.05, -36)
 mesh = SubResource("ArrayMesh_yt0sx")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ground_grass2/ground_grass" unique_id=1841302428]
 collision_layer = 16385
@@ -360,7 +359,6 @@ transform = Transform3D(1.0000001, 0, 0, 0, 0.99999994, 0, 0, 0, 1.0000001, -1.1
 [node name="bridge_stone" type="MeshInstance3D" parent="bridge/bridge_stone2" unique_id=1267860348]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_v6k3n")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="bridge/bridge_stone2/bridge_stone" unique_id=1745472870]
 collision_layer = 16385
@@ -378,7 +376,6 @@ transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999996, 0, 2.
 [node name="cliff_blockSlope_stone" type="MeshInstance3D" parent="Cliffs/cliff_blockSlope_stone1" unique_id=1338452458]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_pclml")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cliffs/cliff_blockSlope_stone1/cliff_blockSlope_stone" unique_id=471639453]
 collision_layer = 16385
@@ -407,7 +404,6 @@ transform = Transform3D(-0.99999946, 0, 8.742272e-08, 0, 0.9999997, 0, -8.742273
 [node name="cliff_blockSlope_stone" type="MeshInstance3D" parent="Cliffs/cliff_blockSlope_stone2" unique_id=684643517]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_pclml")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cliffs/cliff_blockSlope_stone2/cliff_blockSlope_stone" unique_id=1695125816]
 collision_layer = 16385

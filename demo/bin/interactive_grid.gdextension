@@ -26,6 +26,8 @@ windows.x86_64.double.debug = "./windows/interactive_grid.windows.template_debug
 windows.x86_64.single.release = "./windows/interactive_grid.windows.template_release.x86_64.dll"
 windows.x86_64.double.release = "./windows/interactive_grid.windows.template_release.x86_64.double.dll"
 
+linux.x86_64.single.editor = "./linux/libinteractive_grid.linux.editor.x86_64.so"
+linux.x86_64.editor = "./linux/libinteractive_grid.linux.editor.x86_64.so"
 linux.x86_64.single.debug = "./linux/libinteractive_grid.linux.template_debug.x86_64.so"
 linux.x86_64.double.debug = "./linux/libinteractive_grid.linux.template_debug.x86_64.double.so"
 linux.x86_64.single.release = "./linux/libinteractive_grid.linux.template_release.x86_64.so"

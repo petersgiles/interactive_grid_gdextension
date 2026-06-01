@@ -1,4 +1,4 @@
-[gd_scene load_steps=368 format=4 uid="uid://c57266tq1fx8h"]
+[gd_scene format=4 uid="uid://c57266tq1fx8h"]
 
 [ext_resource type="PackedScene" uid="uid://qt55rniv1sbg" path="res://data/ressources/third_party_assets/kenney_nature-kit/Models/GLTF format/bed.glb" id="1_4byrl"]
 [ext_resource type="PackedScene" uid="uid://bkoqpnpr2ct2r" path="res://data/ressources/third_party_assets/kenney_nature-kit/Models/GLTF format/bed_floor.glb" id="2_r17b8"]
@@ -894,1104 +894,1093 @@ shadow_mesh = SubResource("ArrayMesh_iu42l")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dc1tn"]
 data = PackedVector3Array(0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 0, 0.5)
 
-[node name="kenney_nature-kit" type="Node3D"]
+[node name="kenney_nature-kit" type="Node3D" unique_id=1224786011]
 
-[node name="bed2" parent="." instance=ExtResource("1_4byrl")]
+[node name="bed2" parent="." unique_id=132821903 instance=ExtResource("1_4byrl")]
 visible = false
 
-[node name="bed_floor2" parent="." instance=ExtResource("2_r17b8")]
+[node name="bed_floor2" parent="." unique_id=1212860657 instance=ExtResource("2_r17b8")]
 visible = false
 
-[node name="bridge_center_stone2" parent="." instance=ExtResource("3_ugi2d")]
+[node name="bridge_center_stone2" parent="." unique_id=811540130 instance=ExtResource("3_ugi2d")]
 visible = false
 
-[node name="bridge_center_stoneRound2" parent="." instance=ExtResource("4_bicvj")]
+[node name="bridge_center_stoneRound2" parent="." unique_id=804461351 instance=ExtResource("4_bicvj")]
 visible = false
 
-[node name="bridge_center_wood2" parent="." instance=ExtResource("5_e0yig")]
+[node name="bridge_center_wood2" parent="." unique_id=942508747 instance=ExtResource("5_e0yig")]
 visible = false
 
-[node name="bridge_center_woodRound2" parent="." instance=ExtResource("6_3ida5")]
+[node name="bridge_center_woodRound2" parent="." unique_id=613593624 instance=ExtResource("6_3ida5")]
 visible = false
 
-[node name="bridge_side_stone2" parent="." instance=ExtResource("7_4c8lj")]
+[node name="bridge_side_stone2" parent="." unique_id=900680535 instance=ExtResource("7_4c8lj")]
 visible = false
 
-[node name="bridge_side_stoneRound2" parent="." instance=ExtResource("8_3mdgg")]
+[node name="bridge_side_stoneRound2" parent="." unique_id=59273625 instance=ExtResource("8_3mdgg")]
 visible = false
 
-[node name="bridge_side_wood2" parent="." instance=ExtResource("9_yip57")]
+[node name="bridge_side_wood2" parent="." unique_id=915326246 instance=ExtResource("9_yip57")]
 visible = false
 
-[node name="bridge_side_woodRound2" parent="." instance=ExtResource("10_bc7vm")]
+[node name="bridge_side_woodRound2" parent="." unique_id=1149168500 instance=ExtResource("10_bc7vm")]
 visible = false
 
-[node name="bridge_stone2" parent="." instance=ExtResource("11_v817f")]
+[node name="bridge_stone2" parent="." unique_id=987499297 instance=ExtResource("11_v817f")]
 visible = false
 
-[node name="bridge_stoneNarrow2" parent="." instance=ExtResource("12_w5hb4")]
+[node name="bridge_stoneNarrow2" parent="." unique_id=486763006 instance=ExtResource("12_w5hb4")]
 visible = false
 
-[node name="bridge_stoneRound2" parent="." instance=ExtResource("13_7jiea")]
+[node name="bridge_stoneRound2" parent="." unique_id=507052001 instance=ExtResource("13_7jiea")]
 visible = false
 
-[node name="bridge_stoneRoundNarrow2" parent="." instance=ExtResource("14_qq7kr")]
+[node name="bridge_stoneRoundNarrow2" parent="." unique_id=356483497 instance=ExtResource("14_qq7kr")]
 visible = false
 
-[node name="bridge_wood2" parent="." instance=ExtResource("15_0hxyt")]
+[node name="bridge_wood2" parent="." unique_id=1898780275 instance=ExtResource("15_0hxyt")]
 visible = false
 
-[node name="bridge_woodNarrow2" parent="." instance=ExtResource("16_qr1g4")]
+[node name="bridge_woodNarrow2" parent="." unique_id=1488920121 instance=ExtResource("16_qr1g4")]
 visible = false
 
-[node name="bridge_woodRound2" parent="." instance=ExtResource("17_yvlc8")]
+[node name="bridge_woodRound2" parent="." unique_id=519458546 instance=ExtResource("17_yvlc8")]
 visible = false
 
-[node name="bridge_woodRoundNarrow2" parent="." instance=ExtResource("18_mlo83")]
+[node name="bridge_woodRoundNarrow2" parent="." unique_id=301676762 instance=ExtResource("18_mlo83")]
 visible = false
 
-[node name="cactus_short2" parent="." instance=ExtResource("19_a8dge")]
+[node name="cactus_short2" parent="." unique_id=1577476184 instance=ExtResource("19_a8dge")]
 visible = false
 
-[node name="cactus_tall2" parent="." instance=ExtResource("20_gnfrp")]
+[node name="cactus_tall2" parent="." unique_id=2089968701 instance=ExtResource("20_gnfrp")]
 visible = false
 
-[node name="campfire_bricks2" parent="." instance=ExtResource("21_wn6b6")]
+[node name="campfire_bricks2" parent="." unique_id=1510999947 instance=ExtResource("21_wn6b6")]
 visible = false
 
-[node name="campfire_logs2" parent="." instance=ExtResource("22_fkapm")]
+[node name="campfire_logs2" parent="." unique_id=1871795995 instance=ExtResource("22_fkapm")]
 visible = false
 
-[node name="campfire_planks2" parent="." instance=ExtResource("23_gmtpc")]
+[node name="campfire_planks2" parent="." unique_id=359360454 instance=ExtResource("23_gmtpc")]
 visible = false
 
-[node name="campfire_stones2" parent="." instance=ExtResource("24_jm2vw")]
+[node name="campfire_stones2" parent="." unique_id=1124619155 instance=ExtResource("24_jm2vw")]
 visible = false
 
-[node name="canoe2" parent="." instance=ExtResource("25_3m8bh")]
+[node name="canoe2" parent="." unique_id=432797391 instance=ExtResource("25_3m8bh")]
 visible = false
 
-[node name="canoe_paddle2" parent="." instance=ExtResource("26_5pij6")]
+[node name="canoe_paddle2" parent="." unique_id=2106694521 instance=ExtResource("26_5pij6")]
 visible = false
 
-[node name="cliff_blockCave_rock2" type="Node3D" parent="."]
+[node name="cliff_blockCave_rock2" type="Node3D" parent="." unique_id=1542883192]
 visible = false
 
-[node name="cliff_blockCave_rock" type="MeshInstance3D" parent="cliff_blockCave_rock2"]
+[node name="cliff_blockCave_rock" type="MeshInstance3D" parent="cliff_blockCave_rock2" unique_id=1958796631]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_o25t3")
-skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cliff_blockCave_rock2/cliff_blockCave_rock"]
+[node name="StaticBody3D" type="StaticBody3D" parent="cliff_blockCave_rock2/cliff_blockCave_rock" unique_id=64591326]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cliff_blockCave_rock2/cliff_blockCave_rock/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cliff_blockCave_rock2/cliff_blockCave_rock/StaticBody3D" unique_id=1268831362]
 shape = SubResource("ConcavePolygonShape3D_lq7e1")
 
-[node name="cliff_blockCave_stone2" parent="." instance=ExtResource("28_m0uvv")]
+[node name="cliff_blockCave_stone2" parent="." unique_id=433733409 instance=ExtResource("28_m0uvv")]
 visible = false
 
-[node name="cliff_blockDiagonal_rock2" parent="." instance=ExtResource("29_7nijt")]
+[node name="cliff_blockDiagonal_rock2" parent="." unique_id=2111492073 instance=ExtResource("29_7nijt")]
 visible = false
 
-[node name="cliff_blockDiagonal_stone2" parent="." instance=ExtResource("30_8f3yw")]
+[node name="cliff_blockDiagonal_stone2" parent="." unique_id=2002453113 instance=ExtResource("30_8f3yw")]
 visible = false
 
-[node name="cliff_blockHalf_rock2" parent="." instance=ExtResource("31_n1txq")]
+[node name="cliff_blockHalf_rock2" parent="." unique_id=149725249 instance=ExtResource("31_n1txq")]
 visible = false
 
-[node name="cliff_blockHalf_stone2" parent="." instance=ExtResource("32_3wgpl")]
+[node name="cliff_blockHalf_stone2" parent="." unique_id=409466075 instance=ExtResource("32_3wgpl")]
 visible = false
 
-[node name="cliff_blockQuarter_rock2" parent="." instance=ExtResource("33_6sblw")]
+[node name="cliff_blockQuarter_rock2" parent="." unique_id=378048422 instance=ExtResource("33_6sblw")]
 visible = false
 
-[node name="cliff_blockQuarter_stone2" parent="." instance=ExtResource("34_8a73g")]
+[node name="cliff_blockQuarter_stone2" parent="." unique_id=348362249 instance=ExtResource("34_8a73g")]
 visible = false
 
-[node name="cliff_blockSlopeHalfWalls_rock2" parent="." instance=ExtResource("35_k2cgi")]
+[node name="cliff_blockSlopeHalfWalls_rock2" parent="." unique_id=1175410510 instance=ExtResource("35_k2cgi")]
 visible = false
 
-[node name="cliff_blockSlopeHalfWalls_stone2" parent="." instance=ExtResource("36_3qqgd")]
+[node name="cliff_blockSlopeHalfWalls_stone2" parent="." unique_id=1231975596 instance=ExtResource("36_3qqgd")]
 visible = false
 
-[node name="cliff_blockSlopeWalls_rock2" parent="." instance=ExtResource("37_ewvsu")]
+[node name="cliff_blockSlopeWalls_rock2" parent="." unique_id=733813564 instance=ExtResource("37_ewvsu")]
 visible = false
 
-[node name="cliff_blockSlopeWalls_stone2" parent="." instance=ExtResource("38_87m6c")]
+[node name="cliff_blockSlopeWalls_stone2" parent="." unique_id=1538443860 instance=ExtResource("38_87m6c")]
 visible = false
 
-[node name="cliff_blockSlope_rock2" parent="." instance=ExtResource("39_56np1")]
+[node name="cliff_blockSlope_rock2" parent="." unique_id=1552858111 instance=ExtResource("39_56np1")]
 visible = false
 
-[node name="cliff_blockSlope_stone2" parent="." instance=ExtResource("40_df5ib")]
+[node name="cliff_blockSlope_stone2" parent="." unique_id=1437786191 instance=ExtResource("40_df5ib")]
 visible = false
 
-[node name="cliff_block_rock2" type="Node3D" parent="."]
+[node name="cliff_block_rock2" type="Node3D" parent="." unique_id=571438873]
 visible = false
 
-[node name="cliff_block_rock" type="MeshInstance3D" parent="cliff_block_rock2"]
+[node name="cliff_block_rock" type="MeshInstance3D" parent="cliff_block_rock2" unique_id=312899041]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_owetl")
-skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cliff_block_rock2/cliff_block_rock"]
+[node name="StaticBody3D" type="StaticBody3D" parent="cliff_block_rock2/cliff_block_rock" unique_id=337851888]
 collision_layer = 8193
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cliff_block_rock2/cliff_block_rock/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cliff_block_rock2/cliff_block_rock/StaticBody3D" unique_id=1493342679]
 shape = SubResource("ConcavePolygonShape3D_lysf3")
 
-[node name="cliff_block_stone2" parent="." instance=ExtResource("42_7lx6d")]
+[node name="cliff_block_stone2" parent="." unique_id=1619885730 instance=ExtResource("42_7lx6d")]
 visible = false
 
-[node name="cliff_cave_rock2" type="Node3D" parent="."]
+[node name="cliff_cave_rock2" type="Node3D" parent="." unique_id=1751684547]
 visible = false
 
-[node name="cliff_cave_rock" type="MeshInstance3D" parent="cliff_cave_rock2"]
+[node name="cliff_cave_rock" type="MeshInstance3D" parent="cliff_cave_rock2" unique_id=2109588065]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 visible = false
 mesh = SubResource("ArrayMesh_dcjv1")
-skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cliff_cave_rock2/cliff_cave_rock"]
+[node name="StaticBody3D" type="StaticBody3D" parent="cliff_cave_rock2/cliff_cave_rock" unique_id=130093046]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cliff_cave_rock2/cliff_cave_rock/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cliff_cave_rock2/cliff_cave_rock/StaticBody3D" unique_id=1973473673]
 shape = SubResource("ConcavePolygonShape3D_cr47c")
 
-[node name="cliff_cave_stone2" parent="." instance=ExtResource("44_w0xss")]
+[node name="cliff_cave_stone2" parent="." unique_id=566001527 instance=ExtResource("44_w0xss")]
 visible = false
 
-[node name="cliff_cornerInnerLarge_rock2" parent="." instance=ExtResource("45_bej7j")]
+[node name="cliff_cornerInnerLarge_rock2" parent="." unique_id=1290465013 instance=ExtResource("45_bej7j")]
 visible = false
 
-[node name="cliff_cornerInnerLarge_stone2" parent="." instance=ExtResource("46_o7srq")]
+[node name="cliff_cornerInnerLarge_stone2" parent="." unique_id=1618102915 instance=ExtResource("46_o7srq")]
 visible = false
 
-[node name="cliff_cornerInnerTop_rock2" parent="." instance=ExtResource("47_i0861")]
+[node name="cliff_cornerInnerTop_rock2" parent="." unique_id=2028329873 instance=ExtResource("47_i0861")]
 visible = false
 
-[node name="cliff_cornerInnerTop_stone2" parent="." instance=ExtResource("48_ot5da")]
+[node name="cliff_cornerInnerTop_stone2" parent="." unique_id=1512450417 instance=ExtResource("48_ot5da")]
 visible = false
 
-[node name="cliff_cornerInner_rock2" type="Node3D" parent="."]
+[node name="cliff_cornerInner_rock2" type="Node3D" parent="." unique_id=2000676123]
 visible = false
 
-[node name="cliff_cornerInner_rock" type="MeshInstance3D" parent="cliff_cornerInner_rock2"]
+[node name="cliff_cornerInner_rock" type="MeshInstance3D" parent="cliff_cornerInner_rock2" unique_id=1696971111]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_q4ven")
-skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cliff_cornerInner_rock2/cliff_cornerInner_rock"]
+[node name="StaticBody3D" type="StaticBody3D" parent="cliff_cornerInner_rock2/cliff_cornerInner_rock" unique_id=956449015]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cliff_cornerInner_rock2/cliff_cornerInner_rock/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cliff_cornerInner_rock2/cliff_cornerInner_rock/StaticBody3D" unique_id=969243408]
 shape = SubResource("ConcavePolygonShape3D_lt2pk")
 
-[node name="cliff_cornerInner_stone2" parent="." instance=ExtResource("50_vtr2e")]
+[node name="cliff_cornerInner_stone2" parent="." unique_id=672130029 instance=ExtResource("50_vtr2e")]
 visible = false
 
-[node name="cliff_cornerLarge_rock2" type="Node3D" parent="."]
+[node name="cliff_cornerLarge_rock2" type="Node3D" parent="." unique_id=2118792179]
 visible = false
 
-[node name="cliff_cornerLarge_rock" type="MeshInstance3D" parent="cliff_cornerLarge_rock2"]
+[node name="cliff_cornerLarge_rock" type="MeshInstance3D" parent="cliff_cornerLarge_rock2" unique_id=949260506]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_tlntb")
-skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cliff_cornerLarge_rock2/cliff_cornerLarge_rock"]
+[node name="StaticBody3D" type="StaticBody3D" parent="cliff_cornerLarge_rock2/cliff_cornerLarge_rock" unique_id=1023278302]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cliff_cornerLarge_rock2/cliff_cornerLarge_rock/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cliff_cornerLarge_rock2/cliff_cornerLarge_rock/StaticBody3D" unique_id=813814983]
 shape = SubResource("ConcavePolygonShape3D_4v5nn")
 
-[node name="cliff_cornerLarge_stone2" parent="." instance=ExtResource("52_26crv")]
+[node name="cliff_cornerLarge_stone2" parent="." unique_id=40781083 instance=ExtResource("52_26crv")]
 visible = false
 
-[node name="cliff_cornerTop_rock2" parent="." instance=ExtResource("53_mblik")]
+[node name="cliff_cornerTop_rock2" parent="." unique_id=1031957519 instance=ExtResource("53_mblik")]
 visible = false
 
-[node name="cliff_cornerTop_stone2" parent="." instance=ExtResource("54_qvsrl")]
+[node name="cliff_cornerTop_stone2" parent="." unique_id=155044104 instance=ExtResource("54_qvsrl")]
 visible = false
 
-[node name="cliff_corner_rock2" type="Node3D" parent="."]
+[node name="cliff_corner_rock2" type="Node3D" parent="." unique_id=1315970979]
 visible = false
 
-[node name="cliff_corner_rock" type="MeshInstance3D" parent="cliff_corner_rock2"]
+[node name="cliff_corner_rock" type="MeshInstance3D" parent="cliff_corner_rock2" unique_id=736566498]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_q1rvk")
-skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cliff_corner_rock2/cliff_corner_rock"]
+[node name="StaticBody3D" type="StaticBody3D" parent="cliff_corner_rock2/cliff_corner_rock" unique_id=429905234]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cliff_corner_rock2/cliff_corner_rock/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cliff_corner_rock2/cliff_corner_rock/StaticBody3D" unique_id=1856881452]
 shape = SubResource("ConcavePolygonShape3D_6n33c")
 
-[node name="cliff_corner_stone2" parent="." instance=ExtResource("56_y0eme")]
+[node name="cliff_corner_stone2" parent="." unique_id=749185428 instance=ExtResource("56_y0eme")]
 visible = false
 
-[node name="cliff_diagonal_rock2" parent="." instance=ExtResource("57_ltxul")]
+[node name="cliff_diagonal_rock2" parent="." unique_id=1062728826 instance=ExtResource("57_ltxul")]
 visible = false
 
-[node name="cliff_diagonal_stone2" parent="." instance=ExtResource("58_asprw")]
+[node name="cliff_diagonal_stone2" parent="." unique_id=1925037701 instance=ExtResource("58_asprw")]
 visible = false
 
-[node name="cliff_halfCornerInner_rock2" parent="." instance=ExtResource("59_avjin")]
+[node name="cliff_halfCornerInner_rock2" parent="." unique_id=1408318444 instance=ExtResource("59_avjin")]
 visible = false
 
-[node name="cliff_halfCornerInner_stone2" parent="." instance=ExtResource("60_ovrj3")]
+[node name="cliff_halfCornerInner_stone2" parent="." unique_id=1758383636 instance=ExtResource("60_ovrj3")]
 visible = false
 
-[node name="cliff_halfCorner_rock2" parent="." instance=ExtResource("61_0dvmh")]
+[node name="cliff_halfCorner_rock2" parent="." unique_id=427200869 instance=ExtResource("61_0dvmh")]
 visible = false
 
-[node name="cliff_halfCorner_stone2" parent="." instance=ExtResource("62_txsma")]
+[node name="cliff_halfCorner_stone2" parent="." unique_id=1292176492 instance=ExtResource("62_txsma")]
 visible = false
 
-[node name="cliff_half_rock2" parent="." instance=ExtResource("63_pox2x")]
+[node name="cliff_half_rock2" parent="." unique_id=880662902 instance=ExtResource("63_pox2x")]
 visible = false
 
-[node name="cliff_half_stone2" parent="." instance=ExtResource("64_w0d4x")]
+[node name="cliff_half_stone2" parent="." unique_id=384607572 instance=ExtResource("64_w0d4x")]
 visible = false
 
-[node name="cliff_large_rock2" parent="." instance=ExtResource("65_nsyk1")]
+[node name="cliff_large_rock2" parent="." unique_id=354671238 instance=ExtResource("65_nsyk1")]
 visible = false
 
-[node name="cliff_large_stone2" parent="." instance=ExtResource("66_bkj2q")]
+[node name="cliff_large_stone2" parent="." unique_id=491606542 instance=ExtResource("66_bkj2q")]
 visible = false
 
-[node name="cliff_rock2" type="Node3D" parent="."]
+[node name="cliff_rock2" type="Node3D" parent="." unique_id=1901895417]
 visible = false
 
-[node name="cliff_rock" type="MeshInstance3D" parent="cliff_rock2"]
+[node name="cliff_rock" type="MeshInstance3D" parent="cliff_rock2" unique_id=1114036313]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_la8gg")
-skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cliff_rock2/cliff_rock"]
+[node name="StaticBody3D" type="StaticBody3D" parent="cliff_rock2/cliff_rock" unique_id=1561252973]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cliff_rock2/cliff_rock/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cliff_rock2/cliff_rock/StaticBody3D" unique_id=2056349796]
 shape = SubResource("ConcavePolygonShape3D_6uyrc")
 
-[node name="cliff_stepsCornerInner_rock2" type="Node3D" parent="."]
+[node name="cliff_stepsCornerInner_rock2" type="Node3D" parent="." unique_id=265485203]
 
-[node name="cliff_stepsCornerInner_rock" type="MeshInstance3D" parent="cliff_stepsCornerInner_rock2"]
+[node name="cliff_stepsCornerInner_rock" type="MeshInstance3D" parent="cliff_stepsCornerInner_rock2" unique_id=1105059567]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 visible = false
 mesh = SubResource("ArrayMesh_tl8u6")
-skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cliff_stepsCornerInner_rock2/cliff_stepsCornerInner_rock"]
+[node name="StaticBody3D" type="StaticBody3D" parent="cliff_stepsCornerInner_rock2/cliff_stepsCornerInner_rock" unique_id=537898505]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cliff_stepsCornerInner_rock2/cliff_stepsCornerInner_rock/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cliff_stepsCornerInner_rock2/cliff_stepsCornerInner_rock/StaticBody3D" unique_id=1560703874]
 shape = SubResource("ConcavePolygonShape3D_h227u")
 
-[node name="cliff_stepsCornerInner_stone2" parent="." instance=ExtResource("69_7uuvj")]
+[node name="cliff_stepsCornerInner_stone2" parent="." unique_id=244924572 instance=ExtResource("69_7uuvj")]
 visible = false
 
-[node name="cliff_stepsCorner_rock2" type="Node3D" parent="."]
+[node name="cliff_stepsCorner_rock2" type="Node3D" parent="." unique_id=1746579376]
 
-[node name="cliff_stepsCorner_rock" type="MeshInstance3D" parent="cliff_stepsCorner_rock2"]
+[node name="cliff_stepsCorner_rock" type="MeshInstance3D" parent="cliff_stepsCorner_rock2" unique_id=1105113825]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_govj8")
-skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cliff_stepsCorner_rock2/cliff_stepsCorner_rock"]
+[node name="StaticBody3D" type="StaticBody3D" parent="cliff_stepsCorner_rock2/cliff_stepsCorner_rock" unique_id=1211515963]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cliff_stepsCorner_rock2/cliff_stepsCorner_rock/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cliff_stepsCorner_rock2/cliff_stepsCorner_rock/StaticBody3D" unique_id=596663876]
 shape = SubResource("ConcavePolygonShape3D_vsqwy")
 
-[node name="cliff_stepsCorner_stone2" parent="." instance=ExtResource("71_gr0l6")]
+[node name="cliff_stepsCorner_stone2" parent="." unique_id=1592605340 instance=ExtResource("71_gr0l6")]
 visible = false
 
-[node name="cliff_steps_rock2" type="Node3D" parent="."]
+[node name="cliff_steps_rock2" type="Node3D" parent="." unique_id=1973241641]
 visible = false
 
-[node name="cliff_steps_rock" type="MeshInstance3D" parent="cliff_steps_rock2"]
+[node name="cliff_steps_rock" type="MeshInstance3D" parent="cliff_steps_rock2" unique_id=1039370530]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 visible = false
 mesh = SubResource("ArrayMesh_b353s")
-skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cliff_steps_rock2/cliff_steps_rock"]
+[node name="StaticBody3D" type="StaticBody3D" parent="cliff_steps_rock2/cliff_steps_rock" unique_id=1455641806]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cliff_steps_rock2/cliff_steps_rock/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cliff_steps_rock2/cliff_steps_rock/StaticBody3D" unique_id=621427915]
 shape = SubResource("ConcavePolygonShape3D_nxbi6")
 
-[node name="cliff_steps_stone2" parent="." instance=ExtResource("73_stm2v")]
+[node name="cliff_steps_stone2" parent="." unique_id=233142475 instance=ExtResource("73_stm2v")]
 visible = false
 
-[node name="cliff_stone2" parent="." instance=ExtResource("74_hpqc3")]
+[node name="cliff_stone2" parent="." unique_id=1553539854 instance=ExtResource("74_hpqc3")]
 visible = false
 
-[node name="cliff_topDiagonal_rock2" parent="." instance=ExtResource("75_ed0kg")]
+[node name="cliff_topDiagonal_rock2" parent="." unique_id=1608665003 instance=ExtResource("75_ed0kg")]
 visible = false
 
-[node name="cliff_topDiagonal_stone2" parent="." instance=ExtResource("76_6cfme")]
+[node name="cliff_topDiagonal_stone2" parent="." unique_id=1677729454 instance=ExtResource("76_6cfme")]
 visible = false
 
-[node name="cliff_top_rock2" parent="." instance=ExtResource("77_4vhba")]
+[node name="cliff_top_rock2" parent="." unique_id=2139601065 instance=ExtResource("77_4vhba")]
 visible = false
 
-[node name="cliff_top_stone2" parent="." instance=ExtResource("78_tq7lb")]
+[node name="cliff_top_stone2" parent="." unique_id=1090653441 instance=ExtResource("78_tq7lb")]
 visible = false
 
-[node name="cliff_waterfallTop_rock2" parent="." instance=ExtResource("79_kswnb")]
+[node name="cliff_waterfallTop_rock2" parent="." unique_id=1717403905 instance=ExtResource("79_kswnb")]
 visible = false
 
-[node name="cliff_waterfallTop_stone2" parent="." instance=ExtResource("80_w86jr")]
+[node name="cliff_waterfallTop_stone2" parent="." unique_id=2124789612 instance=ExtResource("80_w86jr")]
 visible = false
 
-[node name="cliff_waterfall_rock2" parent="." instance=ExtResource("81_agtqn")]
+[node name="cliff_waterfall_rock2" parent="." unique_id=1090969311 instance=ExtResource("81_agtqn")]
 visible = false
 
-[node name="cliff_waterfall_stone2" parent="." instance=ExtResource("82_h3l0o")]
+[node name="cliff_waterfall_stone2" parent="." unique_id=399845834 instance=ExtResource("82_h3l0o")]
 visible = false
 
-[node name="crops_bambooStageA2" parent="." instance=ExtResource("83_m1ayi")]
+[node name="crops_bambooStageA2" parent="." unique_id=1283943729 instance=ExtResource("83_m1ayi")]
 visible = false
 
-[node name="crops_bambooStageB2" parent="." instance=ExtResource("84_wiwl7")]
+[node name="crops_bambooStageB2" parent="." unique_id=1169013830 instance=ExtResource("84_wiwl7")]
 visible = false
 
-[node name="crops_cornStageA2" parent="." instance=ExtResource("85_wnrx1")]
+[node name="crops_cornStageA2" parent="." unique_id=1144889717 instance=ExtResource("85_wnrx1")]
 visible = false
 
-[node name="crops_cornStageB2" parent="." instance=ExtResource("86_vxc7e")]
+[node name="crops_cornStageB2" parent="." unique_id=776413805 instance=ExtResource("86_vxc7e")]
 visible = false
 
-[node name="crops_cornStageC2" parent="." instance=ExtResource("87_3howv")]
+[node name="crops_cornStageC2" parent="." unique_id=835946621 instance=ExtResource("87_3howv")]
 visible = false
 
-[node name="crops_cornStageD2" parent="." instance=ExtResource("88_bf3nr")]
+[node name="crops_cornStageD2" parent="." unique_id=1202498536 instance=ExtResource("88_bf3nr")]
 visible = false
 
-[node name="crops_dirtDoubleRow2" parent="." instance=ExtResource("89_r887u")]
+[node name="crops_dirtDoubleRow2" parent="." unique_id=1285186062 instance=ExtResource("89_r887u")]
 visible = false
 
-[node name="crops_dirtDoubleRowCorner2" parent="." instance=ExtResource("90_qoh30")]
+[node name="crops_dirtDoubleRowCorner2" parent="." unique_id=485517944 instance=ExtResource("90_qoh30")]
 visible = false
 
-[node name="crops_dirtDoubleRowEnd2" parent="." instance=ExtResource("91_e6ff0")]
+[node name="crops_dirtDoubleRowEnd2" parent="." unique_id=2144274528 instance=ExtResource("91_e6ff0")]
 visible = false
 
-[node name="crops_dirtRow2" parent="." instance=ExtResource("92_qiiug")]
+[node name="crops_dirtRow2" parent="." unique_id=524999044 instance=ExtResource("92_qiiug")]
 visible = false
 
-[node name="crops_dirtRowCorner2" parent="." instance=ExtResource("93_1bevq")]
+[node name="crops_dirtRowCorner2" parent="." unique_id=1088416924 instance=ExtResource("93_1bevq")]
 visible = false
 
-[node name="crops_dirtRowEnd2" parent="." instance=ExtResource("94_sp8oh")]
+[node name="crops_dirtRowEnd2" parent="." unique_id=2010388363 instance=ExtResource("94_sp8oh")]
 visible = false
 
-[node name="crops_dirtSingle2" parent="." instance=ExtResource("95_fmfpx")]
+[node name="crops_dirtSingle2" parent="." unique_id=562788156 instance=ExtResource("95_fmfpx")]
 visible = false
 
-[node name="crops_leafsStageA2" parent="." instance=ExtResource("96_coc8n")]
+[node name="crops_leafsStageA2" parent="." unique_id=1102545500 instance=ExtResource("96_coc8n")]
 visible = false
 
-[node name="crops_leafsStageB2" parent="." instance=ExtResource("97_bnmv2")]
+[node name="crops_leafsStageB2" parent="." unique_id=1332107184 instance=ExtResource("97_bnmv2")]
 visible = false
 
-[node name="crops_wheatStageA2" parent="." instance=ExtResource("98_l3ggi")]
+[node name="crops_wheatStageA2" parent="." unique_id=534418157 instance=ExtResource("98_l3ggi")]
 visible = false
 
-[node name="crops_wheatStageB2" parent="." instance=ExtResource("99_cyhm5")]
+[node name="crops_wheatStageB2" parent="." unique_id=1541942082 instance=ExtResource("99_cyhm5")]
 visible = false
 
-[node name="crop_carrot2" parent="." instance=ExtResource("100_pv5no")]
+[node name="crop_carrot2" parent="." unique_id=1476334201 instance=ExtResource("100_pv5no")]
 visible = false
 
-[node name="crop_melon2" parent="." instance=ExtResource("101_hv63m")]
+[node name="crop_melon2" parent="." unique_id=383996237 instance=ExtResource("101_hv63m")]
 visible = false
 
-[node name="crop_pumpkin2" parent="." instance=ExtResource("102_ako3g")]
+[node name="crop_pumpkin2" parent="." unique_id=1636818313 instance=ExtResource("102_ako3g")]
 visible = false
 
-[node name="crop_turnip2" parent="." instance=ExtResource("103_86u4u")]
+[node name="crop_turnip2" parent="." unique_id=319708028 instance=ExtResource("103_86u4u")]
 visible = false
 
-[node name="fence_bend2" parent="." instance=ExtResource("104_v36a4")]
+[node name="fence_bend2" parent="." unique_id=1267433419 instance=ExtResource("104_v36a4")]
 visible = false
 
-[node name="fence_bendCenter2" parent="." instance=ExtResource("105_ggo47")]
+[node name="fence_bendCenter2" parent="." unique_id=77758120 instance=ExtResource("105_ggo47")]
 visible = false
 
-[node name="fence_corner2" parent="." instance=ExtResource("106_2bxn5")]
+[node name="fence_corner2" parent="." unique_id=1439503908 instance=ExtResource("106_2bxn5")]
 visible = false
 
-[node name="fence_gate2" parent="." instance=ExtResource("107_qm1ju")]
+[node name="fence_gate2" parent="." unique_id=1095550739 instance=ExtResource("107_qm1ju")]
 visible = false
 
-[node name="fence_planks2" parent="." instance=ExtResource("108_vh4ui")]
+[node name="fence_planks2" parent="." unique_id=798299523 instance=ExtResource("108_vh4ui")]
 visible = false
 
-[node name="fence_planksDouble2" parent="." instance=ExtResource("109_hab2d")]
+[node name="fence_planksDouble2" parent="." unique_id=1908630460 instance=ExtResource("109_hab2d")]
 visible = false
 
-[node name="fence_simple2" parent="." instance=ExtResource("110_rdpqm")]
+[node name="fence_simple2" parent="." unique_id=1957498605 instance=ExtResource("110_rdpqm")]
 visible = false
 
-[node name="fence_simpleCenter2" parent="." instance=ExtResource("111_t0e3r")]
+[node name="fence_simpleCenter2" parent="." unique_id=1608139368 instance=ExtResource("111_t0e3r")]
 visible = false
 
-[node name="fence_simpleDiagonal2" parent="." instance=ExtResource("112_tnj7f")]
+[node name="fence_simpleDiagonal2" parent="." unique_id=1426097891 instance=ExtResource("112_tnj7f")]
 visible = false
 
-[node name="fence_simpleDiagonalCenter2" parent="." instance=ExtResource("113_fnhlk")]
+[node name="fence_simpleDiagonalCenter2" parent="." unique_id=1977957310 instance=ExtResource("113_fnhlk")]
 visible = false
 
-[node name="fence_simpleHigh2" parent="." instance=ExtResource("114_3co2h")]
+[node name="fence_simpleHigh2" parent="." unique_id=1666335660 instance=ExtResource("114_3co2h")]
 visible = false
 
-[node name="fence_simpleLow2" parent="." instance=ExtResource("115_8015u")]
+[node name="fence_simpleLow2" parent="." unique_id=57656519 instance=ExtResource("115_8015u")]
 visible = false
 
-[node name="flower_purpleA2" parent="." instance=ExtResource("116_kmmpp")]
+[node name="flower_purpleA2" parent="." unique_id=974452006 instance=ExtResource("116_kmmpp")]
 visible = false
 
-[node name="flower_purpleB2" parent="." instance=ExtResource("117_002v5")]
+[node name="flower_purpleB2" parent="." unique_id=156257244 instance=ExtResource("117_002v5")]
 visible = false
 
-[node name="flower_purpleC2" parent="." instance=ExtResource("118_gc7vx")]
+[node name="flower_purpleC2" parent="." unique_id=1557823230 instance=ExtResource("118_gc7vx")]
 visible = false
 
-[node name="flower_redA2" parent="." instance=ExtResource("119_ymrod")]
+[node name="flower_redA2" parent="." unique_id=1027161307 instance=ExtResource("119_ymrod")]
 visible = false
 
-[node name="flower_redB2" parent="." instance=ExtResource("120_aonli")]
+[node name="flower_redB2" parent="." unique_id=1976577060 instance=ExtResource("120_aonli")]
 visible = false
 
-[node name="flower_redC2" parent="." instance=ExtResource("121_7475d")]
+[node name="flower_redC2" parent="." unique_id=1841781481 instance=ExtResource("121_7475d")]
 visible = false
 
-[node name="flower_yellowA2" parent="." instance=ExtResource("122_vocho")]
+[node name="flower_yellowA2" parent="." unique_id=1801668860 instance=ExtResource("122_vocho")]
 visible = false
 
-[node name="flower_yellowB2" parent="." instance=ExtResource("123_vyt1y")]
+[node name="flower_yellowB2" parent="." unique_id=1475519822 instance=ExtResource("123_vyt1y")]
 visible = false
 
-[node name="flower_yellowC2" parent="." instance=ExtResource("124_vgybd")]
+[node name="flower_yellowC2" parent="." unique_id=2058145944 instance=ExtResource("124_vgybd")]
 visible = false
 
-[node name="grass2" parent="." instance=ExtResource("125_dbcp4")]
+[node name="grass2" parent="." unique_id=256024591 instance=ExtResource("125_dbcp4")]
 visible = false
 
-[node name="grass_large2" parent="." instance=ExtResource("126_54eo1")]
+[node name="grass_large2" parent="." unique_id=1333093139 instance=ExtResource("126_54eo1")]
 visible = false
 
-[node name="grass_leafs2" parent="." instance=ExtResource("127_8erg3")]
+[node name="grass_leafs2" parent="." unique_id=340521895 instance=ExtResource("127_8erg3")]
 visible = false
 
-[node name="grass_leafsLarge2" parent="." instance=ExtResource("128_7lmtd")]
+[node name="grass_leafsLarge2" parent="." unique_id=125677100 instance=ExtResource("128_7lmtd")]
 visible = false
 
-[node name="ground_grass2" type="Node3D" parent="."]
+[node name="ground_grass2" type="Node3D" parent="." unique_id=1921062497]
 visible = false
 
-[node name="ground_grass" type="MeshInstance3D" parent="ground_grass2"]
+[node name="ground_grass" type="MeshInstance3D" parent="ground_grass2" unique_id=1959172603]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("ArrayMesh_yt0sx")
-skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="ground_grass2/ground_grass"]
+[node name="StaticBody3D" type="StaticBody3D" parent="ground_grass2/ground_grass" unique_id=106681316]
 collision_layer = 16385
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ground_grass2/ground_grass/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground_grass2/ground_grass/StaticBody3D" unique_id=2081316457]
 shape = SubResource("ConcavePolygonShape3D_dc1tn")
 
-[node name="ground_pathBend2" parent="." instance=ExtResource("130_prp7d")]
+[node name="ground_pathBend2" parent="." unique_id=1046383989 instance=ExtResource("130_prp7d")]
 visible = false
 
-[node name="ground_pathBendBank2" parent="." instance=ExtResource("131_fli1g")]
+[node name="ground_pathBendBank2" parent="." unique_id=134082180 instance=ExtResource("131_fli1g")]
 visible = false
 
-[node name="ground_pathCorner2" parent="." instance=ExtResource("132_kj7bf")]
+[node name="ground_pathCorner2" parent="." unique_id=650776471 instance=ExtResource("132_kj7bf")]
 visible = false
 
-[node name="ground_pathCornerSmall2" parent="." instance=ExtResource("133_ni583")]
+[node name="ground_pathCornerSmall2" parent="." unique_id=2005464650 instance=ExtResource("133_ni583")]
 visible = false
 
-[node name="ground_pathCross2" parent="." instance=ExtResource("134_q7ows")]
+[node name="ground_pathCross2" parent="." unique_id=652847633 instance=ExtResource("134_q7ows")]
 visible = false
 
-[node name="ground_pathEnd2" parent="." instance=ExtResource("135_a1wlh")]
+[node name="ground_pathEnd2" parent="." unique_id=394436584 instance=ExtResource("135_a1wlh")]
 visible = false
 
-[node name="ground_pathEndClosed2" parent="." instance=ExtResource("136_xpif5")]
+[node name="ground_pathEndClosed2" parent="." unique_id=1394338805 instance=ExtResource("136_xpif5")]
 visible = false
 
-[node name="ground_pathOpen2" parent="." instance=ExtResource("137_lh7gb")]
+[node name="ground_pathOpen2" parent="." unique_id=790828316 instance=ExtResource("137_lh7gb")]
 visible = false
 
-[node name="ground_pathRocks2" parent="." instance=ExtResource("138_kgcme")]
+[node name="ground_pathRocks2" parent="." unique_id=1049893073 instance=ExtResource("138_kgcme")]
 visible = false
 
-[node name="ground_pathSide2" parent="." instance=ExtResource("139_utftw")]
+[node name="ground_pathSide2" parent="." unique_id=1257632439 instance=ExtResource("139_utftw")]
 visible = false
 
-[node name="ground_pathSideOpen2" parent="." instance=ExtResource("140_t42pe")]
+[node name="ground_pathSideOpen2" parent="." unique_id=713453762 instance=ExtResource("140_t42pe")]
 visible = false
 
-[node name="ground_pathSplit2" parent="." instance=ExtResource("141_llxmu")]
+[node name="ground_pathSplit2" parent="." unique_id=436883045 instance=ExtResource("141_llxmu")]
 visible = false
 
-[node name="ground_pathStraight2" parent="." instance=ExtResource("142_owfta")]
+[node name="ground_pathStraight2" parent="." unique_id=90884894 instance=ExtResource("142_owfta")]
 visible = false
 
-[node name="ground_pathTile2" parent="." instance=ExtResource("143_rbglc")]
+[node name="ground_pathTile2" parent="." unique_id=240190163 instance=ExtResource("143_rbglc")]
 visible = false
 
-[node name="ground_riverBend2" parent="." instance=ExtResource("144_yqflt")]
+[node name="ground_riverBend2" parent="." unique_id=1742771303 instance=ExtResource("144_yqflt")]
 visible = false
 
-[node name="ground_riverBendBank2" parent="." instance=ExtResource("145_5y1i1")]
+[node name="ground_riverBendBank2" parent="." unique_id=1101358538 instance=ExtResource("145_5y1i1")]
 visible = false
 
-[node name="ground_riverCorner2" parent="." instance=ExtResource("146_e46vs")]
+[node name="ground_riverCorner2" parent="." unique_id=1018351044 instance=ExtResource("146_e46vs")]
 visible = false
 
-[node name="ground_riverCornerSmall2" parent="." instance=ExtResource("147_cvnpc")]
+[node name="ground_riverCornerSmall2" parent="." unique_id=749568496 instance=ExtResource("147_cvnpc")]
 visible = false
 
-[node name="ground_riverCross2" parent="." instance=ExtResource("148_lbny5")]
+[node name="ground_riverCross2" parent="." unique_id=1216113559 instance=ExtResource("148_lbny5")]
 visible = false
 
-[node name="ground_riverEnd2" parent="." instance=ExtResource("149_desv4")]
+[node name="ground_riverEnd2" parent="." unique_id=434896110 instance=ExtResource("149_desv4")]
 visible = false
 
-[node name="ground_riverEndClosed2" parent="." instance=ExtResource("150_jisux")]
+[node name="ground_riverEndClosed2" parent="." unique_id=88304005 instance=ExtResource("150_jisux")]
 visible = false
 
-[node name="ground_riverOpen2" parent="." instance=ExtResource("151_ay78h")]
+[node name="ground_riverOpen2" parent="." unique_id=2147073856 instance=ExtResource("151_ay78h")]
 visible = false
 
-[node name="ground_riverRocks2" parent="." instance=ExtResource("152_d1d0d")]
+[node name="ground_riverRocks2" parent="." unique_id=201261824 instance=ExtResource("152_d1d0d")]
 visible = false
 
-[node name="ground_riverSide2" parent="." instance=ExtResource("153_ne0eo")]
+[node name="ground_riverSide2" parent="." unique_id=1625030561 instance=ExtResource("153_ne0eo")]
 visible = false
 
-[node name="ground_riverSideOpen2" parent="." instance=ExtResource("154_610cy")]
+[node name="ground_riverSideOpen2" parent="." unique_id=1227521112 instance=ExtResource("154_610cy")]
 visible = false
 
-[node name="ground_riverSplit2" parent="." instance=ExtResource("155_6wnaa")]
+[node name="ground_riverSplit2" parent="." unique_id=1867155119 instance=ExtResource("155_6wnaa")]
 visible = false
 
-[node name="ground_riverStraight2" parent="." instance=ExtResource("156_lj88d")]
+[node name="ground_riverStraight2" parent="." unique_id=111747903 instance=ExtResource("156_lj88d")]
 visible = false
 
-[node name="ground_riverTile2" parent="." instance=ExtResource("157_22b5l")]
+[node name="ground_riverTile2" parent="." unique_id=468120661 instance=ExtResource("157_22b5l")]
 visible = false
 
-[node name="hanging_moss2" parent="." instance=ExtResource("158_uolvi")]
+[node name="hanging_moss2" parent="." unique_id=1459910670 instance=ExtResource("158_uolvi")]
 visible = false
 
-[node name="lily_large2" parent="." instance=ExtResource("159_2rfpy")]
+[node name="lily_large2" parent="." unique_id=420021605 instance=ExtResource("159_2rfpy")]
 visible = false
 
-[node name="lily_small2" parent="." instance=ExtResource("160_sahst")]
+[node name="lily_small2" parent="." unique_id=1130966348 instance=ExtResource("160_sahst")]
 visible = false
 
-[node name="log2" parent="." instance=ExtResource("161_s3qgj")]
+[node name="log2" parent="." unique_id=1026157606 instance=ExtResource("161_s3qgj")]
 visible = false
 
-[node name="log_large2" parent="." instance=ExtResource("162_mfmtb")]
+[node name="log_large2" parent="." unique_id=1571261000 instance=ExtResource("162_mfmtb")]
 visible = false
 
-[node name="log_stack2" parent="." instance=ExtResource("163_vdrtt")]
+[node name="log_stack2" parent="." unique_id=1653278778 instance=ExtResource("163_vdrtt")]
 visible = false
 
-[node name="log_stackLarge2" parent="." instance=ExtResource("164_0483y")]
+[node name="log_stackLarge2" parent="." unique_id=36876704 instance=ExtResource("164_0483y")]
 visible = false
 
-[node name="mushroom_red2" parent="." instance=ExtResource("165_ff2ir")]
+[node name="mushroom_red2" parent="." unique_id=1123824611 instance=ExtResource("165_ff2ir")]
 visible = false
 
-[node name="mushroom_redGroup2" parent="." instance=ExtResource("166_xrudv")]
+[node name="mushroom_redGroup2" parent="." unique_id=446174443 instance=ExtResource("166_xrudv")]
 visible = false
 
-[node name="mushroom_redTall2" parent="." instance=ExtResource("167_tq0h7")]
+[node name="mushroom_redTall2" parent="." unique_id=2011380721 instance=ExtResource("167_tq0h7")]
 visible = false
 
-[node name="mushroom_tan2" parent="." instance=ExtResource("168_v4wpy")]
+[node name="mushroom_tan2" parent="." unique_id=1753320702 instance=ExtResource("168_v4wpy")]
 visible = false
 
-[node name="mushroom_tanGroup2" parent="." instance=ExtResource("169_libdj")]
+[node name="mushroom_tanGroup2" parent="." unique_id=1585346195 instance=ExtResource("169_libdj")]
 visible = false
 
-[node name="mushroom_tanTall2" parent="." instance=ExtResource("170_vdj0l")]
+[node name="mushroom_tanTall2" parent="." unique_id=961747586 instance=ExtResource("170_vdj0l")]
 visible = false
 
-[node name="path_stone2" parent="." instance=ExtResource("171_etsk4")]
+[node name="path_stone2" parent="." unique_id=2026462127 instance=ExtResource("171_etsk4")]
 visible = false
 
-[node name="path_stoneCircle2" parent="." instance=ExtResource("172_8xqbp")]
+[node name="path_stoneCircle2" parent="." unique_id=532519102 instance=ExtResource("172_8xqbp")]
 visible = false
 
-[node name="path_stoneCorner2" parent="." instance=ExtResource("173_1sels")]
+[node name="path_stoneCorner2" parent="." unique_id=56983246 instance=ExtResource("173_1sels")]
 visible = false
 
-[node name="path_stoneEnd2" parent="." instance=ExtResource("174_k6v3u")]
+[node name="path_stoneEnd2" parent="." unique_id=1404816611 instance=ExtResource("174_k6v3u")]
 visible = false
 
-[node name="path_wood2" parent="." instance=ExtResource("175_ru2dq")]
+[node name="path_wood2" parent="." unique_id=1344128527 instance=ExtResource("175_ru2dq")]
 visible = false
 
-[node name="path_woodCorner2" parent="." instance=ExtResource("176_05mpe")]
+[node name="path_woodCorner2" parent="." unique_id=2093191301 instance=ExtResource("176_05mpe")]
 visible = false
 
-[node name="path_woodEnd2" parent="." instance=ExtResource("177_exw5c")]
+[node name="path_woodEnd2" parent="." unique_id=1560361690 instance=ExtResource("177_exw5c")]
 visible = false
 
-[node name="plant_bush2" parent="." instance=ExtResource("178_idjfk")]
+[node name="plant_bush2" parent="." unique_id=1925157437 instance=ExtResource("178_idjfk")]
 visible = false
 
-[node name="plant_bushDetailed2" parent="." instance=ExtResource("179_yww03")]
+[node name="plant_bushDetailed2" parent="." unique_id=652710680 instance=ExtResource("179_yww03")]
 visible = false
 
-[node name="plant_bushLarge2" parent="." instance=ExtResource("180_ca0r6")]
+[node name="plant_bushLarge2" parent="." unique_id=1576777721 instance=ExtResource("180_ca0r6")]
 visible = false
 
-[node name="plant_bushLargeTriangle2" parent="." instance=ExtResource("181_r7gw0")]
+[node name="plant_bushLargeTriangle2" parent="." unique_id=1250707485 instance=ExtResource("181_r7gw0")]
 visible = false
 
-[node name="plant_bushSmall2" parent="." instance=ExtResource("182_skgpj")]
+[node name="plant_bushSmall2" parent="." unique_id=790609161 instance=ExtResource("182_skgpj")]
 visible = false
 
-[node name="plant_bushTriangle2" parent="." instance=ExtResource("183_73y50")]
+[node name="plant_bushTriangle2" parent="." unique_id=61522742 instance=ExtResource("183_73y50")]
 visible = false
 
-[node name="plant_flatShort2" parent="." instance=ExtResource("184_b6g3f")]
+[node name="plant_flatShort2" parent="." unique_id=764775072 instance=ExtResource("184_b6g3f")]
 visible = false
 
-[node name="plant_flatTall2" parent="." instance=ExtResource("185_5tf4i")]
+[node name="plant_flatTall2" parent="." unique_id=1023273202 instance=ExtResource("185_5tf4i")]
 visible = false
 
-[node name="platform_beach2" parent="." instance=ExtResource("186_ixsa6")]
+[node name="platform_beach2" parent="." unique_id=1223689511 instance=ExtResource("186_ixsa6")]
 visible = false
 
-[node name="platform_grass2" parent="." instance=ExtResource("187_csgp0")]
+[node name="platform_grass2" parent="." unique_id=1540043096 instance=ExtResource("187_csgp0")]
 visible = false
 
-[node name="platform_stone2" parent="." instance=ExtResource("188_r2qb8")]
+[node name="platform_stone2" parent="." unique_id=968727957 instance=ExtResource("188_r2qb8")]
 visible = false
 
-[node name="pot_large2" parent="." instance=ExtResource("189_cub6d")]
+[node name="pot_large2" parent="." unique_id=1124118487 instance=ExtResource("189_cub6d")]
 visible = false
 
-[node name="pot_small2" parent="." instance=ExtResource("190_ywr00")]
+[node name="pot_small2" parent="." unique_id=1298236502 instance=ExtResource("190_ywr00")]
 visible = false
 
-[node name="rock_largeA2" parent="." instance=ExtResource("191_ai6dx")]
+[node name="rock_largeA2" parent="." unique_id=1738093756 instance=ExtResource("191_ai6dx")]
 visible = false
 
-[node name="rock_largeB2" parent="." instance=ExtResource("192_5cyvc")]
+[node name="rock_largeB2" parent="." unique_id=1140336055 instance=ExtResource("192_5cyvc")]
 visible = false
 
-[node name="rock_largeC2" parent="." instance=ExtResource("193_sotrg")]
+[node name="rock_largeC2" parent="." unique_id=696670296 instance=ExtResource("193_sotrg")]
 visible = false
 
-[node name="rock_largeD2" parent="." instance=ExtResource("194_fllvu")]
+[node name="rock_largeD2" parent="." unique_id=1367387833 instance=ExtResource("194_fllvu")]
 visible = false
 
-[node name="rock_largeE2" parent="." instance=ExtResource("195_ujxcx")]
+[node name="rock_largeE2" parent="." unique_id=848488819 instance=ExtResource("195_ujxcx")]
 visible = false
 
-[node name="rock_largeF2" parent="." instance=ExtResource("196_6tl5i")]
+[node name="rock_largeF2" parent="." unique_id=715245510 instance=ExtResource("196_6tl5i")]
 visible = false
 
-[node name="rock_smallA2" parent="." instance=ExtResource("197_h41rj")]
+[node name="rock_smallA2" parent="." unique_id=834595947 instance=ExtResource("197_h41rj")]
 visible = false
 
-[node name="rock_smallB2" parent="." instance=ExtResource("198_two4x")]
+[node name="rock_smallB2" parent="." unique_id=785717079 instance=ExtResource("198_two4x")]
 visible = false
 
-[node name="rock_smallC2" parent="." instance=ExtResource("199_jxlsf")]
+[node name="rock_smallC2" parent="." unique_id=416573006 instance=ExtResource("199_jxlsf")]
 visible = false
 
-[node name="rock_smallD2" parent="." instance=ExtResource("200_8c4c5")]
+[node name="rock_smallD2" parent="." unique_id=429317934 instance=ExtResource("200_8c4c5")]
 visible = false
 
-[node name="rock_smallE2" parent="." instance=ExtResource("201_ju5ry")]
+[node name="rock_smallE2" parent="." unique_id=538400108 instance=ExtResource("201_ju5ry")]
 visible = false
 
-[node name="rock_smallF2" parent="." instance=ExtResource("202_6hkw8")]
+[node name="rock_smallF2" parent="." unique_id=1328401679 instance=ExtResource("202_6hkw8")]
 visible = false
 
-[node name="rock_smallFlatA2" parent="." instance=ExtResource("203_xhi6s")]
+[node name="rock_smallFlatA2" parent="." unique_id=129585820 instance=ExtResource("203_xhi6s")]
 visible = false
 
-[node name="rock_smallFlatB2" parent="." instance=ExtResource("204_4gkdl")]
+[node name="rock_smallFlatB2" parent="." unique_id=608915019 instance=ExtResource("204_4gkdl")]
 visible = false
 
-[node name="rock_smallFlatC2" parent="." instance=ExtResource("205_dji3f")]
+[node name="rock_smallFlatC2" parent="." unique_id=99839895 instance=ExtResource("205_dji3f")]
 visible = false
 
-[node name="rock_smallG2" parent="." instance=ExtResource("206_v6dtd")]
+[node name="rock_smallG2" parent="." unique_id=908300568 instance=ExtResource("206_v6dtd")]
 visible = false
 
-[node name="rock_smallH2" parent="." instance=ExtResource("207_t1cy8")]
+[node name="rock_smallH2" parent="." unique_id=265555966 instance=ExtResource("207_t1cy8")]
 visible = false
 
-[node name="rock_smallI2" parent="." instance=ExtResource("208_6jcph")]
+[node name="rock_smallI2" parent="." unique_id=2107983624 instance=ExtResource("208_6jcph")]
 visible = false
 
-[node name="rock_smallTopA2" parent="." instance=ExtResource("209_8qw1e")]
+[node name="rock_smallTopA2" parent="." unique_id=1543581855 instance=ExtResource("209_8qw1e")]
 visible = false
 
-[node name="rock_smallTopB2" parent="." instance=ExtResource("210_m542w")]
+[node name="rock_smallTopB2" parent="." unique_id=369963692 instance=ExtResource("210_m542w")]
 visible = false
 
-[node name="rock_tallA2" parent="." instance=ExtResource("211_ek3qh")]
+[node name="rock_tallA2" parent="." unique_id=653299150 instance=ExtResource("211_ek3qh")]
 visible = false
 
-[node name="rock_tallB2" parent="." instance=ExtResource("212_nn2kq")]
+[node name="rock_tallB2" parent="." unique_id=1475750266 instance=ExtResource("212_nn2kq")]
 visible = false
 
-[node name="rock_tallC2" parent="." instance=ExtResource("213_c05bv")]
+[node name="rock_tallC2" parent="." unique_id=761713370 instance=ExtResource("213_c05bv")]
 visible = false
 
-[node name="rock_tallD2" parent="." instance=ExtResource("214_1hfy2")]
+[node name="rock_tallD2" parent="." unique_id=1186156122 instance=ExtResource("214_1hfy2")]
 visible = false
 
-[node name="rock_tallE2" parent="." instance=ExtResource("215_mbovp")]
+[node name="rock_tallE2" parent="." unique_id=987472631 instance=ExtResource("215_mbovp")]
 visible = false
 
-[node name="rock_tallF2" parent="." instance=ExtResource("216_c4uuy")]
+[node name="rock_tallF2" parent="." unique_id=1166466098 instance=ExtResource("216_c4uuy")]
 visible = false
 
-[node name="rock_tallG2" parent="." instance=ExtResource("217_4amfs")]
+[node name="rock_tallG2" parent="." unique_id=1508916958 instance=ExtResource("217_4amfs")]
 visible = false
 
-[node name="rock_tallH2" parent="." instance=ExtResource("218_wsmdd")]
+[node name="rock_tallH2" parent="." unique_id=830738371 instance=ExtResource("218_wsmdd")]
 visible = false
 
-[node name="rock_tallI2" parent="." instance=ExtResource("219_8bw1d")]
+[node name="rock_tallI2" parent="." unique_id=1877676148 instance=ExtResource("219_8bw1d")]
 visible = false
 
-[node name="rock_tallJ2" parent="." instance=ExtResource("220_ixot7")]
+[node name="rock_tallJ2" parent="." unique_id=705703840 instance=ExtResource("220_ixot7")]
 visible = false
 
-[node name="sign2" parent="." instance=ExtResource("221_hspa5")]
+[node name="sign2" parent="." unique_id=1021907017 instance=ExtResource("221_hspa5")]
 visible = false
 
-[node name="statue_block2" parent="." instance=ExtResource("222_bv1i0")]
+[node name="statue_block2" parent="." unique_id=1754197484 instance=ExtResource("222_bv1i0")]
 visible = false
 
-[node name="statue_column2" parent="." instance=ExtResource("223_1hy2x")]
+[node name="statue_column2" parent="." unique_id=708141693 instance=ExtResource("223_1hy2x")]
 visible = false
 
-[node name="statue_columnDamaged2" parent="." instance=ExtResource("224_hluht")]
+[node name="statue_columnDamaged2" parent="." unique_id=998700966 instance=ExtResource("224_hluht")]
 visible = false
 
-[node name="statue_head2" parent="." instance=ExtResource("225_760ma")]
+[node name="statue_head2" parent="." unique_id=790565438 instance=ExtResource("225_760ma")]
 visible = false
 
-[node name="statue_obelisk2" parent="." instance=ExtResource("226_wkc30")]
+[node name="statue_obelisk2" parent="." unique_id=379968105 instance=ExtResource("226_wkc30")]
 visible = false
 
-[node name="statue_ring2" parent="." instance=ExtResource("227_a8acl")]
+[node name="statue_ring2" parent="." unique_id=1453440536 instance=ExtResource("227_a8acl")]
 visible = false
 
-[node name="stone_largeA2" parent="." instance=ExtResource("228_wy65o")]
+[node name="stone_largeA2" parent="." unique_id=1321196775 instance=ExtResource("228_wy65o")]
 visible = false
 
-[node name="stone_largeB2" parent="." instance=ExtResource("229_p26kq")]
+[node name="stone_largeB2" parent="." unique_id=1287096203 instance=ExtResource("229_p26kq")]
 visible = false
 
-[node name="stone_largeC2" parent="." instance=ExtResource("230_5nrfb")]
+[node name="stone_largeC2" parent="." unique_id=913488932 instance=ExtResource("230_5nrfb")]
 visible = false
 
-[node name="stone_largeD2" parent="." instance=ExtResource("231_lcfql")]
+[node name="stone_largeD2" parent="." unique_id=180528460 instance=ExtResource("231_lcfql")]
 visible = false
 
-[node name="stone_largeE2" parent="." instance=ExtResource("232_bqgii")]
+[node name="stone_largeE2" parent="." unique_id=638754768 instance=ExtResource("232_bqgii")]
 visible = false
 
-[node name="stone_largeF2" parent="." instance=ExtResource("233_o1qol")]
+[node name="stone_largeF2" parent="." unique_id=272905051 instance=ExtResource("233_o1qol")]
 visible = false
 
-[node name="stone_smallA2" parent="." instance=ExtResource("234_wc84r")]
+[node name="stone_smallA2" parent="." unique_id=2010442721 instance=ExtResource("234_wc84r")]
 visible = false
 
-[node name="stone_smallB2" parent="." instance=ExtResource("235_oorm2")]
+[node name="stone_smallB2" parent="." unique_id=433869095 instance=ExtResource("235_oorm2")]
 visible = false
 
-[node name="stone_smallC2" parent="." instance=ExtResource("236_p4xub")]
+[node name="stone_smallC2" parent="." unique_id=2059788421 instance=ExtResource("236_p4xub")]
 visible = false
 
-[node name="stone_smallD2" parent="." instance=ExtResource("237_mdrcg")]
+[node name="stone_smallD2" parent="." unique_id=772608502 instance=ExtResource("237_mdrcg")]
 visible = false
 
-[node name="stone_smallE2" parent="." instance=ExtResource("238_kfsbd")]
+[node name="stone_smallE2" parent="." unique_id=1457852925 instance=ExtResource("238_kfsbd")]
 visible = false
 
-[node name="stone_smallF2" parent="." instance=ExtResource("239_7pguj")]
+[node name="stone_smallF2" parent="." unique_id=524307557 instance=ExtResource("239_7pguj")]
 visible = false
 
-[node name="stone_smallFlatA2" parent="." instance=ExtResource("240_u7gja")]
+[node name="stone_smallFlatA2" parent="." unique_id=812641683 instance=ExtResource("240_u7gja")]
 visible = false
 
-[node name="stone_smallFlatB2" parent="." instance=ExtResource("241_q2cp8")]
+[node name="stone_smallFlatB2" parent="." unique_id=1662778130 instance=ExtResource("241_q2cp8")]
 visible = false
 
-[node name="stone_smallFlatC2" parent="." instance=ExtResource("242_srsyr")]
+[node name="stone_smallFlatC2" parent="." unique_id=1751458526 instance=ExtResource("242_srsyr")]
 visible = false
 
-[node name="stone_smallG2" parent="." instance=ExtResource("243_6ksyi")]
+[node name="stone_smallG2" parent="." unique_id=1650630375 instance=ExtResource("243_6ksyi")]
 visible = false
 
-[node name="stone_smallH2" parent="." instance=ExtResource("244_46xmi")]
+[node name="stone_smallH2" parent="." unique_id=371876123 instance=ExtResource("244_46xmi")]
 visible = false
 
-[node name="stone_smallI2" parent="." instance=ExtResource("245_2w3me")]
+[node name="stone_smallI2" parent="." unique_id=2102767347 instance=ExtResource("245_2w3me")]
 visible = false
 
-[node name="stone_smallTopA2" parent="." instance=ExtResource("246_mpobh")]
+[node name="stone_smallTopA2" parent="." unique_id=1209489802 instance=ExtResource("246_mpobh")]
 visible = false
 
-[node name="stone_smallTopB2" parent="." instance=ExtResource("247_8htvl")]
+[node name="stone_smallTopB2" parent="." unique_id=178424452 instance=ExtResource("247_8htvl")]
 visible = false
 
-[node name="stone_tallA2" parent="." instance=ExtResource("248_i6hjh")]
+[node name="stone_tallA2" parent="." unique_id=1357219482 instance=ExtResource("248_i6hjh")]
 visible = false
 
-[node name="stone_tallB2" parent="." instance=ExtResource("249_d2c8p")]
+[node name="stone_tallB2" parent="." unique_id=2000438663 instance=ExtResource("249_d2c8p")]
 visible = false
 
-[node name="stone_tallC2" parent="." instance=ExtResource("250_6mdxd")]
+[node name="stone_tallC2" parent="." unique_id=447541038 instance=ExtResource("250_6mdxd")]
 visible = false
 
-[node name="stone_tallD2" parent="." instance=ExtResource("251_ut0yr")]
+[node name="stone_tallD2" parent="." unique_id=1135702195 instance=ExtResource("251_ut0yr")]
 visible = false
 
-[node name="stone_tallE2" parent="." instance=ExtResource("252_cvn36")]
+[node name="stone_tallE2" parent="." unique_id=1023403530 instance=ExtResource("252_cvn36")]
 visible = false
 
-[node name="stone_tallF2" parent="." instance=ExtResource("253_8gbgj")]
+[node name="stone_tallF2" parent="." unique_id=907575549 instance=ExtResource("253_8gbgj")]
 visible = false
 
-[node name="stone_tallG2" parent="." instance=ExtResource("254_kox43")]
+[node name="stone_tallG2" parent="." unique_id=351264963 instance=ExtResource("254_kox43")]
 visible = false
 
-[node name="stone_tallH2" parent="." instance=ExtResource("255_3ndg2")]
+[node name="stone_tallH2" parent="." unique_id=1399771823 instance=ExtResource("255_3ndg2")]
 visible = false
 
-[node name="stone_tallI2" parent="." instance=ExtResource("256_4uy76")]
+[node name="stone_tallI2" parent="." unique_id=1865285389 instance=ExtResource("256_4uy76")]
 visible = false
 
-[node name="stone_tallJ2" parent="." instance=ExtResource("257_v7mxd")]
+[node name="stone_tallJ2" parent="." unique_id=580716694 instance=ExtResource("257_v7mxd")]
 visible = false
 
-[node name="stump_old2" parent="." instance=ExtResource("258_c6sgn")]
+[node name="stump_old2" parent="." unique_id=410954786 instance=ExtResource("258_c6sgn")]
 visible = false
 
-[node name="stump_oldTall2" parent="." instance=ExtResource("259_dxuak")]
+[node name="stump_oldTall2" parent="." unique_id=1623729861 instance=ExtResource("259_dxuak")]
 visible = false
 
-[node name="stump_round2" parent="." instance=ExtResource("260_h843g")]
+[node name="stump_round2" parent="." unique_id=2008901617 instance=ExtResource("260_h843g")]
 visible = false
 
-[node name="stump_roundDetailed2" parent="." instance=ExtResource("261_cw0s0")]
+[node name="stump_roundDetailed2" parent="." unique_id=1751354900 instance=ExtResource("261_cw0s0")]
 visible = false
 
-[node name="stump_square2" parent="." instance=ExtResource("262_opj5m")]
+[node name="stump_square2" parent="." unique_id=365962282 instance=ExtResource("262_opj5m")]
 visible = false
 
-[node name="stump_squareDetailed2" parent="." instance=ExtResource("263_geow0")]
+[node name="stump_squareDetailed2" parent="." unique_id=829846946 instance=ExtResource("263_geow0")]
 visible = false
 
-[node name="stump_squareDetailedWide2" parent="." instance=ExtResource("264_ynx5v")]
+[node name="stump_squareDetailedWide2" parent="." unique_id=1416221983 instance=ExtResource("264_ynx5v")]
 visible = false
 
-[node name="tent_detailedClosed2" parent="." instance=ExtResource("265_gbsje")]
+[node name="tent_detailedClosed2" parent="." unique_id=693518150 instance=ExtResource("265_gbsje")]
 visible = false
 
-[node name="tent_detailedOpen2" parent="." instance=ExtResource("266_uglvc")]
+[node name="tent_detailedOpen2" parent="." unique_id=280133540 instance=ExtResource("266_uglvc")]
 visible = false
 
-[node name="tent_smallClosed2" parent="." instance=ExtResource("267_dr8ge")]
+[node name="tent_smallClosed2" parent="." unique_id=419563342 instance=ExtResource("267_dr8ge")]
 visible = false
 
-[node name="tent_smallOpen2" parent="." instance=ExtResource("268_6rn6o")]
+[node name="tent_smallOpen2" parent="." unique_id=1451984559 instance=ExtResource("268_6rn6o")]
 visible = false
 
-[node name="tree_blocks2" parent="." instance=ExtResource("269_x2ciy")]
+[node name="tree_blocks2" parent="." unique_id=455601509 instance=ExtResource("269_x2ciy")]
 visible = false
 
-[node name="tree_blocks_dark2" parent="." instance=ExtResource("270_jhpw3")]
+[node name="tree_blocks_dark2" parent="." unique_id=2039352323 instance=ExtResource("270_jhpw3")]
 visible = false
 
-[node name="tree_blocks_fall2" parent="." instance=ExtResource("271_qjdsn")]
+[node name="tree_blocks_fall2" parent="." unique_id=445928251 instance=ExtResource("271_qjdsn")]
 visible = false
 
-[node name="tree_cone2" parent="." instance=ExtResource("272_nfcx8")]
+[node name="tree_cone2" parent="." unique_id=404187032 instance=ExtResource("272_nfcx8")]
 visible = false
 
-[node name="tree_cone_dark2" parent="." instance=ExtResource("273_ccii2")]
+[node name="tree_cone_dark2" parent="." unique_id=817210293 instance=ExtResource("273_ccii2")]
 visible = false
 
-[node name="tree_cone_fall2" parent="." instance=ExtResource("274_8k6wh")]
+[node name="tree_cone_fall2" parent="." unique_id=779246102 instance=ExtResource("274_8k6wh")]
 visible = false
 
-[node name="tree_default2" parent="." instance=ExtResource("275_8ubsk")]
+[node name="tree_default2" parent="." unique_id=1585126158 instance=ExtResource("275_8ubsk")]
 visible = false
 
-[node name="tree_default_dark2" parent="." instance=ExtResource("276_fei45")]
+[node name="tree_default_dark2" parent="." unique_id=1623064926 instance=ExtResource("276_fei45")]
 visible = false
 
-[node name="tree_default_fall2" parent="." instance=ExtResource("277_jqlle")]
+[node name="tree_default_fall2" parent="." unique_id=917497603 instance=ExtResource("277_jqlle")]
 visible = false
 
-[node name="tree_detailed2" parent="." instance=ExtResource("278_jk43d")]
+[node name="tree_detailed2" parent="." unique_id=459077193 instance=ExtResource("278_jk43d")]
 visible = false
 
-[node name="tree_detailed_dark2" parent="." instance=ExtResource("279_b4ip7")]
+[node name="tree_detailed_dark2" parent="." unique_id=705467794 instance=ExtResource("279_b4ip7")]
 visible = false
 
-[node name="tree_detailed_fall2" parent="." instance=ExtResource("280_vehit")]
+[node name="tree_detailed_fall2" parent="." unique_id=556827939 instance=ExtResource("280_vehit")]
 visible = false
 
-[node name="tree_fat2" parent="." instance=ExtResource("281_ktq6k")]
+[node name="tree_fat2" parent="." unique_id=943530483 instance=ExtResource("281_ktq6k")]
 visible = false
 
-[node name="tree_fat_darkh2" parent="." instance=ExtResource("282_xoh0a")]
+[node name="tree_fat_darkh2" parent="." unique_id=1929067204 instance=ExtResource("282_xoh0a")]
 visible = false
 
-[node name="tree_fat_fall2" parent="." instance=ExtResource("283_rgndc")]
+[node name="tree_fat_fall2" parent="." unique_id=1153536554 instance=ExtResource("283_rgndc")]
 visible = false
 
-[node name="tree_oak2" parent="." instance=ExtResource("284_nu4w2")]
+[node name="tree_oak2" parent="." unique_id=731016709 instance=ExtResource("284_nu4w2")]
 visible = false
 
-[node name="tree_oak_dark2" parent="." instance=ExtResource("285_02ekx")]
+[node name="tree_oak_dark2" parent="." unique_id=1207306304 instance=ExtResource("285_02ekx")]
 visible = false
 
-[node name="tree_oak_fall2" parent="." instance=ExtResource("286_njj6b")]
+[node name="tree_oak_fall2" parent="." unique_id=661292696 instance=ExtResource("286_njj6b")]
 visible = false
 
-[node name="tree_palm2" parent="." instance=ExtResource("287_gkkk1")]
+[node name="tree_palm2" parent="." unique_id=1547552215 instance=ExtResource("287_gkkk1")]
 visible = false
 
-[node name="tree_palmBend2" parent="." instance=ExtResource("288_cxdum")]
+[node name="tree_palmBend2" parent="." unique_id=1333329620 instance=ExtResource("288_cxdum")]
 visible = false
 
-[node name="tree_palmDetailedShort2" parent="." instance=ExtResource("289_3upuy")]
+[node name="tree_palmDetailedShort2" parent="." unique_id=1046315053 instance=ExtResource("289_3upuy")]
 visible = false
 
-[node name="tree_palmDetailedTall2" parent="." instance=ExtResource("290_gb08v")]
+[node name="tree_palmDetailedTall2" parent="." unique_id=1813464399 instance=ExtResource("290_gb08v")]
 visible = false
 
-[node name="tree_palmShort2" parent="." instance=ExtResource("291_brv65")]
+[node name="tree_palmShort2" parent="." unique_id=660342721 instance=ExtResource("291_brv65")]
 visible = false
 
-[node name="tree_palmTall2" parent="." instance=ExtResource("292_7oh4j")]
+[node name="tree_palmTall2" parent="." unique_id=47662386 instance=ExtResource("292_7oh4j")]
 visible = false
 
-[node name="tree_pineDefaultA2" parent="." instance=ExtResource("293_cfd0w")]
+[node name="tree_pineDefaultA2" parent="." unique_id=1125833024 instance=ExtResource("293_cfd0w")]
 visible = false
 
-[node name="tree_pineDefaultB2" parent="." instance=ExtResource("294_7opg0")]
+[node name="tree_pineDefaultB2" parent="." unique_id=1460753699 instance=ExtResource("294_7opg0")]
 visible = false
 
-[node name="tree_pineGroundA2" parent="." instance=ExtResource("295_ikjte")]
+[node name="tree_pineGroundA2" parent="." unique_id=918907941 instance=ExtResource("295_ikjte")]
 visible = false
 
-[node name="tree_pineGroundB2" parent="." instance=ExtResource("296_es6g2")]
+[node name="tree_pineGroundB2" parent="." unique_id=929803008 instance=ExtResource("296_es6g2")]
 visible = false
 
-[node name="tree_pineRoundA2" parent="." instance=ExtResource("297_35fcd")]
+[node name="tree_pineRoundA2" parent="." unique_id=2079459737 instance=ExtResource("297_35fcd")]
 visible = false
 
-[node name="tree_pineRoundB2" parent="." instance=ExtResource("298_ijfo8")]
+[node name="tree_pineRoundB2" parent="." unique_id=1938925018 instance=ExtResource("298_ijfo8")]
 visible = false
 
-[node name="tree_pineRoundC2" parent="." instance=ExtResource("299_euuee")]
+[node name="tree_pineRoundC2" parent="." unique_id=1323837457 instance=ExtResource("299_euuee")]
 visible = false
 
-[node name="tree_pineRoundD2" parent="." instance=ExtResource("300_hbwxa")]
+[node name="tree_pineRoundD2" parent="." unique_id=616321684 instance=ExtResource("300_hbwxa")]
 visible = false
 
-[node name="tree_pineRoundE2" parent="." instance=ExtResource("301_684ps")]
+[node name="tree_pineRoundE2" parent="." unique_id=613474969 instance=ExtResource("301_684ps")]
 visible = false
 
-[node name="tree_pineRoundF2" parent="." instance=ExtResource("302_6g54v")]
+[node name="tree_pineRoundF2" parent="." unique_id=1633905545 instance=ExtResource("302_6g54v")]
 visible = false
 
-[node name="tree_pineSmallA2" parent="." instance=ExtResource("303_cx57k")]
+[node name="tree_pineSmallA2" parent="." unique_id=1770149504 instance=ExtResource("303_cx57k")]
 visible = false
 
-[node name="tree_pineSmallB2" parent="." instance=ExtResource("304_2jc3x")]
+[node name="tree_pineSmallB2" parent="." unique_id=454796871 instance=ExtResource("304_2jc3x")]
 visible = false
 
-[node name="tree_pineSmallC2" parent="." instance=ExtResource("305_6b73v")]
+[node name="tree_pineSmallC2" parent="." unique_id=428918446 instance=ExtResource("305_6b73v")]
 visible = false
 
-[node name="tree_pineSmallD2" parent="." instance=ExtResource("306_pwqxb")]
+[node name="tree_pineSmallD2" parent="." unique_id=974615720 instance=ExtResource("306_pwqxb")]
 visible = false
 
-[node name="tree_pineTallA2" parent="." instance=ExtResource("307_4booq")]
+[node name="tree_pineTallA2" parent="." unique_id=904836756 instance=ExtResource("307_4booq")]
 visible = false
 
-[node name="tree_pineTallA_detailed2" parent="." instance=ExtResource("308_5ar83")]
+[node name="tree_pineTallA_detailed2" parent="." unique_id=1037485366 instance=ExtResource("308_5ar83")]
 visible = false
 
-[node name="tree_pineTallB2" parent="." instance=ExtResource("309_pcb23")]
+[node name="tree_pineTallB2" parent="." unique_id=1689028077 instance=ExtResource("309_pcb23")]
 visible = false
 
-[node name="tree_pineTallB_detailed2" parent="." instance=ExtResource("310_grr3d")]
+[node name="tree_pineTallB_detailed2" parent="." unique_id=999634327 instance=ExtResource("310_grr3d")]
 visible = false
 
-[node name="tree_pineTallC2" parent="." instance=ExtResource("311_7erdc")]
+[node name="tree_pineTallC2" parent="." unique_id=210651216 instance=ExtResource("311_7erdc")]
 visible = false
 
-[node name="tree_pineTallC_detailed2" parent="." instance=ExtResource("312_6kq2w")]
+[node name="tree_pineTallC_detailed2" parent="." unique_id=1072468178 instance=ExtResource("312_6kq2w")]
 visible = false
 
-[node name="tree_pineTallD2" parent="." instance=ExtResource("313_yfsj4")]
+[node name="tree_pineTallD2" parent="." unique_id=661165475 instance=ExtResource("313_yfsj4")]
 visible = false
 
-[node name="tree_pineTallD_detailed2" parent="." instance=ExtResource("314_66bd7")]
+[node name="tree_pineTallD_detailed2" parent="." unique_id=1815837005 instance=ExtResource("314_66bd7")]
 visible = false
 
-[node name="tree_plateau2" parent="." instance=ExtResource("315_2wwgr")]
+[node name="tree_plateau2" parent="." unique_id=1149833596 instance=ExtResource("315_2wwgr")]
 visible = false
 
-[node name="tree_plateau_dark2" parent="." instance=ExtResource("316_c8n2e")]
+[node name="tree_plateau_dark2" parent="." unique_id=861597998 instance=ExtResource("316_c8n2e")]
 visible = false
 
-[node name="tree_plateau_fall2" parent="." instance=ExtResource("317_yqasq")]
+[node name="tree_plateau_fall2" parent="." unique_id=2115811711 instance=ExtResource("317_yqasq")]
 visible = false
 
-[node name="tree_simple2" parent="." instance=ExtResource("318_b013j")]
+[node name="tree_simple2" parent="." unique_id=76134939 instance=ExtResource("318_b013j")]
 visible = false
 
-[node name="tree_simple_dark2" parent="." instance=ExtResource("319_08b2i")]
+[node name="tree_simple_dark2" parent="." unique_id=1614407887 instance=ExtResource("319_08b2i")]
 visible = false
 
-[node name="tree_simple_fall2" parent="." instance=ExtResource("320_xhs56")]
+[node name="tree_simple_fall2" parent="." unique_id=597025343 instance=ExtResource("320_xhs56")]
 visible = false
 
-[node name="tree_small2" parent="." instance=ExtResource("321_gsscl")]
+[node name="tree_small2" parent="." unique_id=1250720063 instance=ExtResource("321_gsscl")]
 visible = false
 
-[node name="tree_small_dark2" parent="." instance=ExtResource("322_r4o2j")]
+[node name="tree_small_dark2" parent="." unique_id=841069532 instance=ExtResource("322_r4o2j")]
 visible = false
 
-[node name="tree_small_fall2" parent="." instance=ExtResource("323_qbfe1")]
+[node name="tree_small_fall2" parent="." unique_id=586129272 instance=ExtResource("323_qbfe1")]
 visible = false
 
-[node name="tree_tall2" parent="." instance=ExtResource("324_ylmb7")]
+[node name="tree_tall2" parent="." unique_id=1816456869 instance=ExtResource("324_ylmb7")]
 visible = false
 
-[node name="tree_tall_dark2" parent="." instance=ExtResource("325_enwoy")]
+[node name="tree_tall_dark2" parent="." unique_id=2057734319 instance=ExtResource("325_enwoy")]
 visible = false
 
-[node name="tree_tall_fall2" parent="." instance=ExtResource("326_v73qi")]
+[node name="tree_tall_fall2" parent="." unique_id=395762923 instance=ExtResource("326_v73qi")]
 visible = false
 
-[node name="tree_thin2" parent="." instance=ExtResource("327_rh0pp")]
+[node name="tree_thin2" parent="." unique_id=965302436 instance=ExtResource("327_rh0pp")]
 visible = false
 
-[node name="tree_thin_dark2" parent="." instance=ExtResource("328_4ow88")]
+[node name="tree_thin_dark2" parent="." unique_id=556525961 instance=ExtResource("328_4ow88")]
 visible = false
 
-[node name="tree_thin_fall2" parent="." instance=ExtResource("329_nneyl")]
+[node name="tree_thin_fall2" parent="." unique_id=959499630 instance=ExtResource("329_nneyl")]
 visible = false

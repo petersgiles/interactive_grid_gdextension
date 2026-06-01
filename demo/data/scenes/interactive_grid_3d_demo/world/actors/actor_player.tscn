@@ -4382,10 +4382,12 @@ bones/64/scale = Vector3(1, 1, 1)
 [node name="Beta_Joints" type="MeshInstance3D" parent="model/Armature/Skeleton3D" unique_id=1432078017]
 mesh = SubResource("ArrayMesh_c2ocl")
 skin = SubResource("Skin_pvnkq")
+skeleton = NodePath("..")
 
 [node name="Beta_Surface" type="MeshInstance3D" parent="model/Armature/Skeleton3D" unique_id=583437608]
 mesh = SubResource("ArrayMesh_uekqt")
 skin = SubResource("Skin_pvnkq")
+skeleton = NodePath("..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="model" unique_id=583833646]
 libraries/ = SubResource("AnimationLibrary_qeljt")
